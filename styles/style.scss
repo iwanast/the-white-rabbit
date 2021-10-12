@@ -1,30 +1,3 @@
-//Include in variables.css
-
-$white: #EFEFEF; //Slighty offset white for OLED screens
-$black: #171717; //Slightly offset black for OLED screens
-$no-continue: no-continue, 'Gemunu Libre', sans-serif; //Sample font plus fallbacks
-
-//Include in fonts.css
-
-//Example imported font (with files included in directory)
-@font-face {
-    font-family: 'no-continue';
-    src: url('../../Fonts/no-continue/WebKit/no_continue.eot'); /* IE9 Compat Modes */
-    src: url('../../Fonts/no-continue/WebKit/no_continue.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('../../Fonts/no-continue/WebKit/no_continue.woff2') format('woff2'), /* Super Modern Browsers */
-         url('../../Fonts/no-continue/WebKit/no_continue.woff') format('woff'), /* Pretty Modern Browsers */
-         url('../../Fonts/no-continue/WebKit/no_continue.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('../../Fonts/no-continue/WebKit/no_continue.svg#no_continue') format('svg'); /* Legacy iOS */
-    font-weight: normal;
-    font-style: normal;
-}
-
-//Sample imported Google font
-@import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200;300;400;500;600;700;800&display=swap');
-
-
-
-@import 'variables', 'fonts';
 
 //General styling
 * {
@@ -35,4 +8,12 @@ $no-continue: no-continue, 'Gemunu Libre', sans-serif; //Sample font plus fallba
     color: black;
     font-size: 14px; 
   }
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
 }
