@@ -2,6 +2,7 @@
 
 function init() {
     createLandingPage();
+    openHighscorePage();
 }
 
 function createLandingPage() {
@@ -9,6 +10,31 @@ function createLandingPage() {
 }
 
 function openHighscorePage() {
+    document.getElementById("content").innerHtml = "";
+
+    document.getElementById("content").innerHTML += `
+        <h1>Highscores</h1>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Completion Time</th>
+                <th>Average Reaction Speed</th>
+            </tr>
+            `;
+            for (i = 0; i < 10; i++) {
+                document.getElementById("content").innerHTML += `
+                    <tr>
+                        <td>TestDate</td>
+                        <td>TestCompletion Time</td>
+                        <td>TestAverage Reaction Speed</td>
+                    </tr>
+                    `;
+            }
+            document.getElementById("content").innerHTML += `
+                </table>
+                <button type="button" class="homeBtn" onclick"landingPage()">Home</button>
+                `;
+
     //Clear main and insert html for the highscore page
 
     //Will call retrieveHighscores()
