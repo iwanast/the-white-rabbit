@@ -7,6 +7,7 @@
   /* Legacy iOS */
   font-weight: normal;
   font-style: normal;
+}
 
 body {
   width: 100%;
@@ -32,14 +33,6 @@ video {
   font-size: 14px;
 }
 
-#myVideo {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-}
-
 #box {
   background-color: black;
   position: absolute;
@@ -57,19 +50,10 @@ video {
   height: 80vh;
   margin: 10vh 20vw 10vh 20vw;
   padding: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #content table th {
@@ -90,5 +74,4 @@ video {
   color: white;
   font-size: 14px;
 }
-
 /*# sourceMappingURL=style.css.map */
