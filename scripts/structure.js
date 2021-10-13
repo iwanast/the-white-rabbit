@@ -21,7 +21,14 @@ function retrieveHighscores () {
     //Insert relevant data from those top ten into the page as it is loaded (date, time, average reaction time)
 }
 
-function launchGame () {
+function difficultyPage () {
+    //Clear the main and insert the HTML for the difficulty page
+    //Set difficulty and save it to session storage on click
+    
+    //Call launchGamePage()
+}
+
+function launchGamePage () {
     //Clear the main and insert the HTML for the white rabbit game
 }
 
