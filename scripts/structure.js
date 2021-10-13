@@ -1,8 +1,7 @@
 //Navigation functions
 
 function init() {
-  createLandingPage();
-  displaySummary();
+   createLandingPage();
 }
 
 function createLandingPage() {
@@ -10,8 +9,34 @@ function createLandingPage() {
 }
 
 function openHighscorePage() {
-  //Clear main and insert html for the highscore page
-  //Will call retrieveHighscores()
+    document.getElementById("content").innerHtml = "";
+
+    document.getElementById("content").innerHTML += `
+        <h1>Highscores</h1>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Completion Time</th>
+                <th>Average Reaction Speed</th>
+            </tr>
+            `;
+            for (i = 0; i < 10; i++) {
+                document.getElementById("content").innerHTML += `
+                    <tr>
+                        <td>TestDate</td>
+                        <td>TestCompletion Time</td>
+                        <td>TestAverage Reaction Speed</td>
+                    </tr>
+                    `;
+            }
+            document.getElementById("content").innerHTML += `
+                </table>
+                <button type="button" class="homeBtn" onclick"landingPage()">Home</button>
+                `;
+
+    //Clear main and insert html for the highscore page
+
+    //Will call retrieveHighscores()
 }
 
 function retrieveHighscores() {
@@ -21,13 +46,15 @@ function retrieveHighscores() {
   //Insert relevant data from those top ten into the page as it is loaded (date, time, average reaction time)
 }
 
-function difficultyPage() {
-  //Clear the main and insert the HTML for the difficulty page
-  //Set difficulty and save it to session storage on click
-  //Call launchGamePage()
+function difficultyPage () {
+    //Clear the main and insert the HTML for the difficulty page
+    //Set difficulty and save it to session storage on click
+    
+    //Call launchGamePage()
 }
-function launchGamePage() {
-  //Clear the main and insert the HTML for the white rabbit game
+
+function launchGamePage () {
+    //Clear the main and insert the HTML for the white rabbit game
 }
 
 function displaySummary() {
