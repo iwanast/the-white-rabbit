@@ -1,7 +1,8 @@
 //Navigation functions
 
 function init() {
-   createLandingPage();
+  //  createLandingPage();
+  openHighscorePage();
 }
 
 function createLandingPage() {
@@ -11,30 +12,35 @@ function createLandingPage() {
 function openHighscorePage() {
     document.getElementById("content").innerHtml = "";
 
-    document.getElementById("content").innerHTML += `
-        <h1>Highscores</h1>
-        <table>
-            <tr>
-                <th>Date</th>
-                <th>Completion Time</th>
-                <th>Average Reaction Speed</th>
-            </tr>
-            `;
-            for (i = 0; i < 10; i++) {
-                document.getElementById("content").innerHTML += `
-                    <tr>
-                        <td>TestDate</td>
-                        <td>TestCompletion Time</td>
-                        <td>TestAverage Reaction Speed</td>
-                    </tr>
-                    `;
-            }
-            document.getElementById("content").innerHTML += `
-                </table>
-                <button type="button" class="homeBtn" onclick"landingPage()">Home</button>
-                `;
+    let tableData = "";
 
-    //Clear main and insert html for the highscore page
+    for (i = 0; i < 10; i++) {
+      tableData += `
+          <tr>
+              <td class="table-rank">${i + 1}</td>
+              <td class="table-date">Date</td>
+              <td class="table-time">Time</td>
+              <td class="table-react">React</td>
+              <td class="table-difficulty">Difficulty</td>
+          </tr>
+          `
+      }
+
+
+
+    document.getElementById("content").innerHTML = `
+        <h1>Highscores</h1>
+          <table>
+            <th class="table-rank table-header">Rank</th>
+            <th class="table-date table-header">Date</th>
+            <th class="table-time table-header">Time</th>
+            <th class="table-react table-header">Average Speed</th>
+            <th class="table-difficulty table-header">Difficulty</th>
+            </tr>
+            ${tableData}
+                </table>
+                <button type="button" class="home-btn" onclick"landingPage()">Home</button>
+                `
 
     //Will call retrieveHighscores()
 }
