@@ -7,13 +7,24 @@
   /* Legacy iOS */
   font-weight: normal;
   font-style: normal;
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+video {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 * p {
@@ -79,4 +90,5 @@
   color: white;
   font-size: 14px;
 }
+
 /*# sourceMappingURL=style.css.map */

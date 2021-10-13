@@ -1,12 +1,11 @@
 //Navigation functions
 
 function init() {
-    createLandingPage();
-    openHighscorePage();
+   createLandingPage();
 }
 
 function createLandingPage() {
-    //Insert HTML into the main that creates the landing page
+  //Insert HTML into the main that creates the landing page
 }
 
 function openHighscorePage() {
@@ -40,11 +39,11 @@ function openHighscorePage() {
     //Will call retrieveHighscores()
 }
 
-function retrieveHighscores () {
-    //Will be called by the OpenHighscorePage function
-    //Retrieve the first ten highscores for the user from the local storage 
-    //(scores should be stored ordered by lowest time to highest so retrieving first 10 will work)
-    //Insert relevant data from those top ten into the page as it is loaded (date, time, average reaction time)
+function retrieveHighscores() {
+  //Will be called by the OpenHighscorePage function
+  //Retrieve the first ten highscores for the user from the local storage
+  //(scores should be stored ordered by lowest time to highest so retrieving first 10 will work)
+  //Insert relevant data from those top ten into the page as it is loaded (date, time, average reaction time)
 }
 
 function difficultyPage () {
@@ -58,23 +57,37 @@ function launchGamePage () {
     //Clear the main and insert the HTML for the white rabbit game
 }
 
-function displaySummary () {
-    //Clear the main and insert the HTML for the summary screen
-    //Retrieve the time for the last game from local storage
-
-    //Will call calculateAverageReaction()
-    //Will call displayCharacter()
+function displaySummary() {
+  document.getElementById("content").innerHTML = "";
+  document.getElementById("content").innerHTML = `
+    <div id="scoreQuote">
+        <h4>
+          I know what you are thinking, cause right now I'm thinking the same
+          thing.<br />
+          Actually, I've been thinking it ever since I got here: <br />
+          WHY OH WHY DIDN'T I TAKE THE BLUE PILL?!?!
+        </h4>
+      </div>
+      <div id="SCORE">
+        <h2>SCORE:</h2>
+        <h2>You are the Chosen One!</h2>
+        <embed src="./Gifs/look-neo.gif" You are the Chosen One! />
+      </div>`;
+  //Clear the main and insert the HTML for the summary screen
+  //Retrieve the time for the last game from local storage
+  //Will call calculateAverageReaction()
+  //Will call displayCharacter()
 }
 
-function calculateAverageReaction () {
-    //Will be called in the displaySummary function
-    //Retrieve the ten reaction times saved into sessionStorage/a variable during the last game
-    //Average the scores to give an average reaction time
+function calculateAverageReaction() {
+  //Will be called in the displaySummary function
+  //Retrieve the ten reaction times saved into sessionStorage/a variable during the last game
+  //Average the scores to give an average reaction time
 }
 
 const characters = []; //Fill this array with the Matrix chaaracters
 
-function displayCharacter () {
-    //Will be called in the displaySummary function
-    //Use an else if statement to check the game time against the thresholds we picked, then retrieve a picture from the characters array
+function displayCharacter() {
+  //Will be called in the displaySummary function
+  //Use an else if statement to check the game time against the thresholds we picked, then retrieve a picture from the characters array
 }
