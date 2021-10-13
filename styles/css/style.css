@@ -1,3 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200;300;400;500;600;700;800&display=swap");
+@font-face {
+  font-family: 'no-continue';
+  src: url("../../Fonts/no-continue/WebKit/no_continue.eot");
+  /* IE9 Compat Modes */
+  src: url("../../Fonts/no-continue/WebKit/no_continue.eot?#iefix") format("embedded-opentype"), url("../../Fonts/no-continue/WebKit/no_continue.woff2") format("woff2"), url("../../Fonts/no-continue/WebKit/no_continue.woff") format("woff"), url("../../Fonts/no-continue/WebKit/no_continue.ttf") format("truetype"), url("../../Fonts/no-continue/WebKit/no_continue.svg#no_continue") format("svg");
+  /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +17,7 @@
 }
 
 * p {
-  color: black;
+  color: white;
   font-size: 14px;
 }
 
@@ -16,5 +27,56 @@
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
+}
+
+#box {
+  background-color: black;
+  position: absolute;
+  z-index: -1;
+  opacity: 0.4;
+  width: 60vw;
+  height: 80vh;
+  margin: 10vh 20vw 10vh 20vw;
+}
+
+#content {
+  background-color: transparent;
+  position: absolute;
+  width: 60vw;
+  height: 80vh;
+  margin: 10vh 20vw 10vh 20vw;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#content table th {
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#content table tr td {
+  color: white;
+  font-size: 14px;
+}
+
+#content .homeBtn {
+  background-color: green;
+  height: 30px;
+  width: 55px;
+  color: white;
+  font-size: 14px;
 }
 /*# sourceMappingURL=style.css.map */

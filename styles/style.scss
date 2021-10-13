@@ -6,7 +6,7 @@
   padding: 0;
   box-sizing: border-box;
   p {
-    color: black;
+    color: white;
     font-size: 14px; 
   }
 }
@@ -17,4 +17,47 @@
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
+}
+
+#box {
+  background-color: black;
+  position: absolute;
+  z-index: -1;
+  opacity: 0.4;
+  width: 60vw;
+  height: 80vh;
+  margin: 10vh 20vw 10vh 20vw;
+}
+
+#content {
+  background-color: transparent;
+  position: absolute;
+  width: 60vw;
+  height: 80vh;
+  margin: 10vh 20vw 10vh 20vw;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+    table {
+      th {
+        color: white;
+        font-size: 14px; 
+        font-weight: bold;
+      }
+      tr {
+        td {
+          color: white;
+          font-size: 14px; 
+        }
+      }
+    }
+    .homeBtn {
+      background-color: green;
+      height: 30px;
+      width: 55px;
+      color: white;
+      font-size: 14px; 
+    }
 }
