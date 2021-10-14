@@ -1,3 +1,4 @@
+
 #wrapper_landingpage {
   width: 500px;
   height: 200px;
@@ -123,3 +124,139 @@
 }
 
 /*# sourceMappingURL=style.css.map */
+
+@import url("https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200;300;400;500;600;700;800&display=swap");
+@font-face {
+  font-family: 'no-continue';
+  src: url("../../Fonts/no-continue/WebKit/no_continue.eot");
+  /* IE9 Compat Modes */
+  src: url("../../Fonts/no-continue/WebKit/no_continue.eot?#iefix") format("embedded-opentype"), url("../../Fonts/no-continue/WebKit/no_continue.woff2") format("woff2"), url("../../Fonts/no-continue/WebKit/no_continue.woff") format("woff"), url("../../Fonts/no-continue/WebKit/no_continue.ttf") format("truetype"), url("../../Fonts/no-continue/WebKit/no_continue.svg#no_continue") format("svg");
+  /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+video {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+* p {
+  color: white;
+  font-size: 14px;
+}
+
+h1 {
+  color: #EFEFEF;
+}
+
+#box {
+  background-color: #171717;
+  position: absolute;
+  z-index: 0;
+  opacity: 0.6;
+  width: 80vw;
+  height: 80vh;
+  margin: 10vh 10vw 10vh 10vw;
+  border-radius: 20px;
+}
+
+#content {
+  background-color: transparent;
+  position: absolute;
+  z-index: 1;
+  width: 80vw;
+  height: 80vh;
+  min-width: 500px;
+  margin: 10vh 10vw 10vh 10vw;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#content table {
+  background-color: transparent;
+  width: 80%;
+  margin: 5vh 0 5vh 0;
+}
+
+#content table th {
+  color: #EFEFEF;
+  font-size: 14px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#content table tr td {
+  color: #EFEFEF;
+  font-size: 14px;
+  font-size: 16px;
+}
+
+#content table tr .table-rank {
+  width: 10%;
+  text-align: center;
+}
+
+#content table tr .table-date {
+  width: 25%;
+  text-align: center;
+}
+
+#content table tr .table-time {
+  width: 25%;
+  text-align: center;
+}
+
+#content table tr .table-react {
+  width: 20%;
+  text-align: center;
+}
+
+#content table tr .table-difficulty {
+  width: 20%;
+  text-align: center;
+}
+
+#content table tr .table-header {
+  font-size: 17px;
+  text-align: center;
+}
+
+#content .home-btn {
+  background-color: #171717;
+  height: 40px;
+  width: 80px;
+  color: white;
+  font-size: 14px;
+  border-radius: 10px;
+}
+/*# sourceMappingURL=style.css.map */
+
