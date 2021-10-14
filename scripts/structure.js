@@ -10,12 +10,13 @@ document.getElementById("bodyId").onload = function() {
 
 //Inserts HTML into the main that creates the landing page
 function createLandingPage() {
-    main.innerHTML = `  <div id="wrapper_landingpage">
-    <img id="gif_choose_score_play" src="./images/Start_game.gif" alt="reflection in sunglasses of two hands holding a blue and a red pill ">
-    <img id="gif_choose_score_play_mobil" src="./images/Start_game.gif" alt="reflection in sunglasses of two hands holding a blue and a red pill ">
-    <button class="button_landingpage" id="button_play">play</button>
-    <button class="button_landingpage" id="button_score">score</button>
- </div>`; 
+    main.innerHTML = `  
+      <div id="wrapper_landingpage">
+        <img id="gif_choose_score_play" src="./images/Start_game.gif" alt="reflection in sunglasses of two hands holding a blue and a red pill ">
+        <img id="gif_choose_score_play_mobil" src="./images/Start_game.gif" alt="reflection in sunglasses of two hands holding a blue and a red pill ">
+        <button class="button_landingpage" id="button_play">play</button>
+        <button class="button_landingpage" id="button_score">score</button>
+    </div>`; 
 }
 
 //Starting the difficulty page to start the game
@@ -72,18 +73,20 @@ function retrieveHighscores() {
 
 
 function difficultyPage () {
-    var diffPage = `<div id="box"></div>
-    <section id="content">
-    <div id="contentBox">
-    <h1> CLICK THE RABBIT AS FAST AS POSSIBLE</h1>
-    <div id="levelBtns">
-       <button>EASY</button>
-       <button>MEDIUM</button>
-       <button>HARD</button>
+    var diffPage = `
+    <div id="box">
     </div>
-    <embed src="images/Gifs/tumblr_myo2hr97No1skltbdo1_500.gif"/>
- </div>
- </section>`
+    <section id="content">
+      <div id="contentBox">
+        <h1> CLICK THE RABBIT AS FAST AS POSSIBLE</h1>
+        <div id="levelBtns">
+          <button>EASY</button>
+          <button>MEDIUM</button>
+          <button>HARD</button>
+        </div>
+        <embed src="images/Gifs/tumblr_myo2hr97No1skltbdo1_500.gif"/>
+      </div>
+    </section>`
     //clearing the html
     main.innerHTML = "";
     //adding the difficulty page html 
@@ -111,30 +114,31 @@ function launchGamePage() {
 function displaySummary() {
   main.innerHTML = "";
   main.innerHTML = `
-            <div id="box">
-                </div>
-                <section id="content">
-            <div id="score-card">
-                <div id="score-quote">
-                    <p>
-                    I know what you are thinking, cause right now I'm thinking the same
-                    thing.<br />
-                    Actually, I've been thinking it ever since I got here: <br />
-                    WHY OH WHY DIDN'T I TAKE THE BLUE PILL?!?!
-                    </p>
-                </div>
-                <div id="score">
-                    <h2>SCORE:11001s</h2>
-                    <h1>You're bad! But your score isn't!</h1>
-                </div>
-                <div><embed src="./images/Gifs/Agent Smith.gif"/></div>
-            </div>
-            <div id="play-again">
-              <p>Would you like to play again?</p><br/>
-               <button id="yes-button">YES!</button>
-               <button id="no-button">NO</button>
-            </div>
-            </section>`;
+    <div id="box">
+    /div>
+    <section id="content">
+    <div id="score-card">
+      <div id="score-quote">
+        <p>
+          I know what you are thinking, cause right now I'm thinking the same
+          thing.<br />
+          Actually, I've been thinking it ever since I got here: <br />
+          WHY OH WHY DIDN'T I TAKE THE BLUE PILL?!?!
+        </p>
+      </div>
+      <div id="score">
+        <h2>SCORE:11001s</h2>
+        <h1>You're bad! But your score isn't!</h1>
+      </div>
+      <div>
+        <embed src="./images/Gifs/Agent Smith.gif"/></div>
+      </div>
+      <div id="play-again">
+        <p>Would you like to play again?</p><br/>
+        <button id="yes-button">YES!</button>
+        <button id="no-button">NO</button>
+      </div>
+    </section>`;
   //Clear the main and insert the HTML for the summary screen
   //Retrieve the time for the last game from local storage
   //Will call calculateAverageReaction()
