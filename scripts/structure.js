@@ -29,10 +29,9 @@ document.getElementById("button_score").onclick = function() {
 }
 
 function openHighscorePage() {
-    document.getElementById("content").innerHtml = "";
-
+  document.getElementById("content").innerHtml = "";
     let tableData = "";
-
+  
     for (i = 0; i < 10; i++) {
       tableData += `
           <tr>
@@ -62,8 +61,6 @@ function openHighscorePage() {
           <button type="button" class="home-btn" onclick"landingPage()">Home</button>
         </section>
         `
-
-    //Will call retrieveHighscores()
 }
 
 function retrieveHighscores() {
@@ -72,6 +69,7 @@ function retrieveHighscores() {
   //(scores should be stored ordered by lowest time to highest so retrieving first 10 will work)
   //Insert relevant data from those top ten into the page as it is loaded (date, time, average reaction time)
 }
+
 
 function difficultyPage () {
     var diffPage = `<div id="box"></div>
@@ -106,26 +104,37 @@ function launchGamePage () {
     //Clear the main and insert the HTML for the white rabbit game
 }
 
-function launchGamePage () {
-    //Clear the main and insert the HTML for the white rabbit game
+function launchGamePage() {
+  //Clear the main and insert the HTML for the white rabbit game
 }
 
 function displaySummary() {
-  document.getElementById("content").innerHTML = "";
-  document.getElementById("content").innerHTML = `
-    <div id="scoreQuote">
-        <h4>
-          I know what you are thinking, cause right now I'm thinking the same
-          thing.<br />
-          Actually, I've been thinking it ever since I got here: <br />
-          WHY OH WHY DIDN'T I TAKE THE BLUE PILL?!?!
-        </h4>
-      </div>
-      <div id="SCORE">
-        <h2>SCORE:</h2>
-        <h2>You are the Chosen One!</h2>
-        <embed src="./Gifs/look-neo.gif" You are the Chosen One! />
-      </div>`;
+  main.innerHTML = "";
+  main.innerHTML = `
+            <div id="box">
+                </div>
+                <section id="content">
+            <div id="score-card">
+                <div id="score-quote">
+                    <p>
+                    I know what you are thinking, cause right now I'm thinking the same
+                    thing.<br />
+                    Actually, I've been thinking it ever since I got here: <br />
+                    WHY OH WHY DIDN'T I TAKE THE BLUE PILL?!?!
+                    </p>
+                </div>
+                <div id="score">
+                    <h2>SCORE:11001s</h2>
+                    <h1>You're bad! But your score isn't!</h1>
+                </div>
+                <div><embed src="./images/Gifs/Agent Smith.gif"/></div>
+            </div>
+            <div id="play-again">
+              <p>Would you like to play again?</p><br/>
+               <button id="yes-button">YES!</button>
+               <button id="no-button">NO</button>
+            </div>
+            </section>`;
   //Clear the main and insert the HTML for the summary screen
   //Retrieve the time for the last game from local storage
   //Will call calculateAverageReaction()
