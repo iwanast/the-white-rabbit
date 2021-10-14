@@ -36,6 +36,7 @@ function createLandingPage() {
 
 function openHighscorePage() {
   main.innerHtml = "";
+  retrieveHighscores();
   let tableData = "";
   
   for (i = 0; i < 10; i++) {
