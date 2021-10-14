@@ -1,5 +1,12 @@
 var diffCheck = 0
 
+//Variables needed for scores in local storage
+let today = new Date();
+let date = today.getDate() + "/" + (today.getMonth()+1) + "/" + today.getFullYear();
+let finalTime = 0;
+let avReactSpeed = 0;
+let difficulty = "";
+
 //Navigation functions
 
 let main = document.getElementById("main");
@@ -101,7 +108,12 @@ function launchGamePage() {
   //Clear the main and insert the HTML for the white rabbit game
 }
 
+let reactionArray = [34, 75, 83, 56, 64, 56, 33, 44, 67, 66]; //Temporary placeholder array for testing calculateAverageReaction
+
 function displaySummary() {
+
+  calculateAverageReaction();
+  storeGameStatistics();
   main.innerHTML = "";
   main.innerHTML = `
     <div id="box">
@@ -136,9 +148,13 @@ function displaySummary() {
 }
 
 function calculateAverageReaction() {
-  //Will be called in the displaySummary function
-  //Retrieve the ten reaction times saved into sessionStorage/a variable during the last game
-  //Average the scores to give an average reaction time
+  let avReactTime = 0;
+
+  for (i = 0; i < reactionArray.length; i++) {
+    avReactTime += reactionArray[i];
+  }
+
+  return avReactTime;
 }
 
 const characters = []; //Fill this array with the Matrix chaaracters
