@@ -12,6 +12,7 @@
 body {
   width: 100%;
   height: 100%;
+  z-index: -1;
 }
 
 video {
@@ -25,7 +26,8 @@ video {
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 * p {
@@ -33,45 +35,100 @@ video {
   font-size: 14px;
 }
 
+h1 {
+  color: #EFEFEF;
+}
+
 #box {
-  background-color: black;
+  background-color: #171717;
   position: absolute;
-  z-index: -1;
-  opacity: 0.4;
-  width: 60vw;
+  z-index: 0;
+  opacity: 0.6;
+  width: 80vw;
   height: 80vh;
-  margin: 10vh 20vw 10vh 20vw;
+  margin: 10vh 10vw 10vh 10vw;
+  border-radius: 20px;
 }
 
 #content {
   background-color: transparent;
   position: absolute;
-  width: 60vw;
+  z-index: 1;
+  width: 80vw;
   height: 80vh;
-  margin: 10vh 20vw 10vh 20vw;
+  min-width: 500px;
+  margin: 10vh 10vw 10vh 10vw;
   padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#content table {
+  background-color: transparent;
+  width: 80%;
+  margin: 5vh 0 5vh 0;
 }
 
 #content table th {
-  color: white;
+  color: #EFEFEF;
   font-size: 14px;
   font-weight: bold;
+  font-size: 16px;
 }
 
 #content table tr td {
-  color: white;
+  color: #EFEFEF;
   font-size: 14px;
+  font-size: 16px;
 }
 
-#content .homeBtn {
-  background-color: green;
-  height: 30px;
-  width: 55px;
+#content table tr .table-rank {
+  width: 10%;
+  text-align: center;
+}
+
+#content table tr .table-date {
+  width: 25%;
+  text-align: center;
+}
+
+#content table tr .table-time {
+  width: 25%;
+  text-align: center;
+}
+
+#content table tr .table-react {
+  width: 20%;
+  text-align: center;
+}
+
+#content table tr .table-difficulty {
+  width: 20%;
+  text-align: center;
+}
+
+#content table tr .table-header {
+  font-size: 17px;
+  text-align: center;
+}
+
+#content .home-btn {
+  background-color: #171717;
+  height: 40px;
+  width: 80px;
   color: white;
   font-size: 14px;
+  border-radius: 10px;
 }
 /*# sourceMappingURL=style.css.map */

@@ -2,10 +2,10 @@
 
 //General styling
 
-
 body {
   width: 100%;
   height: 100%;
+  z-index: -1;
 }
 
 video {
@@ -26,45 +26,83 @@ video {
   }
 }
 
+h1 {
+  color: $white;
+}
+
 #box {
-  background-color: black;
+  background-color: $black;
   position: absolute;
-  z-index: -1;
-  opacity: 0.4;
-  width: 60vw;
+  z-index: 1;
+  opacity: 0.6;
+  width: 80vw;
   height: 80vh;
-  margin: 10vh 20vw 10vh 20vw;
+  margin: 10vh 10vw 10vh 10vw;
+  border-radius: 20px;
 }
 
 #content {
   background-color: transparent;
   position: absolute;
-  width: 60vw;
+  z-index: 2;
+  width: 80vw;
   height: 80vh;
-  margin: 10vh 20vw 10vh 20vw;
+  min-width: 500px;
+  margin: 10vh 10vw 10vh 10vw;
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
     table {
+      background-color: transparent;
+      width: 80%;
+      margin: 5vh 0 5vh 0;
       th {
-        color: white;
+        color: $white;
         font-size: 14px; 
         font-weight: bold;
+        font-size: 16px;
       }
       tr {
         td {
-          color: white;
+          color: $white;
           font-size: 14px; 
+          font-size: 16px;
+        }
+        .table-rank {
+          width: 10%;
+          text-align: center;
+        }
+        .table-date {
+          width: 25%;
+          text-align: center;
+        }
+        .table-time {
+          width: 25%;
+          text-align: center;
+
+        }
+        .table-react {
+          width: 20%;
+          text-align: center;
+        }
+        .table-difficulty {
+          width: 20%;
+          text-align: center;
+        }
+        .table-header {
+          font-size: 17px;
+          text-align: center;
         }
       }
     }
-    .homeBtn {
-      background-color: green;
-      height: 30px;
-      width: 55px;
+    .home-btn {
+      background-color: $black;
+      height: 40px;
+      width: 80px;
       color: white;
       font-size: 14px; 
+      border-radius: 10px;
     }
 }
