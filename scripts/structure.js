@@ -84,7 +84,7 @@ function difficultyPage () {
           <button>MEDIUM</button>
           <button>HARD</button>
         </div>
-        <embed src="images/Gifs/tumblr_myo2hr97No1skltbdo1_500.gif"/>
+        <embed src="images/gifs/tumblr_myo2hr97No1skltbdo1_500.gif"/>
       </div>
     </section>`
     //clearing the html
@@ -131,7 +131,7 @@ function displaySummary() {
         <h1>You're bad! But your score isn't!</h1>
       </div>
       <div>
-        <embed src="./images/Gifs/Agent Smith.gif"/></div>
+        <embed src="./images/gifs/Agent Smith.gif"/></div>
       </div>
       <div id="play-again">
         <p>Would you like to play again?</p><br/>
