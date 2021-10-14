@@ -84,23 +84,13 @@ function difficultyPage () {
           <button>MEDIUM</button>
           <button>HARD</button>
         </div>
-        <embed src="images/gifs/tumblr_myo2hr97No1skltbdo1_500.gif"/>
+        <embed src="images/tumblr_myo2hr97No1skltbdo1_500.gif"/>
       </div>
     </section>`
     //clearing the html
     main.innerHTML = "";
     //adding the difficulty page html 
     main.innerHTML = diffPage;
-//  adding difficulty page css
-//           if (diffCheck == 0) {
-//          var fileref=document.createElement("link")
-//          fileref.setAttribute("rel", "stylesheet")
-//          fileref.setAttribute("type", "text/css")
-//          fileref.setAttribute("href", "../styles/css/style.css");
-//           document.getElementsByTagName("head")[0].appendChild(fileref);
-//           diffCheck = 1;
-//   }
-
 }
 
 function launchGamePage () {
