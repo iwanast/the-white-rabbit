@@ -5,7 +5,7 @@ var diffCheck = 0
 let main = document.getElementById("main");
 //Loading the landingpage
 document.getElementById("bodyId").onload = function() {
-  setTimeout(createLandingPage, 3500);
+  createLandingPage();
 }
 
 //Inserts HTML into the main that creates the landing page
@@ -13,21 +13,10 @@ function createLandingPage() {
     main.innerHTML = `  
       <div id="wrapper_landingpage">
         <img id="gif_choose_score_play" src="./images/Start_game.gif" alt="reflection in sunglasses of two hands holding a blue and a red pill ">
-        <img id="gif_choose_score_play_mobil" src="./images/Start_game.gif" alt="reflection in sunglasses of two hands holding a blue and a red pill ">
-        <button class="button_landingpage" id="button_play">play</button>
-        <button class="button_landingpage" id="button_score">score</button>
+        <button class="button_landingpage" id="button_play" onclick="difficultyPage()">play</button>
+        <button class="button_landingpage" id="button_score" onclick="openHighscorePage()">score</button>
     </div>`; 
 }
-
-// Starting the difficulty page to start the game
-// document.getElementById("button_play").onclick = function() {      THESE RETURN AN ERROR
-//     difficultyPage();
-// }
-
-// Starting highscorepage
-// document.getElementById("button_score").onclick = function() {      
-//     openHighscorePage();
-// }
 
 function openHighscorePage() {
   main.innerHtml = "";
@@ -72,7 +61,7 @@ function retrieveHighscores() {
 }
 
 
-function difficultyPage () {
+function difficultyPage() {
     var diffPage = `
     <div id="box">
     </div>
