@@ -112,7 +112,7 @@ let reactionArray = [34, 75, 83, 56, 64, 56, 33, 44, 67, 66]; //Temporary placeh
 
 function displaySummary() {
 
-  calculateAverageReaction();
+  calculateAverageReaction(reactionArray);
   storeGameStatistics();
   main.innerHTML = "";
   main.innerHTML = `
@@ -147,11 +147,11 @@ function displaySummary() {
   //Will call displayCharacter()
 }
 
-function calculateAverageReaction() {
+function calculateAverageReaction(array) {
   let avReactTime = 0;
 
-  for (i = 0; i < reactionArray.length; i++) {
-    avReactTime += reactionArray[i];
+  for (i = 0; i < array.length; i++) {
+    avReactTime += array[i];
   }
 
   return avReactTime;
