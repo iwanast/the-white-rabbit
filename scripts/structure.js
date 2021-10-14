@@ -76,7 +76,6 @@ function retrieveHighscores() {
   //Insert relevant data from those top ten into the page as it is loaded (date, time, average reaction time)
 }
 
-
 function difficultyPage () {
     var diffPage = `
     <div id="box">
@@ -113,17 +112,14 @@ function launchGamePage () {
     //Clear the main and insert the HTML for the white rabbit game
 }
 
-function launchGamePage() {
-  //Clear the main and insert the HTML for the white rabbit game
-}
-
 let reactionArray = [34, 75, 83, 56, 64, 56, 33, 44, 67, 66]; //Temporary placeholder array for testing calculateAverageReaction
 
 function displaySummary() {
-
+  displayCharacter(); //Needs to be completed
+  getFinalTime(); //Needs to be completed
   calculateAverageReaction(reactionArray);
-  createGameObject(date, finalTime, avReactSpeed, );
-  storeGameObject();
+  createGameObject(date, finalTime, avReactSpeed, difficulty);
+  storeGameObject(gameObject);
   main.innerHTML = "";
   main.innerHTML = `
     <div id="box">
@@ -151,10 +147,6 @@ function displaySummary() {
         <button id="no-button">NO</button>
       </div>
     </section>`;
-  //Clear the main and insert the HTML for the summary screen
-  //Retrieve the time for the last game from local storage
-  //Will call calculateAverageReaction()
-  //Will call displayCharacter()
 }
 
 function calculateAverageReaction(array) {
@@ -186,5 +178,5 @@ function createGameObject(date, time, react, diff) {
 }
 
 function storeGameObject(object) {
-
+  //gameObject needs to be stringified and stored into local storage here
 }
