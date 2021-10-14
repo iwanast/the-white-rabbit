@@ -1,19 +1,126 @@
+@import "variables";
 
 //General styling
-* {
-  margin: 0; 
-  padding: 0;
-  box-sizing: border-box;
-  p {
-    color: black;
-    font-size: 14px; 
+
+//////////////////////START LANDINGPAGE/////////////////////////////////
+
+#wrapper_landingpage{
+  width: 500px;
+  height: 200px;
+  position: absolute;
+  transform: translate(50%, -50%);
+  top: 50%; 
+  right: 50%; 
+  animation: loading_landingpage 2s ease-in; 
+  
+  @media screen and (max-width: 515px){
+    position: relative;
+    transform: translate(0);
+    top: 30px; 
+    right: 0;
+    margin: auto;
+    width: 155px;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .button_landingpage{
+    position: relative;
+    z-index: 3;
+    padding: 1px 5px;
+    border-radius: 30%;
+    color: $white;
+    box-shadow: 0 0 1px 1px rgb(0, 0, 0);
+    
+  }
+  #button_play{
+   background-color: $red;
+   top: 145px;
+   left: 50px;
+   border: 1px solid $red;
+   animation: button_play_moving 1.28s linear infinite;
+
+   @media screen and (max-width: 515px){
+    position: absolute;
+    top: 148px; 
+    left: 50px;
+    }
+  }
+  #button_score{
+    background-color: $blue;
+    top: 150px;
+   left: 350px;
+   border: 1px solid $blue;
+   animation: button_score_moving 1.28s linear infinite;
+   @media screen and (max-width: 515px){
+    position: absolute;
+    top: 338px;
+    left: 65px;
+    }
+  }
+  #gif_choose_score_play{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    @media screen and (max-width: 515px){
+    position: relative;
+    }
+  }
+  #gif_choose_score_play_mobil{
+    display: none;
+    z-index: 2;
+    @media screen and (max-width: 515px){
+      display: block;
+      position: relative;
+      right: 183%;
+      height: 180px;
+      }
   }
 }
 
-#myVideo {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
+@keyframes loading_landingpage {
+  0% {
+    margin-top: -300px;
+  }
+  100% {
+    margin-top: -0px;
+  }
 }
+
+@keyframes button_play_moving {
+  0% {
+    transform: rotate(20deg) translate(-2.5%, 5%);
+  }
+  25% {
+    transform: rotate(20deg) translate(-5%, 10%);
+  }
+  50% {
+    transform: rotate(20deg) translate(-2.5%, 5%);
+  }
+  75% {
+    transform: rotate(20deg) translate(0);
+  }
+  100%{
+    transform: rotate(20deg) translate(0);
+  }
+}
+
+@keyframes button_score_moving {
+  0% {
+    transform: rotate(-20deg) translate(2.5%, 5%);
+  }
+  25% {
+    transform: rotate(-20deg) translate(5%, 10%);
+  }
+  50% {
+    transform: rotate(-20deg) translate(2.5%, 5%);
+  }
+  75% {
+    transform: rotate(-20deg) translate(0);
+  }
+  100%{
+    transform: rotate(-20deg) translate(0);
+  }
+}
+/////////////////FINISH LANDINGPAGE///////////////////////////////////
