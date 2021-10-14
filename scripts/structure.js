@@ -5,7 +5,7 @@ var diffCheck = 0
 let main = document.getElementById("main");
 //Loading the landingpage
 document.getElementById("bodyId").onload = function() {
-    setTimeout(createLandingPage, 3500);
+  setTimeout(createLandingPage, 3500);
 }
 
 //Inserts HTML into the main that creates the landing page
@@ -19,49 +19,49 @@ function createLandingPage() {
     </div>`; 
 }
 
-//Starting the difficulty page to start the game
-document.getElementById("button_play").onclick = function() {
-    difficultyPage();
-}
+// Starting the difficulty page to start the game
+// document.getElementById("button_play").onclick = function() {      THESE RETURN AN ERROR
+//     difficultyPage();
+// }
 
-//Starting highscorepage
-document.getElementById("button_score").onclick = function() {
-    openHighscorePage();
-}
+// Starting highscorepage
+// document.getElementById("button_score").onclick = function() {      
+//     openHighscorePage();
+// }
 
 function openHighscorePage() {
-  document.getElementById("content").innerHtml = "";
-    let tableData = "";
+  main.innerHtml = "";
+  let tableData = "";
   
-    for (i = 0; i < 10; i++) {
-      tableData += `
-          <tr>
-              <td class="table-rank">${i + 1}</td>
-              <td class="table-date">Date</td>
-              <td class="table-time">Time</td>
-              <td class="table-react">React</td>
-              <td class="table-difficulty">Difficulty</td>
-          </tr>
-          `
-      }
-
-    document.getElementById("content").innerHTML = `
-        <div id="box">
-        </div>
-        <section id="content"> 
-        <h1>Highscores</h1>
-          <table>
-            <th class="table-rank table-header">Rank</th>
-            <th class="table-date table-header">Date</th>
-            <th class="table-time table-header">Time</th>
-            <th class="table-react table-header">Average Speed</th>
-            <th class="table-difficulty table-header">Difficulty</th>
-            </tr>
-            ${tableData}
-          </table>
-          <button type="button" class="home-btn" onclick"landingPage()">Home</button>
-        </section>
+  for (i = 0; i < 10; i++) {
+    tableData += `
+        <tr>
+            <td class="table-rank">${i + 1}</td>
+            <td class="table-date">Date</td>
+            <td class="table-time">Time</td>
+            <td class="table-react">React</td>
+            <td class="table-difficulty">Difficulty</td>
+        </tr>
         `
+  }
+
+  main.innerHTML = `
+      <div id="box">
+      </div>
+      <section id="content"> 
+      <h1>Highscores</h1>
+        <table>
+          <th class="table-rank table-header">Rank</th>
+          <th class="table-date table-header">Date</th>
+          <th class="table-time table-header">Time</th>
+          <th class="table-react table-header">Average Speed</th>
+          <th class="table-difficulty table-header">Difficulty</th>
+          </tr>
+          ${tableData}
+        </table>
+        <button type="button" class="home-btn" onclick="createLandingPage()">Home</button>
+      </section>
+      `
 }
 
 function retrieveHighscores() {
