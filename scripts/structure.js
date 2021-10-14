@@ -25,9 +25,10 @@ function openHighscorePage() {
           `
       }
 
-
-
     document.getElementById("content").innerHTML = `
+        <div id="box">
+        </div>
+        <section id="content"> 
         <h1>Highscores</h1>
           <table>
             <th class="table-rank table-header">Rank</th>
@@ -37,9 +38,10 @@ function openHighscorePage() {
             <th class="table-difficulty table-header">Difficulty</th>
             </tr>
             ${tableData}
-                </table>
-                <button type="button" class="home-btn" onclick"landingPage()">Home</button>
-                `
+          </table>
+          <button type="button" class="home-btn" onclick"landingPage()">Home</button>
+        </section>
+        `
 
     //Will call retrieveHighscores()
 }
