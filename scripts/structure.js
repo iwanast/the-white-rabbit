@@ -1,37 +1,33 @@
-var diffCheck = 0;
+//Variables needed for scores in local storage
+let today = new Date();
+let date = today.getDate() + "/" + (today.getMonth()+1) + "/" + today.getFullYear();
+let finalTime = 0;
+let avReactSpeed = 0;
+let difficulty = "";
 
 //Navigation functions
 
 let main = document.getElementById("main");
 //Loading the landingpage
-document.getElementById("bodyId").onload = function () {
-  //setTimeout(createLandingPage, 3500);
-  displaySummary();
-};
+
+document.getElementById("bodyId").onload = function() {
+  createLandingPage();
+}
 
 //Inserts HTML into the main that creates the landing page
 function createLandingPage() {
   main.innerHTML = `  
       <div id="wrapper_landingpage">
         <img id="gif_choose_score_play" src="./images/Start_game.gif" alt="reflection in sunglasses of two hands holding a blue and a red pill ">
-        <img id="gif_choose_score_play_mobil" src="./images/Start_game.gif" alt="reflection in sunglasses of two hands holding a blue and a red pill ">
-        <button class="button_landingpage" id="button_play">play</button>
-        <button class="button_landingpage" id="button_score">score</button>
-    </div>`;
+
+        <button class="button_landingpage" id="button_play" onclick="difficultyPage()">play</button>
+        <button class="button_landingpage" id="button_score" onclick="openHighscorePage()">score</button>
+    </div>`; 
 }
-
-// Starting the difficulty page to start the game
-// document.getElementById("button_play").onclick = function() {      THESE RETURN AN ERROR
-//     difficultyPage();
-// }
-
-// Starting highscorepage
-// document.getElementById("button_score").onclick = function() {
-//     openHighscorePage();
-// }
 
 function openHighscorePage() {
   main.innerHtml = "";
+  retrieveHighscores();
   let tableData = "";
 
   for (i = 0; i < 10; i++) {
@@ -73,16 +69,16 @@ function retrieveHighscores() {
 }
 
 function difficultyPage() {
-  var diffPage = `
+    var diffPage = `
     <div id="box">
     </div>
     <section id="content">
       <div id="contentBox">
         <h1> CLICK THE RABBIT AS FAST AS POSSIBLE</h1>
         <div id="levelBtns">
-          <button>EASY</button>
-          <button>MEDIUM</button>
-          <button>HARD</button>
+          <button type="button" onclick="setDifficulty('easy');">EASY</button>
+          <button type="button" onclick="setDifficulty('medium');">MEDIUM</button>
+          <button type="button" onclick="setDifficulty('hard');">HARD</button>
         </div>
         <embed src="images/tumblr_myo2hr97No1skltbdo1_500.gif"/>
       </div>
@@ -93,15 +89,29 @@ function difficultyPage() {
   main.innerHTML = diffPage;
 }
 
-function launchGamePage() {
-  //Clear the main and insert the HTML for the white rabbit game
+
+function setDifficulty (diff){
+  if (diff == "easy") {
+    difficulty = easy;
+  } else if (diff == "medium") {
+    difficulty = "medium";
+  } else if (difficulty == "hard") {
+    difficulty = "hard";
+  }
 }
 
-function launchGamePage() {
-  //Clear the main and insert the HTML for the white rabbit game
+function launchGamePage () {
+    //Clear the main and insert the HTML for the white rabbit game
 }
+
+let reactionArray = [34, 75, 83, 56, 64, 56, 33, 44, 67, 66]; //Temporary placeholder array for testing calculateAverageReaction
 
 function displaySummary() {
+  displayCharacter(); //Needs to be completed
+  getFinalTime(); //Needs to be completed
+  calculateAverageReaction(reactionArray);
+  createGameObject(date, finalTime, avReactSpeed, difficulty);
+  storeGameObject(gameObject);
   main.innerHTML = "";
   let finalTime = 45;
   displayCharacter(finalTime);
@@ -131,16 +141,16 @@ function displaySummary() {
         <button id="no-button">NO</button>
       </div>
     </section>`;
-  //Clear the main and insert the HTML for the summary screen
-  //Retrieve the time for the last game from local storage
-  //Will call calculateAverageReaction()
-  //Will call displayCharacter()
 }
 
-function calculateAverageReaction() {
-  //Will be called in the displaySummary function
-  //Retrieve the ten reaction times saved into sessionStorage/a variable during the last game
-  //Average the scores to give an average reaction time
+function calculateAverageReaction(array) {
+  let avReactTime = 0;
+
+  for (i = 0; i < array.length; i++) {
+    avReactTime += array[i];
+  }
+
+  return avReactTime;
 }
 
 const characters = []; //Fill this array with the Matrix chaaracters
@@ -180,4 +190,19 @@ function displayCharacter(finalTime) {
   }
   //Will be called in the displaySummary function
   //Use an else if statement to check the game time against the thresholds we picked, then retrieve a picture from the characters array
+}
+
+function createGameObject(date, time, react, diff) {
+  let gameObject = {
+    date: date,
+    time: time,
+    react: react,
+    diff: diff
+  }
+
+  return gameObject;
+}
+
+function storeGameObject(object) {
+  //gameObject needs to be stringified and stored into local storage here
 }
