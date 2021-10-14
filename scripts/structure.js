@@ -1,22 +1,23 @@
-var diffCheck = 0
+var diffCheck = 0;
 
 //Navigation functions
 
 let main = document.getElementById("main");
 //Loading the landingpage
-document.getElementById("bodyId").onload = function() {
-  setTimeout(createLandingPage, 3500);
-}
+document.getElementById("bodyId").onload = function () {
+  //setTimeout(createLandingPage, 3500);
+  displaySummary();
+};
 
 //Inserts HTML into the main that creates the landing page
 function createLandingPage() {
-    main.innerHTML = `  
+  main.innerHTML = `  
       <div id="wrapper_landingpage">
         <img id="gif_choose_score_play" src="./images/Start_game.gif" alt="reflection in sunglasses of two hands holding a blue and a red pill ">
         <img id="gif_choose_score_play_mobil" src="./images/Start_game.gif" alt="reflection in sunglasses of two hands holding a blue and a red pill ">
         <button class="button_landingpage" id="button_play">play</button>
         <button class="button_landingpage" id="button_score">score</button>
-    </div>`; 
+    </div>`;
 }
 
 // Starting the difficulty page to start the game
@@ -25,14 +26,14 @@ function createLandingPage() {
 // }
 
 // Starting highscorepage
-// document.getElementById("button_score").onclick = function() {      
+// document.getElementById("button_score").onclick = function() {
 //     openHighscorePage();
 // }
 
 function openHighscorePage() {
   main.innerHtml = "";
   let tableData = "";
-  
+
   for (i = 0; i < 10; i++) {
     tableData += `
         <tr>
@@ -42,7 +43,7 @@ function openHighscorePage() {
             <td class="table-react">React</td>
             <td class="table-difficulty">Difficulty</td>
         </tr>
-        `
+        `;
   }
 
   main.innerHTML = `
@@ -61,7 +62,7 @@ function openHighscorePage() {
         </table>
         <button type="button" class="home-btn" onclick="createLandingPage()">Home</button>
       </section>
-      `
+      `;
 }
 
 function retrieveHighscores() {
@@ -71,9 +72,8 @@ function retrieveHighscores() {
   //Insert relevant data from those top ten into the page as it is loaded (date, time, average reaction time)
 }
 
-
-function difficultyPage () {
-    var diffPage = `
+function difficultyPage() {
+  var diffPage = `
     <div id="box">
     </div>
     <section id="content">
@@ -86,15 +86,15 @@ function difficultyPage () {
         </div>
         <embed src="images/tumblr_myo2hr97No1skltbdo1_500.gif"/>
       </div>
-    </section>`
-    //clearing the html
-    main.innerHTML = "";
-    //adding the difficulty page html 
-    main.innerHTML = diffPage;
+    </section>`;
+  //clearing the html
+  main.innerHTML = "";
+  //adding the difficulty page html
+  main.innerHTML = diffPage;
 }
 
-function launchGamePage () {
-    //Clear the main and insert the HTML for the white rabbit game
+function launchGamePage() {
+  //Clear the main and insert the HTML for the white rabbit game
 }
 
 function launchGamePage() {
@@ -103,9 +103,11 @@ function launchGamePage() {
 
 function displaySummary() {
   main.innerHTML = "";
+  let finalTime = 45;
+  displayCharacter(finalTime);
   main.innerHTML = `
     <div id="box">
-    /div>
+    </div>
     <section id="content">
     <div id="score-card">
       <div id="score-quote">
@@ -118,10 +120,10 @@ function displaySummary() {
       </div>
       <div id="score">
         <h2>SCORE:11001s</h2>
-        <h1>You're bad! But your score isn't!</h1>
+        <h1>${gifText}</h1>
       </div>
       <div>
-        <embed src="./images/gifs/Agent Smith.gif"/></div>
+        <embed src="${gifLink}"/></div>
       </div>
       <div id="play-again">
         <p>Would you like to play again?</p><br/>
@@ -143,7 +145,39 @@ function calculateAverageReaction() {
 
 const characters = []; //Fill this array with the Matrix chaaracters
 
-function displayCharacter() {
+var displayGif = [
+  "./images/look-neo.gif",
+  "./images/Agent Smith.gif",
+  "./images/Trinity-3.gif",
+  "./images/Morpheus.gif",
+  "./images/cypher.gif",
+];
+
+var displayGifText = [
+  "You are the Chosen One!",
+  "You're bad! But your score isn't!",
+  "Holy F**king Trinity",
+  "Morpheus? More like Morphe-yes!",
+  "Um, you suck!",
+];
+
+function displayCharacter(finalTime) {
+  if (finalTime < 20) {
+    gifLink = displayGif[0];
+    gifText = displayGifText[0];
+  } else if (finalTime < 30) {
+    gifLink = displayGif[1];
+    gifText = displayGifText[1];
+  } else if (finalTime < 40) {
+    gifLink = displayGif[2];
+    gifText = displayGifText[2];
+  } else if (finalTime < 40) {
+    gifLink = displayGif[3];
+    gifText = displayGifText[3];
+  } else {
+    gifLink = displayGif[4];
+    gifText = displayGifText[4];
+  }
   //Will be called in the displaySummary function
   //Use an else if statement to check the game time against the thresholds we picked, then retrieve a picture from the characters array
 }
