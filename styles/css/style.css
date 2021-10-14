@@ -368,7 +368,7 @@ h1 {
   cursor: pointer;
 }
 
-#levelBtns {
+#contentBox #levelBtns {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -382,7 +382,7 @@ h1 {
           flex-direction: row;
 }
 
-embed {
+#contentBox embed {
   -ms-flex-item-align: end;
       align-self: flex-end;
   width: auto;

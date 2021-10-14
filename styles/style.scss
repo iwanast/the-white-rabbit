@@ -253,8 +253,6 @@ h1 {
     font-size:large;
     cursor: pointer;
   }
-}
-
   #levelBtns {
     width: 100%;
     display: flex;
@@ -262,11 +260,15 @@ h1 {
     justify-content: space-around;
     flex-direction: row;
   }
-
   embed {
     align-self: flex-end;
     width: auto;
     margin: auto;
     border-radius: 20%;
   }
+}
+
+
+
+
 
