@@ -1,9 +1,8 @@
 //Navigation functions
 
-function init() {
-  //  createLandingPage();
-  openHighscorePage();
-}
+window.addEventListener('load', (event) => {
+  createLandingPage();
+});
 
 function createLandingPage() {
   //Insert HTML into the main that creates the landing page
