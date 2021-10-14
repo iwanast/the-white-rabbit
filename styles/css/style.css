@@ -358,6 +358,16 @@ h1 {
   color: white;
 }
 
+#contentBox button {
+  height: 80px;
+  width: 80px;
+  background-color: greenyellow;
+  color: black;
+  border-radius: 30%;
+  font-size: large;
+  cursor: pointer;
+}
+
 #levelBtns {
   width: 100%;
   display: -webkit-box;
@@ -370,16 +380,6 @@ h1 {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-}
-
-button {
-  height: 80px;
-  width: 80px;
-  background-color: greenyellow;
-  color: black;
-  border-radius: 30%;
-  font-size: large;
-  cursor: pointer;
 }
 
 embed {
