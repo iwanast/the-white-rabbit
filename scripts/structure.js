@@ -1,11 +1,29 @@
 //Navigation functions
 
-window.addEventListener('load', (event) => {
-  createLandingPage();
-});
+let main = document.getElementById("main");
+//Loading the landingpage
+document.getElementById("bodyId").onload = function() {
+    setTimeout(createLandingPage, 3500);
+}
 
+//Inserts HTML into the main that creates the landing page
 function createLandingPage() {
-  //Insert HTML into the main that creates the landing page
+    main.innerHTML = `  <div id="wrapper_landingpage">
+    <img id="gif_choose_score_play" src="./images/Start_game.gif" alt="reflection in sunglasses of two hands holding a blue and a red pill ">
+    <img id="gif_choose_score_play_mobil" src="./images/Start_game.gif" alt="reflection in sunglasses of two hands holding a blue and a red pill ">
+    <button class="button_landingpage" id="button_play">play</button>
+    <button class="button_landingpage" id="button_score">score</button>
+ </div>`; 
+}
+
+//Starting the difficulty page to start the game
+document.getElementById("button_play").onclick = function() {
+    difficultyPage();
+}
+
+//Starting highscorepage
+document.getElementById("button_score").onclick = function() {
+    openHighscorePage();
 }
 
 function openHighscorePage() {
@@ -56,8 +74,11 @@ function retrieveHighscores() {
 function difficultyPage () {
     //Clear the main and insert the HTML for the difficulty page
     //Set difficulty and save it to session storage on click
-    
     //Call launchGamePage()
+}
+
+function launchGamePage () {
+    //Clear the main and insert the HTML for the white rabbit game
 }
 
 function launchGamePage () {
