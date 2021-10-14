@@ -1,5 +1,3 @@
-var diffCheck = 0
-
 //Variables needed for scores in local storage
 let today = new Date();
 let date = today.getDate() + "/" + (today.getMonth()+1) + "/" + today.getFullYear();
@@ -87,9 +85,9 @@ function difficultyPage () {
       <div id="contentBox">
         <h1> CLICK THE RABBIT AS FAST AS POSSIBLE</h1>
         <div id="levelBtns">
-          <button>EASY</button>
-          <button>MEDIUM</button>
-          <button>HARD</button>
+          <button type="button" onclick="setDifficulty('easy');">EASY</button>
+          <button type="button" onclick="setDifficulty('medium');">MEDIUM</button>
+          <button type="button" onclick="setDifficulty('hard');">HARD</button>
         </div>
         <embed src="images/tumblr_myo2hr97No1skltbdo1_500.gif"/>
       </div>
@@ -99,6 +97,17 @@ function difficultyPage () {
     //adding the difficulty page html 
     main.innerHTML = diffPage;
 }
+
+function setDifficulty (diff){
+  if (diff == "easy") {
+    difficulty = easy;
+  } else if (diff == "medium") {
+    difficulty = "medium";
+  } else if (difficulty == "hard") {
+    difficulty = "hard";
+  }
+}
+
 
 function launchGamePage () {
     //Clear the main and insert the HTML for the white rabbit game
@@ -113,7 +122,8 @@ let reactionArray = [34, 75, 83, 56, 64, 56, 33, 44, 67, 66]; //Temporary placeh
 function displaySummary() {
 
   calculateAverageReaction(reactionArray);
-  storeGameStatistics();
+  createGameObject(date, finalTime, avReactSpeed, );
+  storeGameObject();
   main.innerHTML = "";
   main.innerHTML = `
     <div id="box">
@@ -162,4 +172,19 @@ const characters = []; //Fill this array with the Matrix chaaracters
 function displayCharacter() {
   //Will be called in the displaySummary function
   //Use an else if statement to check the game time against the thresholds we picked, then retrieve a picture from the characters array
+}
+
+function createGameObject(date, time, react, diff) {
+  let gameObject = {
+    date: date,
+    time: time,
+    react: react,
+    diff: diff
+  }
+
+  return gameObject;
+}
+
+function storeGameObject(object) {
+
 }
