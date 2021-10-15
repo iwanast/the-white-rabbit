@@ -124,8 +124,6 @@ function displaySummary() {
     </section>`;
 }
 
-const characters = []; //Fill this array with the Matrix characters
-
 var displayGif = [
   "./images/look-neo.gif",
   "./images/Agent Smith.gif",
