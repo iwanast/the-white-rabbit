@@ -15,7 +15,7 @@ function createLandingPage() {
 
         <button class="button_landingpage" id="button_play" onclick="difficultyPage()">play</button>
         <button class="button_landingpage" id="button_score" onclick="openHighscorePage()">score</button>
-    </div>`;
+    </div>`; 
 }
 
 function openHighscorePage() {
@@ -64,7 +64,7 @@ function retrieveHighscores() {
 }
 
 function difficultyPage() {
-  var diffPage = `
+    var diffPage = `
     <div id="box">
     </div>
     <section id="content">
@@ -85,21 +85,16 @@ function difficultyPage() {
 }
 
 function launchGamePage() {
-  //Clear the main and insert the HTML for the white rabbit game
+    //Clear the main and insert the HTML for the white rabbit game
 }
 
 let reactionArray = [34, 75, 83, 56, 64, 56, 33, 44, 67, 66]; //Temporary placeholder array for testing calculateAverageReaction
 
 function displaySummary() {
-  displayCharacter(); //Needs to be completed
-  // getFinalTime(); //Needs to be completed
-  // calculateAverageReaction(reactionArray);
-  
+  displayCharacter(); //Needs to be completed  
   createGameObject(date, finalTime, avReactSpeed, difficulty);
   storeGameObject(gameObject);
   main.innerHTML = "";
-
-  let finalTime = 4500;
 
   displayCharacter(finalTime);
   main.innerHTML = `

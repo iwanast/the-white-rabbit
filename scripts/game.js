@@ -11,13 +11,12 @@ let today = new Date();
 let date = today.getDate() + "/" + (today.getMonth()+1) + "/" + today.getFullYear();
 let avReactSpeed = 0;
 let difficulty = "easy";
-// let numRabbits = 0;
+
 // Sum of not clicked on the rabbit
 let rabbitPenalty = 2;
 // Sum of clicking wrong
 let misclickPenalty = 1;
 
-// let difficulty = "easy";
 // let starttimeGamesession, endtimeGamesession;
 timerFunction();
 function timerFunction () {
@@ -30,13 +29,10 @@ function timerFunction () {
     //Depending on how much we want the penaltys to be depending on difficulty?*************************
     finalTime += (rabbitPenalty * penaltyNumber()); // example with "easy" 2000 milliseconds 
     finalTime += (misclickPenalty * penaltyNumber()); // should we set this different??
-    console.log(finalTime)
-    console.log(rabbitAppearTime[0])
     calculateAverageReaction(finalTime, (rabbitAppearTime.length - rabbitPenalty));
     // clearing the arrays here for next time 
     rabbitAppearTime = [];
     rabbitClickedTimes = [];
-    console.log(rabbitAppearTime[0])
     
     return finalTime;
     // Will need to save the time when the game is started into a variable
