@@ -63,7 +63,7 @@ function retrieveHighscores() {
 }
 
 function difficultyPage() {
-    var diffPage = `
+    let diffPage = `
     <section id="content">
       <div id="contentBox">
         <h1> CLICK THE RABBIT AS FAST AS POSSIBLE</h1>
@@ -124,7 +124,7 @@ function displaySummary() {
     </section>`;
 }
 
-var displayGif = [
+let displayGif = [
   "./images/look-neo.gif",
   "./images/Agent Smith.gif",
   "./images/Trinity-3.gif",
@@ -132,7 +132,7 @@ var displayGif = [
   "./images/cypher.gif",
 ];
 
-var displayGifText = [
+let displayGifText = [
   "You are the Chosen One!",
   "You're bad! But your score isn't!",
   "Holy F**king Trinity",
@@ -172,3 +172,7 @@ function createGameObject(date, time, react, diff) {
 function storeGameObject(object) {
   //gameObject needs to be stringified and stored into local storage here
 }
+
+
+
+
