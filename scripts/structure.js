@@ -1,11 +1,3 @@
-//Variables needed for scores in local storage
-let today = new Date();
-let date =
-  today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
-let finalTime = 0;
-let avReactSpeed = 0;
-let difficulty = "";
-
 //Navigation functions
 
 let main = document.getElementById("main");
@@ -63,7 +55,9 @@ function openHighscorePage() {
 }
 
 function retrieveHighscores() {
+  
   //Will be called by the OpenHighscorePage function
+  //See first how many highscores are stored (lesser then 10, retrieve the ones who are there)
   //Retrieve the first ten highscores for the user from the local storage
   //(scores should be stored ordered by lowest time to highest so retrieving first 10 will work)
   //Insert relevant data from those top ten into the page as it is loaded (date, time, average reaction time)
@@ -90,16 +84,6 @@ function difficultyPage() {
   main.innerHTML = diffPage;
 }
 
-function setDifficulty(diff) {
-  if (diff == "easy") {
-    difficulty = easy;
-  } else if (diff == "medium") {
-    difficulty = "medium";
-  } else if (difficulty == "hard") {
-    difficulty = "hard";
-  }
-}
-
 function launchGamePage() {
   //Clear the main and insert the HTML for the white rabbit game
 }
@@ -108,12 +92,15 @@ let reactionArray = [34, 75, 83, 56, 64, 56, 33, 44, 67, 66]; //Temporary placeh
 
 function displaySummary() {
   displayCharacter(); //Needs to be completed
-  getFinalTime(); //Needs to be completed
-  calculateAverageReaction(reactionArray);
+  // getFinalTime(); //Needs to be completed
+  // calculateAverageReaction(reactionArray);
+  
   createGameObject(date, finalTime, avReactSpeed, difficulty);
   storeGameObject(gameObject);
   main.innerHTML = "";
-  //let finalTime = 25;
+
+  let finalTime = 4500;
+
   displayCharacter(finalTime);
   main.innerHTML = `
     <div id="box">
@@ -143,17 +130,7 @@ function displaySummary() {
     </section>`;
 }
 
-function calculateAverageReaction(array) {
-  let avReactTime = 0;
-
-  for (i = 0; i < array.length; i++) {
-    avReactTime += array[i];
-  }
-
-  return avReactTime;
-}
-
-const characters = []; //Fill this array with the Matrix chaaracters
+const characters = []; //Fill this array with the Matrix characters
 
 var displayGif = [
   "./images/look-neo.gif",
@@ -197,9 +174,8 @@ function createGameObject(date, time, react, diff) {
     date: date,
     time: time,
     react: react,
-    diff: diff,
+    diff: diff
   };
-
   return gameObject;
 }
 
