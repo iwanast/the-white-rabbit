@@ -7,7 +7,6 @@ document.getElementById("bodyId").onload = function () {
   createLandingPage();
 };
 
-//Inserts HTML into the main that creates the landing page
 function createLandingPage() {
   main.innerHTML = `  
       <div id="wrapper_landingpage">
@@ -76,9 +75,7 @@ function difficultyPage() {
         <embed src="images/tumblr_myo2hr97No1skltbdo1_500.gif"/>
       </div>
     </section>`;
-  //clearing the html
   main.innerHTML = "";
-  //adding the difficulty page html
   main.innerHTML = diffPage;
 }
 
@@ -162,8 +159,6 @@ function displayCharacter(finalTime) {
     gifLink = displayGif[4];
     gifText = displayGifText[4];
   }
-  //Will be called in the displaySummary function
-  //Use an else if statement to check the game time against the thresholds we picked, then retrieve a picture from the characters array
 }
 
 function createGameObject(date, time, react, diff) {
