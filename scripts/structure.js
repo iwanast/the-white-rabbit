@@ -65,8 +65,6 @@ function retrieveHighscores() {
 
 function difficultyPage() {
     var diffPage = `
-    <div id="box">
-    </div>
     <section id="content">
       <div id="contentBox">
         <h1> CLICK THE RABBIT AS FAST AS POSSIBLE</h1>
