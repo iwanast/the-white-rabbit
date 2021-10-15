@@ -92,7 +92,6 @@ let reactionArray = [34, 75, 83, 56, 64, 56, 33, 44, 67, 66]; //Temporary placeh
 function displaySummary() {
   displayCharacter(finalTime);
   createGameObject(date, finalTime, avReactSpeed, difficulty);
-  storeGameObject(gameObject);
   main.innerHTML = `
     <div id="box">
     </div>
@@ -155,9 +154,3 @@ function displayCharacter(finalTime) {
     gifText = displayGifText[4];
   }
 }
-
-
-
-
-
-

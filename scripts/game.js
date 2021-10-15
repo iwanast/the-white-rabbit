@@ -15,14 +15,14 @@ if (localStorage.length == 0) {
 
 let rabbitAppearTime = [time1, time2, time3, time4]; //Empty array that we can fill with the times each rabbit appeared
 let rabbitClickedTimes = [ , time3, , ]; //Empty array we can fill with the time each rabbit was clicked
-let finalTime = 0;
 let today = new Date();
 let date = today.getDate() + "/" + (today.getMonth()+1) + "/" + today.getFullYear();
+let finalTime = 0;
 let avReactSpeed = 0;
 let difficulty = "easy";
 
 // Sum of not clicked on the rabbit
-let rabbitPenalty = 2;
+let rabbitPenalty = 1;
 // Sum of clicking wrong
 let misclickPenalty = 1;
 
@@ -68,7 +68,7 @@ function calculateAverageReaction(sum, divisor){
     // console.log("divisor: " + divisor);
     average = sum / divisor; 
     // console.log(average);
-    let testObj = createGameObject(date, finalTime, average, difficulty);
+    // let testObj = createGameObject(date, finalTime, average, difficulty);
     // console.log(testObj)
     return average; 
 } 
@@ -78,23 +78,34 @@ function setDifficulty (diff){
 }
 
 function createGameObject(date, time, react, diff) {
-    // let gameObject = {
-    //   date: date,
-    //   time: time,
-    //   react: react,
-    //   diff: diff
-    // }
+    //Retrieve the GameArray from local storage
+    let scoreArray = JSON.parse(localStorage.getItem("GameArray"));
+
+    //Create an obkect for this game session
+    let gameObject = {
+        date: date,
+        time: time,
+        react: react,
+        diff: diff
+    }
+
+    scoreArray.push(gameObject); //Insert the new game into the retrieved array of games
+
+    sortedScoreArray = sortByKey(scoreArray, 'time'); //Sort the game array by time property of each game
+    
+    localStorage.removeItem("GameArray"); //Remove existing game array
+
+    localStorage.setItem("GameArray", JSON.stringify(sortedScoreArray)); //Insert the updated, sorted game array into local storage
+  } 
   
-    // let objectKey = "Game" + (localStorage.length + 1); //change to array length
-  
-    // localStorage.setItem(objectKey, JSON.stringify(gameObject));
-  
-    // return gameObject;
-  }
-      
-function storeGameObject(object) {
-        //gameObject needs to be stringified and stored into local storage here
-}    
+  //Sort an array based on a single property
+  function sortByKey(array, key) {
+    return array.sort(function(a, b) {
+        let x = a[key]; 
+        let y = b[key];
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+        });
+    }
 
 function rabbitAppear () {
     //Wait a random number of seconds between 2 and 5
