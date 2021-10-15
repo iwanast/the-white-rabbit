@@ -82,8 +82,14 @@ function openHighscorePage() {
 }
 
 function clearHighscores() {
-  localStorage.clear();
-  openHighscorePage();
+let prompt = confirm("Are you sure you want to clear your highscores?");
+  if (prompt == true) {
+    localStorage.clear();
+    openHighscorePage();
+  } else {
+    openHighscorePage();
+}
+
 
 }
 
