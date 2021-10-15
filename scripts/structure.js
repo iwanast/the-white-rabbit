@@ -65,8 +65,6 @@ function retrieveHighscores() {
 
 function difficultyPage() {
     var diffPage = `
-    <div id="box">
-    </div>
     <section id="content">
       <div id="contentBox">
         <h1> CLICK THE RABBIT AS FAST AS POSSIBLE</h1>
@@ -84,8 +82,12 @@ function difficultyPage() {
   main.innerHTML = diffPage;
 }
 
-function launchGamePage() {
-    //Clear the main and insert the HTML for the white rabbit game
+function launchGamePage () {
+  main.innerHTML = `
+  <div id="game-box">
+  </div>
+  `
+  rabbitAppear(difficulty);
 }
 
 let reactionArray = [34, 75, 83, 56, 64, 56, 33, 44, 67, 66]; //Temporary placeholder array for testing calculateAverageReaction
