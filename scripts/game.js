@@ -4,7 +4,7 @@ let time2 = new Date(2021, 9, 13, 22, 10, 31, 200);
 let time3 = new Date(2021, 9, 13, 22, 10, 31, 900);
 let time4 = new Date(2021, 9, 13, 22, 10, 32, 700);
 
-//If there is nothing in local storage, creat the gamesArray, strignify it, and save it to local
+//If there is nothing in local storage, create the gamesArray, strignify it, and save it to local
 if (localStorage.length == 0) {
     let gamesArray = [];
   
@@ -19,15 +19,15 @@ let today = new Date();
 let date = today.getDate() + "/" + (today.getMonth()+1) + "/" + today.getFullYear();
 let finalTime = 0;
 let avReactSpeed = 0;
-let difficulty = "easy";
+let difficulty = "Easy";
 
 // Sum of not clicked on the rabbit
-let rabbitPenalty = 1;
+let rabbitPenalty = 8;
 // Sum of clicking wrong
-let misclickPenalty = 1;
+let misclickPenalty = 45;
 
 // let starttimeGamesession, endtimeGamesession;
-timerFunction();
+// timerFunction();
 function timerFunction () {
     finalTime = 0;
     for(let i = 0; i < rabbitAppearTime.length; i++){
@@ -81,7 +81,7 @@ function createGameObject(date, time, react, diff) {
     //Retrieve the GameArray from local storage
     let scoreArray = JSON.parse(localStorage.getItem("GameArray"));
 
-    //Create an obkect for this game session
+    //Create an object for this game session
     let gameObject = {
         date: date,
         time: time,
@@ -130,3 +130,5 @@ function rabbitClicked () {
     //If numRabbits less than 10, run rabbitAppear
     //If numRabbits is equal to 10, save current time into a variable and run displaySummary();
 }
+
+

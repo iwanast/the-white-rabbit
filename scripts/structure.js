@@ -17,8 +17,31 @@ function createLandingPage() {
     </div>`; 
 }
 
+//Declare arrays for inserting high score data
+let gameDates = [];
+let gameTimes = [];
+let gameReacts = [];
+let gameDiffs = [];
+
+function retrieveHighscores() {
+  let scoreArray = JSON.parse(localStorage.getItem("GameArray"));
+
+  for (i = 0; i < 10; i++){
+    if (scoreArray[i]) {
+      gameDates[i] = scoreArray[i].date;
+      gameTimes[i] = scoreArray[i].time + "s";
+      gameReacts[i] = scoreArray[i].react + "ms";
+      gameDiffs[i] = scoreArray[i].diff;
+    } else {
+      gameDates[i] = "-";
+      gameTimes[i] = "-";
+      gameReacts[i] = "-";
+      gameDiffs[i] = "-";
+    }
+  }
+}
+
 function openHighscorePage() {
-  main.innerHtml = "";
   retrieveHighscores();
   let tableData = "";
 
@@ -26,10 +49,10 @@ function openHighscorePage() {
     tableData += `
         <tr>
             <td class="table-rank">${i + 1}</td>
-            <td class="table-date">Date</td>
-            <td class="table-time">Time</td>
-            <td class="table-react">React</td>
-            <td class="table-difficulty">Difficulty</td>
+            <td class="table-date">${gameDates[i]}</td>
+            <td class="table-time">${gameTimes[i]}</td>
+            <td class="table-react">${gameReacts[i]}</td>
+            <td class="table-difficulty">${gameDiffs[i]}</td>
         </tr>
         `;
   }
@@ -51,15 +74,6 @@ function openHighscorePage() {
         <button type="button" class="home-btn" onclick="createLandingPage()">Home</button>
       </section>
       `;
-}
-
-function retrieveHighscores() {
-  
-  //Will be called by the OpenHighscorePage function
-  //See first how many highscores are stored (lesser then 10, retrieve the ones who are there)
-  //Retrieve the first ten highscores for the user from the local storage
-  //(scores should be stored ordered by lowest time to highest so retrieving first 10 will work)
-  //Insert relevant data from those top ten into the page as it is loaded (date, time, average reaction time)
 }
 
 function difficultyPage() {
