@@ -90,12 +90,9 @@ function launchGamePage () {
 let reactionArray = [34, 75, 83, 56, 64, 56, 33, 44, 67, 66]; //Temporary placeholder array for testing calculateAverageReaction
 
 function displaySummary() {
-  displayCharacter(); //Needs to be completed  
+  displayCharacter(finalTime);
   createGameObject(date, finalTime, avReactSpeed, difficulty);
   storeGameObject(gameObject);
-  main.innerHTML = "";
-
-  displayCharacter(finalTime);
   main.innerHTML = `
     <div id="box">
     </div>
@@ -159,19 +156,7 @@ function displayCharacter(finalTime) {
   }
 }
 
-function createGameObject(date, time, react, diff) {
-  let gameObject = {
-    date: date,
-    time: time,
-    react: react,
-    diff: diff
-  };
-  return gameObject;
-}
 
-function storeGameObject(object) {
-  //gameObject needs to be stringified and stored into local storage here
-}
 
 
 

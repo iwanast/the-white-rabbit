@@ -1,8 +1,17 @@
 //Game functions
-let time1 = new Date(2021, 9, 13, 22, 10, 30, 100); console.log(time1);
+let time1 = new Date(2021, 9, 13, 22, 10, 30, 100);
 let time2 = new Date(2021, 9, 13, 22, 10, 31, 200);
 let time3 = new Date(2021, 9, 13, 22, 10, 31, 900);
 let time4 = new Date(2021, 9, 13, 22, 10, 32, 700);
+
+//If there is nothing in local storage, creat the gamesArray, strignify it, and save it to local
+if (localStorage.length == 0) {
+    let gamesArray = [];
+  
+    localStorage.setItem("GameArray", JSON.stringify(gamesArray));
+    // console.log("local check 1" + localStorage);
+    // console.log("local check 1 length" + localStorage.length);
+}
 
 let rabbitAppearTime = [time1, time2, time3, time4]; //Empty array that we can fill with the times each rabbit appeared
 let rabbitClickedTimes = [ , time3, , ]; //Empty array we can fill with the time each rabbit was clicked
@@ -55,12 +64,12 @@ function penaltyNumber(){
 }
 
 function calculateAverageReaction(sum, divisor){
-    console.log("sum: " + sum);
-    console.log("divisor: " + divisor);
+    // console.log("sum: " + sum);
+    // console.log("divisor: " + divisor);
     average = sum / divisor; 
-    console.log(average);
+    // console.log(average);
     let testObj = createGameObject(date, finalTime, average, difficulty);
-    console.log(testObj)
+    // console.log(testObj)
     return average; 
 } 
 
@@ -69,15 +78,19 @@ function setDifficulty (diff){
 }
 
 function createGameObject(date, time, react, diff) {
-    let gameObject = {
-          date: date,
-          time: time,
-          react: react,
-          diff: diff
-        }
-    storeGameObject(gameObject);
-    return gameObject;
-}
+    // let gameObject = {
+    //   date: date,
+    //   time: time,
+    //   react: react,
+    //   diff: diff
+    // }
+  
+    // let objectKey = "Game" + (localStorage.length + 1); //change to array length
+  
+    // localStorage.setItem(objectKey, JSON.stringify(gameObject));
+  
+    // return gameObject;
+  }
       
 function storeGameObject(object) {
         //gameObject needs to be stringified and stored into local storage here
