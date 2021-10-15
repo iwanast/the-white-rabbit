@@ -1,3 +1,5 @@
+@import "variables", "fonts";
+
 table {
     background-color: transparent;
     width: 80%;
@@ -41,8 +43,16 @@ table {
       }
     }
   }
-  
-  .home-btn {
+
+#highscore-btns {
+  background-color: blue;
+  width: 60%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  button {
     background-color: $black;
     height: 40px;
     width: 80px;
@@ -50,3 +60,5 @@ table {
     font-size: 14px; 
     border-radius: 10px;
   }
+}
+

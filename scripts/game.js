@@ -5,12 +5,14 @@ let time3 = new Date(2021, 9, 13, 22, 10, 31, 900);
 let time4 = new Date(2021, 9, 13, 22, 10, 32, 700);
 
 //If there is nothing in local storage, create the gamesArray, strignify it, and save it to local
-if (localStorage.length == 0) {
-    let gamesArray = [];
-  
-    localStorage.setItem("GameArray", JSON.stringify(gamesArray));
-    // console.log("local check 1" + localStorage);
-    // console.log("local check 1 length" + localStorage.length);
+function checkLocalDataExists (){
+    if (localStorage.length == 0) {
+        let gamesArray = [];
+    
+        localStorage.setItem("GameArray", JSON.stringify(gamesArray));
+        // console.log("local check 1" + localStorage);
+        // console.log("local check 1 length" + localStorage.length);
+    }
 }
 
 let rabbitAppearTime = [time1, time2, time3, time4]; //Empty array that we can fill with the times each rabbit appeared

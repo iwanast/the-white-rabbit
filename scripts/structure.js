@@ -8,6 +8,7 @@ document.getElementById("bodyId").onload = function () {
 };
 
 function createLandingPage() {
+  checkLocalDataExists ()
   main.innerHTML = `  
       <div id="wrapper_landingpage">
         <img id="gif_choose_score_play" src="./images/Start_game.gif" alt="reflection in sunglasses of two hands holding a blue and a red pill ">
@@ -24,6 +25,7 @@ let gameReacts = [];
 let gameDiffs = [];
 
 function retrieveHighscores() {
+  checkLocalDataExists ()
   let scoreArray = JSON.parse(localStorage.getItem("GameArray"));
 
   for (i = 0; i < 10; i++){
@@ -71,9 +73,18 @@ function openHighscorePage() {
           </tr>
           ${tableData}
         </table>
-        <button type="button" class="home-btn" onclick="createLandingPage()">Home</button>
+        <div id="highscore-btns">
+          <button type="button" onclick="createLandingPage()">Home</button>
+          <button type="button" onclick="clearHighscores()">Reset Highscores</button>
+        </div>
       </section>
       `;
+}
+
+function clearHighscores() {
+  localStorage.clear();
+  openHighscorePage();
+
 }
 
 function difficultyPage() {
