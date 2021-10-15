@@ -61,8 +61,8 @@ function calculateAverageReaction(sum, divisor){
     console.log(average);
     let testObj = createGameObject(date, finalTime, average, difficulty);
     console.log(testObj)
-return average; 
-}
+    return average; 
+} 
 
 function setDifficulty (diff){
     difficulty = diff; 
