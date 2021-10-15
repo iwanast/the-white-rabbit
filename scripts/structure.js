@@ -3,9 +3,9 @@
 let main = document.getElementById("main");
 //Loading the landingpage
 
-document.getElementById("bodyId").onload = function() {
+document.getElementById("bodyId").onload = function () {
   createLandingPage();
-}
+};
 
 //Inserts HTML into the main that creates the landing page
 function createLandingPage() {
@@ -15,7 +15,7 @@ function createLandingPage() {
 
         <button class="button_landingpage" id="button_play" onclick="difficultyPage()">play</button>
         <button class="button_landingpage" id="button_score" onclick="openHighscorePage()">score</button>
-    </div>`; 
+    </div>`;
 }
 
 function openHighscorePage() {
@@ -64,7 +64,7 @@ function retrieveHighscores() {
 }
 
 function difficultyPage() {
-    var diffPage = `
+  var diffPage = `
     <div id="box">
     </div>
     <section id="content">
@@ -84,20 +84,8 @@ function difficultyPage() {
   main.innerHTML = diffPage;
 }
 
-
-// function setDifficulty (diff){
-
-//   if (diff == "easy") {
-//     difficulty = easy;
-//   } else if (diff == "medium") {
-//     difficulty = "medium";
-//   } else if (difficulty == "hard") {
-//     difficulty = "hard";
-//   }
-// }
-
-function launchGamePage () {
-    //Clear the main and insert the HTML for the white rabbit game
+function launchGamePage() {
+  //Clear the main and insert the HTML for the white rabbit game
 }
 
 let reactionArray = [34, 75, 83, 56, 64, 56, 33, 44, 67, 66]; //Temporary placeholder array for testing calculateAverageReaction
@@ -110,7 +98,9 @@ function displaySummary() {
   createGameObject(date, finalTime, avReactSpeed, difficulty);
   storeGameObject(gameObject);
   main.innerHTML = "";
-  // let finalTime = 4500;
+
+  let finalTime = 4500;
+
   displayCharacter(finalTime);
   main.innerHTML = `
     <div id="box">
@@ -134,21 +124,11 @@ function displaySummary() {
       </div>
       <div id="play-again">
         <p>Would you like to play again?</p><br/>
-        <button id="yes-button">YES!</button>
-        <button id="no-button">NO</button>
+        <button id="yes-button" onclick="difficultyPage()">YES!</button>
+        <button id="no-button" onclick="createLandingPage()">NO</button>
       </div>
     </section>`;
 }
-
-// function calculateAverageReaction(array) {
-//   let avReactTime = 0;
-
-//   for (i = 0; i < array.length; i++) {
-//     avReactTime += array[i];
-//   }
-
-//   return avReactTime;
-// }
 
 const characters = []; //Fill this array with the Matrix characters
 
@@ -195,8 +175,7 @@ function createGameObject(date, time, react, diff) {
     time: time,
     react: react,
     diff: diff
-  }
-  storeGameObject(gameObject);
+  };
   return gameObject;
 }
 
