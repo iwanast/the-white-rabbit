@@ -4,18 +4,19 @@ let main = document.getElementById("main");
 //Loading the landingpage
 
 document.getElementById("bodyId").onload = function () {
-  createLandingPage();
+  //   createLandingPage();
+  displaySummary();
 };
 
 function createLandingPage() {
-  checkLocalDataExists ()
+  checkLocalDataExists();
   main.innerHTML = `  
       <div id="wrapper_landingpage">
         <img id="gif_choose_score_play" src="./images/Start_game.gif" alt="reflection in sunglasses of two hands holding a blue and a red pill ">
 
         <button class="button_landingpage" id="button_play" onclick="difficultyPage()">play</button>
         <button class="button_landingpage" id="button_score" onclick="openHighscorePage()">score</button>
-    </div>`; 
+    </div>`;
 }
 
 //Declare arrays for inserting high score data
@@ -25,10 +26,10 @@ let gameReacts = [];
 let gameDiffs = [];
 
 function retrieveHighscores() {
-  checkLocalDataExists ()
+  checkLocalDataExists();
   let scoreArray = JSON.parse(localStorage.getItem("GameArray"));
 
-  for (i = 0; i < 10; i++){
+  for (i = 0; i < 10; i++) {
     if (scoreArray[i]) {
       gameDates[i] = scoreArray[i].date;
       gameTimes[i] = scoreArray[i].time + "s";
@@ -82,19 +83,17 @@ function openHighscorePage() {
 }
 
 function clearHighscores() {
-let prompt = confirm("Are you sure you want to clear your highscores?");
+  let prompt = confirm("Are you sure you want to clear your highscores?");
   if (prompt == true) {
     localStorage.clear();
     openHighscorePage();
   } else {
     openHighscorePage();
-}
-
-
+  }
 }
 
 function difficultyPage() {
-    let diffPage = `
+  let diffPage = `
     <section id="content">
       <div id="contentBox">
         <h1> CLICK THE RABBIT AS FAST AS POSSIBLE</h1>
@@ -110,11 +109,11 @@ function difficultyPage() {
   main.innerHTML = diffPage;
 }
 
-function launchGamePage () {
+function launchGamePage() {
   main.innerHTML = `
   <div id="game-box">
   </div>
-  `
+  `;
   rabbitAppear(difficulty);
 }
 
@@ -128,16 +127,8 @@ function displaySummary() {
     </div>
     <section id="content">
     <div id="score-card">
-      <div id="score-quote">
-        <p>
-          I know what you are thinking, cause right now I'm thinking the same
-          thing.<br />
-          Actually, I've been thinking it ever since I got here: <br />
-          WHY OH WHY DIDN'T I TAKE THE BLUE PILL?!?!
-        </p>
-      </div>
       <div id="score">
-        <h2>SCORE:11001s</h2>
+        <h2>TIME: ${finalTime}s</h2>
         <h1>${gifText}</h1>
       </div>
       <div>
@@ -146,7 +137,8 @@ function displaySummary() {
       <div id="play-again">
         <p>Would you like to play again?</p><br/>
         <button id="yes-button" onclick="difficultyPage()">YES!</button>
-        <button id="no-button" onclick="createLandingPage()">NO</button>
+        <button id="no-button" onclick="createLandingPage()">NO!</button>
+        <button id="highscores" onclick="openHighscorePage()">Highscores</button>
       </div>
     </section>`;
 }

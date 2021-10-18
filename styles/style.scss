@@ -1,6 +1,6 @@
+@import "variables", "fonts", "landing", "highscore", "difficulty", "summary",
+  "game";
 
-@import "variables", "fonts", "landing", "highscore", "difficulty", "summary", "game";
-  
 //General styling
 
 body {
@@ -32,7 +32,7 @@ video {
     color: $white;
   }
 }
-  
+
 #box {
   background-color: $black;
   position: absolute;
