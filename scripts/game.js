@@ -26,7 +26,16 @@ let difficulty = "Easy";
 // Sum of not clicked on the rabbit
 let rabbitPenalty = 8;
 // Sum of clicking wrong
-let misclickPenalty = 45;
+let misclickPenalty = 0;
+
+function clickPlayButton () {
+    misclickPenalty = 0;
+    rabbitAppear();
+}
+
+function misclickPenaltyCounter() {
+    misclickPenalty++;
+}
 
 // let starttimeGamesession, endtimeGamesession;
 // timerFunction();
