@@ -1,7 +1,18 @@
+#gamePage {
+  height: 200px;
+  width: 200px;
+  background-color: white;
+}
+
 #gamePage img {
   height: 100px;
   width: 100px;
   position: absolute;
   background-color: rebeccapurple;
+}
+
+#gamePage button {
+  z-index: 5;
+  position: absolute;
 }
 /*# sourceMappingURL=game.css.map */

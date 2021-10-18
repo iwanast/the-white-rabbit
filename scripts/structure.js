@@ -5,7 +5,7 @@ let main = document.getElementById("main");
 
 document.getElementById("bodyId").onload = function () {
   //   createLandingPage();
-  displaySummary();
+  createLandingPage();
 };
 
 function createLandingPage() {
