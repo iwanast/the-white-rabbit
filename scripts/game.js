@@ -38,8 +38,8 @@ function timerFunction () {
         }
     }
     //Depending on how much we want the penaltys to be depending on difficulty?*************************
-    finalTime += (rabbitPenalty * penaltyNumber()); // example with "easy" 2000 milliseconds 
-    finalTime += (misclickPenalty * penaltyNumber()); // should we set this different??
+    finalTime += (rabbitPenalty * 4000); 
+    finalTime += (misclickPenalty * 1000);
     calculateAverageReaction(finalTime, (rabbitAppearTime.length - rabbitPenalty));
     // clearing the arrays here for next time 
     rabbitAppearTime = [];
@@ -53,25 +53,9 @@ function timerFunction () {
     //Then save the final time into the local storage by a new function (Ben working on)
 }
 
-function penaltyNumber(){
-    if (difficulty == "easy"){
-        return 2000; 
-    }
-    else if(difficulty == "medium"){
-        return 1500;
-    }
-    else if(difficulty == "hard"){
-        return 1000;
-    }
-}
 
 function calculateAverageReaction(sum, divisor){
-    // console.log("sum: " + sum);
-    // console.log("divisor: " + divisor);
     average = sum / divisor; 
-    // console.log(average);
-    // let testObj = createGameObject(date, finalTime, average, difficulty);
-    // console.log(testObj)
     return average; 
 } 
 
