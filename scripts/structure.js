@@ -111,9 +111,9 @@ function difficultyPage() {
 
 function launchGamePage () {
   var gamePage = `
-  <div id="gamePage">
-  <button onclick="rabbitAppear()">PLAY</button>
-  <img src="../images/rabbitpic.png" alt="Rabbit">
+  <div id="game-page" onclick="misclickPenaltyCounter()">
+    <img src="../images/rabbitpic.png" alt="Rabbit">
+    <button onclick="clickPlayButton()">PLAY</button>
   </div>
   `  
   //clearing the html
