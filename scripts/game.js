@@ -65,13 +65,13 @@ function timerFunction () {
 }
 
 function penaltyNumber(){
-    if (difficulty == "easy"){
+    if (difficulty == "Easy"){
         return 2000; 
     }
-    else if(difficulty == "medium"){
+    else if(difficulty == "Medium"){
         return 1500;
     }
-    else if(difficulty == "hard"){
+    else if(difficulty == "Hard"){
         return 1000;
     }
 }
