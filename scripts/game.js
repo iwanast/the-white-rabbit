@@ -27,6 +27,8 @@ let difficulty = "Easy";
 let rabbitPenalty = 8;
 // Sum of clicking wrong
 let misclickPenalty = 0;
+//Keep track of number of rabbits
+let numRabbits = 0;
 
 function clickPlayButton () {
     misclickPenalty = 0;
@@ -124,13 +126,14 @@ function rabbitAppear () {
     //Place a clickable image of a white rabbit in a random position on the page
     //Save the current time into the rabbitAppear array at position matching numRabbits - 1
     //Run a rabbitTimer()
+    //Add one to number of numRabbits counter
 }
 
 function rabbitTimer () {
     //Wait a set amount of time (decided by difficulty variable)
     //Check if the rabbit is still present on the page (hasn't been clicked)
     //If the rabbit is still present, make it disappear and add one to rabbitPenalty counter
-        //Add one to number of numRabbits counter
+
         //If numRabbits less than 10, run rabbitAppear
         //If numRabbits is equal to 10, save current time into a variable and run displaySummary();
 }
