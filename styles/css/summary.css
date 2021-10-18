@@ -16,9 +16,12 @@
 }
 
 #score-card {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -30,6 +33,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   margin: 0 0 10px 0;
+
 }
 
 #play-again {
@@ -42,8 +46,7 @@
 
 #play-again button {
   display: flex reverse;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   font-size: 1em;
   padding: 10px;
   border-radius: 20px;
@@ -53,50 +56,22 @@
 }
 
 #play-again button:hover {
-  -webkit-animation: pulse 0.1s linear;
-          animation: pulse 0.1s linear;
+  animation: pulse 0.1s linear;
   background-color: green;
-}
-
-@-webkit-keyframes pulse {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    -webkit-box-shadow: 0 0 0 0 rgba(223, 222, 222, 0.7);
-            box-shadow: 0 0 0 0 rgba(223, 222, 222, 0.7);
-  }
-  50% {
-    -webkit-transform: scale(0.9);
-            transform: scale(0.9);
-    -webkit-box-shadow: 0 0 0 10px rgba(223, 222, 222, 0.7);
-            box-shadow: 0 0 0 10px rgba(223, 222, 222, 0.7);
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    -webkit-box-shadow: 0 0 0 0 rgba(223, 222, 222, 0.7);
-            box-shadow: 0 0 0 0 rgba(223, 222, 222, 0.7);
-  }
 }
 
 @keyframes pulse {
   0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    -webkit-box-shadow: 0 0 0 0 rgba(223, 222, 222, 0.7);
-            box-shadow: 0 0 0 0 rgba(223, 222, 222, 0.7);
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(223, 222, 222, 0.7);
   }
   50% {
-    -webkit-transform: scale(0.9);
-            transform: scale(0.9);
-    -webkit-box-shadow: 0 0 0 10px rgba(223, 222, 222, 0.7);
-            box-shadow: 0 0 0 10px rgba(223, 222, 222, 0.7);
+    transform: scale(0.9);
+    box-shadow: 0 0 0 10px rgba(223, 222, 222, 0.7);
   }
   100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    -webkit-box-shadow: 0 0 0 0 rgba(223, 222, 222, 0.7);
-            box-shadow: 0 0 0 0 rgba(223, 222, 222, 0.7);
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(223, 222, 222, 0.7);
   }
 }
 /*# sourceMappingURL=summary.css.map */

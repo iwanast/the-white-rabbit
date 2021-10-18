@@ -109,12 +109,17 @@ function difficultyPage() {
   main.innerHTML = diffPage;
 }
 
-function launchGamePage() {
-  main.innerHTML = `
-  <div id="game-box">
+function launchGamePage () {
+  var gamePage = `
+  <div id="gamePage">
+  <button onclick="rabbitAppear()">PLAY</button>
+  <img src="../images/rabbitpic.png" alt="Rabbit">
   </div>
-  `;
-  rabbitAppear(difficulty);
+  `  
+  //clearing the html
+main.innerHTML = "";
+//adding the game page html
+main.innerHTML = gamePage;
 }
 
 let reactionArray = [34, 75, 83, 56, 64, 56, 33, 44, 67, 66]; //Temporary placeholder array for testing calculateAverageReaction

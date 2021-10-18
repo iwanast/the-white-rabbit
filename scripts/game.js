@@ -77,6 +77,7 @@ function calculateAverageReaction(sum, divisor){
 
 function setDifficulty (diff){
     difficulty = diff; 
+    launchGamePage();
 }
 
 function createGameObject(date, time, react, diff) {
