@@ -272,7 +272,7 @@ table tr .table-header {
 }
 
 #score-quote p {
-  font-size: 1.5em;
+  font-size: 1.25em;
   font-weight: bold;
   text-align: center;
 }
@@ -281,6 +281,7 @@ table tr .table-header {
   width: 100%;
   border-radius: 60px;
   background-color: green;
+  margin: 0 0 10px 0;
 }
 
 #score h2 {
@@ -293,11 +294,29 @@ table tr .table-header {
   text-align: center;
 }
 
+#score-gif {
+  border-radius: 60px;
+}
+
 #score-card {
   display: flex;
+
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 0 10px 0;
+
 }
 
 #play-again {
@@ -314,7 +333,9 @@ table tr .table-header {
   font-size: 1em;
   padding: 10px;
   border-radius: 20px;
-  width: 65px;
+  width: 15vw;
+  max-width: 130px;
+  min-width: 100px;
 }
 
 #play-again button:hover {
