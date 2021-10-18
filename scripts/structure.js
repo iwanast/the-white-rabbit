@@ -7,8 +7,8 @@ document.getElementById("bodyId").onload = function () {
   createLandingPage();
 };
 
-//Inserts HTML into the main that creates the landing page
 function createLandingPage() {
+  checkLocalDataExists ()
   main.innerHTML = `  
       <div id="wrapper_landingpage">
         <img id="gif_choose_score_play" src="./images/Start_game.gif" alt="reflection in sunglasses of two hands holding a blue and a red pill ">
@@ -18,8 +18,32 @@ function createLandingPage() {
     </div>`; 
 }
 
+//Declare arrays for inserting high score data
+let gameDates = [];
+let gameTimes = [];
+let gameReacts = [];
+let gameDiffs = [];
+
+function retrieveHighscores() {
+  checkLocalDataExists ()
+  let scoreArray = JSON.parse(localStorage.getItem("GameArray"));
+
+  for (i = 0; i < 10; i++){
+    if (scoreArray[i]) {
+      gameDates[i] = scoreArray[i].date;
+      gameTimes[i] = scoreArray[i].time + "s";
+      gameReacts[i] = scoreArray[i].react + "ms";
+      gameDiffs[i] = scoreArray[i].diff;
+    } else {
+      gameDates[i] = "-";
+      gameTimes[i] = "-";
+      gameReacts[i] = "-";
+      gameDiffs[i] = "-";
+    }
+  }
+}
+
 function openHighscorePage() {
-  main.innerHtml = "";
   retrieveHighscores();
   let tableData = "";
 
@@ -27,10 +51,10 @@ function openHighscorePage() {
     tableData += `
         <tr>
             <td class="table-rank">${i + 1}</td>
-            <td class="table-date">Date</td>
-            <td class="table-time">Time</td>
-            <td class="table-react">React</td>
-            <td class="table-difficulty">Difficulty</td>
+            <td class="table-date">${gameDates[i]}</td>
+            <td class="table-time">${gameTimes[i]}</td>
+            <td class="table-react">${gameReacts[i]}</td>
+            <td class="table-difficulty">${gameDiffs[i]}</td>
         </tr>
         `;
   }
@@ -49,22 +73,28 @@ function openHighscorePage() {
           </tr>
           ${tableData}
         </table>
-        <button type="button" class="home-btn" onclick="createLandingPage()">Home</button>
+        <div id="highscore-btns">
+          <button type="button" onclick="createLandingPage()">Home</button>
+          <button type="button" onclick="clearHighscores()">Reset Highscores</button>
+        </div>
       </section>
       `;
 }
 
-function retrieveHighscores() {
-  
-  //Will be called by the OpenHighscorePage function
-  //See first how many highscores are stored (lesser then 10, retrieve the ones who are there)
-  //Retrieve the first ten highscores for the user from the local storage
-  //(scores should be stored ordered by lowest time to highest so retrieving first 10 will work)
-  //Insert relevant data from those top ten into the page as it is loaded (date, time, average reaction time)
+function clearHighscores() {
+let prompt = confirm("Are you sure you want to clear your highscores?");
+  if (prompt == true) {
+    localStorage.clear();
+    openHighscorePage();
+  } else {
+    openHighscorePage();
+}
+
+
 }
 
 function difficultyPage() {
-    var diffPage = `
+    let diffPage = `
     <section id="content">
       <div id="contentBox">
         <h1> CLICK THE RABBIT AS FAST AS POSSIBLE</h1>
@@ -76,9 +106,7 @@ function difficultyPage() {
         <embed src="images/tumblr_myo2hr97No1skltbdo1_500.gif"/>
       </div>
     </section>`;
-  //clearing the html
   main.innerHTML = "";
-  //adding the difficulty page html
   main.innerHTML = diffPage;
 }
 
@@ -93,12 +121,8 @@ function launchGamePage () {
 let reactionArray = [34, 75, 83, 56, 64, 56, 33, 44, 67, 66]; //Temporary placeholder array for testing calculateAverageReaction
 
 function displaySummary() {
-  displayCharacter(); //Needs to be completed  
-  createGameObject(date, finalTime, avReactSpeed, difficulty);
-  storeGameObject(gameObject);
-  main.innerHTML = "";
-
   displayCharacter(finalTime);
+  createGameObject(date, finalTime, avReactSpeed, difficulty);
   main.innerHTML = `
     <div id="box">
     </div>
@@ -127,9 +151,7 @@ function displaySummary() {
     </section>`;
 }
 
-const characters = []; //Fill this array with the Matrix characters
-
-var displayGif = [
+let displayGif = [
   "./images/look-neo.gif",
   "./images/Agent Smith.gif",
   "./images/Trinity-3.gif",
@@ -137,7 +159,7 @@ var displayGif = [
   "./images/cypher.gif",
 ];
 
-var displayGifText = [
+let displayGifText = [
   "You are the Chosen One!",
   "You're bad! But your score isn't!",
   "Holy F**king Trinity",
@@ -162,20 +184,4 @@ function displayCharacter(finalTime) {
     gifLink = displayGif[4];
     gifText = displayGifText[4];
   }
-  //Will be called in the displaySummary function
-  //Use an else if statement to check the game time against the thresholds we picked, then retrieve a picture from the characters array
-}
-
-function createGameObject(date, time, react, diff) {
-  let gameObject = {
-    date: date,
-    time: time,
-    react: react,
-    diff: diff
-  };
-  return gameObject;
-}
-
-function storeGameObject(object) {
-  //gameObject needs to be stringified and stored into local storage here
 }
