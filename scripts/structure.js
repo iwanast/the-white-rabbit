@@ -98,9 +98,9 @@ function difficultyPage() {
       <div id="contentBox">
         <h1> CLICK THE RABBIT AS FAST AS POSSIBLE</h1>
         <div id="levelBtns">
-          <button type="button" onclick="setDifficulty('easy');">EASY</button>
-          <button type="button" onclick="setDifficulty('medium');">MEDIUM</button>
-          <button type="button" onclick="setDifficulty('hard');">HARD</button>
+          <button type="button" onclick="setDifficulty('Easy');">EASY</button>
+          <button type="button" onclick="setDifficulty('Medium');">MEDIUM</button>
+          <button type="button" onclick="setDifficulty('Hard');">HARD</button>
         </div>
         <embed src="images/tumblr_myo2hr97No1skltbdo1_500.gif"/>
       </div>
