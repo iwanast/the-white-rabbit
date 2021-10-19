@@ -291,8 +291,6 @@ function clearHighscores() {
 
 function difficultyPage() {
   let diffPage = `
-  <div id="box">
-  </div>
   <div class = "card">
       <img id= "logo" onclick="createLandingPage()" src="./images/rabbitpic.png" alt="white-rabbit icon">
       <img id= "logo-back" onclick="createLandingPage()" src="./images/ce2c8850dec0b2027695c3e56bc25708-removebg-preview (1).png" alt="white-rabbit icon">
