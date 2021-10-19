@@ -1,6 +1,6 @@
 //Navigation functions
 
-let main = document.getElementById("main");
+
 //Loading the landingpage
 
 document.getElementById("bodyId").onload = function () {
@@ -98,9 +98,9 @@ function difficultyPage() {
       <div id="contentBox">
         <h1> CLICK THE RABBIT AS FAST AS POSSIBLE</h1>
         <div id="levelBtns">
-          <button type="button" onclick="setDifficulty('easy');">EASY</button>
-          <button type="button" onclick="setDifficulty('medium');">MEDIUM</button>
-          <button type="button" onclick="setDifficulty('hard');">HARD</button>
+          <button type="button" onclick="setDifficulty('Easy');">EASY</button>
+          <button type="button" onclick="setDifficulty('Medium');">MEDIUM</button>
+          <button type="button" onclick="setDifficulty('Hard');">HARD</button>
         </div>
         <embed src="images/tumblr_myo2hr97No1skltbdo1_500.gif"/>
       </div>
@@ -112,7 +112,6 @@ function difficultyPage() {
 function launchGamePage () {
   var gamePage = `
   <div id="game-page" onclick="misclickPenaltyCounter()">
-    <img onclick="timeStamp()" src="../images/rabbitpic.png" alt="Rabbit">
     <button onclick="clickPlayButton()">PLAY</button>
     <div id="rand_pos" class="rand"></div>
 
