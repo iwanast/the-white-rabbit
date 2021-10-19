@@ -112,8 +112,10 @@ function difficultyPage() {
 function launchGamePage () {
   var gamePage = `
   <div id="game-page" onclick="misclickPenaltyCounter()">
-    <img src="../images/rabbitpic.png" alt="Rabbit">
+    <img onclick="timeStamp()" src="../images/rabbitpic.png" alt="Rabbit">
     <button onclick="clickPlayButton()">PLAY</button>
+    <div id="rand_pos" class="rand"></div>
+
   </div>
   `  
   //clearing the html
