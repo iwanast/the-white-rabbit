@@ -201,7 +201,11 @@ document.getElementById("bodyId").onload = function () {
 
 function createLandingPage() {
   checkLocalDataExists();
-  main.innerHTML = `  
+  main.innerHTML = `
+  <div class = "card">
+      <img id= "logo" onclick="createLandingPage()" src="./images/rabbitpic.png" alt="white-rabbit icon">
+      <img id= "logo-back" onclick="createLandingPage()" src="./images/ce2c8850dec0b2027695c3e56bc25708-removebg-preview (1).png" alt="white-rabbit icon">
+      </div>  
       <div id="wrapper_landingpage">
         <img id="gif_choose_score_play" src="./images/Start_game.gif" alt="reflection in sunglasses of two hands holding a blue and a red pill ">
 
@@ -246,6 +250,10 @@ function openHighscorePage() {
   }
 
   main.innerHTML = `
+  <div class = "card">
+  <img id= "logo" onclick="createLandingPage()" src="./images/rabbitpic.png" alt="white-rabbit icon">
+  <img id= "logo-back" onclick="createLandingPage()" src="./images/ce2c8850dec0b2027695c3e56bc25708-removebg-preview (1).png" alt="white-rabbit icon">
+  </div>
       <div id="box">
       </div>
       <section id="content"> 
@@ -290,6 +298,10 @@ function clearHighscores() {
 
 function difficultyPage() {
   let diffPage = `
+  <div class = "card">
+      <img id= "logo" onclick="createLandingPage()" src="./images/rabbitpic.png" alt="white-rabbit icon">
+      <img id= "logo-back" onclick="createLandingPage()" src="./images/ce2c8850dec0b2027695c3e56bc25708-removebg-preview (1).png" alt="white-rabbit icon">
+      </div>
     <section id="content">
       <div id="contentBox">
         <h1> CLICK THE RABBIT AS FAST AS POSSIBLE</h1>
@@ -324,6 +336,10 @@ function displaySummary() {
   displayCharacter(finalTime);
   createGameObject(date, finalTime, avReactSpeed, difficulty);
   main.innerHTML = `
+  <div class = "card">
+      <img id= "logo" onclick="createLandingPage()" src="./images/rabbitpic.png" alt="white-rabbit icon">
+      <img id= "logo-back" onclick="createLandingPage()" src="./images/ce2c8850dec0b2027695c3e56bc25708-removebg-preview (1).png" alt="white-rabbit icon">
+      </div>
     <div id="box">
     </div>
     <section id="content">
