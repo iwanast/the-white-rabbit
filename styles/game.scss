@@ -14,11 +14,18 @@
     height: 100px;
     width: 100px;
     z-index: 5;
-    background-color: rebeccapurple;
+    text-align: center;
+    position: relative;
+    cursor: crosshair;
     }
   
     button {
       z-index: 5;
       margin-top: 10px;
     }
-  }
+    }
+  
+
+  
+  
+
