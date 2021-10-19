@@ -25,7 +25,8 @@
   width: 500px;
   height: 200px;
   position: absolute;
-  transform: translate(50%, -50%);
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
   top: 50%;
   right: 50%;
 }
@@ -33,7 +34,8 @@
 @media screen and (max-width: 481px) {
   #wrapper_landingpage {
     position: relative;
-    transform: translate(0);
+    -webkit-transform: translate(0);
+            transform: translate(0);
     top: 100px;
     right: 0;
     margin: auto;
@@ -73,7 +75,8 @@
   padding: 1px 5px;
   border-radius: 30%;
   color: #efefef;
-  box-shadow: 0 0 1px 1px black;
+  -webkit-box-shadow: 0 0 1px 1px black;
+          box-shadow: 0 0 1px 1px black;
 }
 
 #wrapper_landingpage #button_play {
@@ -81,7 +84,8 @@
   top: 145px;
   left: 50px;
   border: 1px solid #da1410;
-  animation: button_play_moving 1.28s linear infinite;
+  -webkit-animation: button_play_moving 1.28s linear infinite;
+          animation: button_play_moving 1.28s linear infinite;
 }
 
 @media screen and (max-width: 480px) {
@@ -103,7 +107,8 @@
   top: 150px;
   left: 390px;
   border: 1px solid #0085b2;
-  animation: button_score_moving 1.28s linear infinite;
+  -webkit-animation: button_score_moving 1.28s linear infinite;
+          animation: button_score_moving 1.28s linear infinite;
 }
 
 @media screen and (max-width: 480px) {
@@ -120,39 +125,97 @@
   }
 }
 
-@keyframes button_play_moving {
+@-webkit-keyframes button_play_moving {
   0% {
-    transform: rotate(20deg) translate(-2.5%, 5%);
+    -webkit-transform: rotate(20deg) translate(-2.5%, 5%);
+            transform: rotate(20deg) translate(-2.5%, 5%);
   }
   25% {
-    transform: rotate(20deg) translate(-5%, 10%);
+    -webkit-transform: rotate(20deg) translate(-5%, 10%);
+            transform: rotate(20deg) translate(-5%, 10%);
   }
   50% {
-    transform: rotate(20deg) translate(-2.5%, 5%);
+    -webkit-transform: rotate(20deg) translate(-2.5%, 5%);
+            transform: rotate(20deg) translate(-2.5%, 5%);
   }
   75% {
-    transform: rotate(20deg) translate(0);
+    -webkit-transform: rotate(20deg) translate(0);
+            transform: rotate(20deg) translate(0);
   }
   100% {
-    transform: rotate(20deg) translate(0);
+    -webkit-transform: rotate(20deg) translate(0);
+            transform: rotate(20deg) translate(0);
   }
 }
 
-@keyframes button_score_moving {
+@keyframes button_play_moving {
   0% {
-    transform: rotate(-20deg) translate(2.5%, 5%);
+    -webkit-transform: rotate(20deg) translate(-2.5%, 5%);
+            transform: rotate(20deg) translate(-2.5%, 5%);
   }
   25% {
-    transform: rotate(-20deg) translate(5%, 10%);
+    -webkit-transform: rotate(20deg) translate(-5%, 10%);
+            transform: rotate(20deg) translate(-5%, 10%);
   }
   50% {
-    transform: rotate(-20deg) translate(2.5%, 5%);
+    -webkit-transform: rotate(20deg) translate(-2.5%, 5%);
+            transform: rotate(20deg) translate(-2.5%, 5%);
   }
   75% {
-    transform: rotate(-20deg) translate(0);
+    -webkit-transform: rotate(20deg) translate(0);
+            transform: rotate(20deg) translate(0);
   }
   100% {
-    transform: rotate(-20deg) translate(0);
+    -webkit-transform: rotate(20deg) translate(0);
+            transform: rotate(20deg) translate(0);
+  }
+}
+
+
+@-webkit-keyframes button_score_moving {
+  0% {
+    -webkit-transform: rotate(-20deg) translate(2.5%, 5%);
+            transform: rotate(-20deg) translate(2.5%, 5%);
+  }
+  25% {
+    -webkit-transform: rotate(-20deg) translate(5%, 10%);
+            transform: rotate(-20deg) translate(5%, 10%);
+  }
+  50% {
+    -webkit-transform: rotate(-20deg) translate(2.5%, 5%);
+            transform: rotate(-20deg) translate(2.5%, 5%);
+  }
+  75% {
+    -webkit-transform: rotate(-20deg) translate(0);
+            transform: rotate(-20deg) translate(0);
+  }
+  100% {
+    -webkit-transform: rotate(-20deg) translate(0);
+            transform: rotate(-20deg) translate(0);
+  }
+}
+
+
+@keyframes button_score_moving {
+  0% {
+    -webkit-transform: rotate(-20deg) translate(2.5%, 5%);
+            transform: rotate(-20deg) translate(2.5%, 5%);
+  }
+  25% {
+    -webkit-transform: rotate(-20deg) translate(5%, 10%);
+            transform: rotate(-20deg) translate(5%, 10%);
+  }
+  50% {
+    -webkit-transform: rotate(-20deg) translate(2.5%, 5%);
+            transform: rotate(-20deg) translate(2.5%, 5%);
+  }
+  75% {
+    -webkit-transform: rotate(-20deg) translate(0);
+            transform: rotate(-20deg) translate(0);
+  }
+  100% {
+    -webkit-transform: rotate(-20deg) translate(0);
+            transform: rotate(-20deg) translate(0);
   }
 }
 
@@ -218,10 +281,19 @@ table tr .table-header {
 #highscore-btns {
   width: 60%;
   height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #highscore-btns button {
@@ -236,8 +308,13 @@ table tr .table-header {
 #contentBox {
   width: 100%;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 #contentBox h1 {
@@ -257,14 +334,21 @@ table tr .table-header {
 
 #contentBox #levelBtns {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin: auto;
-  justify-content: space-around;
-  flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 #contentBox embed {
-  align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   width: auto;
   margin: auto;
   border-radius: 20%;
@@ -273,25 +357,44 @@ table tr .table-header {
 #score {
   width: 100%;
   border-radius: 60px;
-  background-color: green;
+  background-color: transparent;
   margin: 0 0 10px 0;
 }
 
+
+
+#score h3 {
+  font-size: 1em;
+  color: #efefef;
+  text-align: center;
+}
+
+
 #score h2 {
   font-size: 1.5em;
-  color: greenyellow;
+  color: #efefef;
   text-align: center;
 }
 
 #score h1 {
   text-align: center;
+  font-size: 2.5em;
 }
 
 #score-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin: 0 0 10px 0;
 }
 
@@ -305,7 +408,8 @@ table tr .table-header {
 
 #play-again button {
   display: flex reverse;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   font-size: 1em;
   padding: 10px;
   border-radius: 20px;
@@ -315,22 +419,50 @@ table tr .table-header {
 }
 
 #play-again button:hover {
-  animation: pulse 0.1s linear;
+  -webkit-animation: pulse 0.1s linear;
+          animation: pulse 0.1s linear;
   background-color: green;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-box-shadow: 0 0 0 0 rgba(223, 222, 222, 0.7);
+            box-shadow: 0 0 0 0 rgba(223, 222, 222, 0.7);
+  }
+  50% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+    -webkit-box-shadow: 0 0 0 10px rgba(223, 222, 222, 0.7);
+            box-shadow: 0 0 0 10px rgba(223, 222, 222, 0.7);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-box-shadow: 0 0 0 0 rgba(223, 222, 222, 0.7);
+            box-shadow: 0 0 0 0 rgba(223, 222, 222, 0.7);
+  }
 }
 
 @keyframes pulse {
   0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(223, 222, 222, 0.7);
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-box-shadow: 0 0 0 0 rgba(223, 222, 222, 0.7);
+            box-shadow: 0 0 0 0 rgba(223, 222, 222, 0.7);
   }
   50% {
-    transform: scale(0.9);
-    box-shadow: 0 0 0 10px rgba(223, 222, 222, 0.7);
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+    -webkit-box-shadow: 0 0 0 10px rgba(223, 222, 222, 0.7);
+            box-shadow: 0 0 0 10px rgba(223, 222, 222, 0.7);
   }
   100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(223, 222, 222, 0.7);
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-box-shadow: 0 0 0 0 rgba(223, 222, 222, 0.7);
+            box-shadow: 0 0 0 0 rgba(223, 222, 222, 0.7);
   }
 }
 
@@ -338,10 +470,19 @@ table tr .table-header {
   height: 100vh;
   width: 100vw;
   background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   z-index: 4;
   position: relative;
 }
@@ -393,7 +534,8 @@ video {
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 * p {
@@ -429,11 +571,20 @@ video {
   min-width: 500px;
   margin: 10vh 10vw 10vh 10vw;
   padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   z-index: 1;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .card {
