@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200;300;400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200;300;400;500;600;700;800&display=swap");
 @font-face {
-  font-family: 'no-continue';
+  font-family: "no-continue";
   src: url("../../Fonts/no-continue/WebKit/no_continue.eot");
   /* IE9 Compat Modes */
   src: url("../../Fonts/no-continue/WebKit/no_continue.eot?#iefix") format("embedded-opentype"), url("../../Fonts/no-continue/WebKit/no_continue.woff2") format("woff2"), url("../../Fonts/no-continue/WebKit/no_continue.woff") format("woff"), url("../../Fonts/no-continue/WebKit/no_continue.ttf") format("truetype"), url("../../Fonts/no-continue/WebKit/no_continue.svg#no_continue") format("svg");
@@ -10,9 +10,8 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
-  font-family: 'no-continue';
+  font-family: "no-continue";
   src: url("../../Fonts/no-continue/WebKit/no_continue.eot");
   /* IE9 Compat Modes */
   src: url("../../Fonts/no-continue/WebKit/no_continue.eot?#iefix") format("embedded-opentype"), url("../../Fonts/no-continue/WebKit/no_continue.woff2") format("woff2"), url("../../Fonts/no-continue/WebKit/no_continue.woff") format("woff"), url("../../Fonts/no-continue/WebKit/no_continue.ttf") format("truetype"), url("../../Fonts/no-continue/WebKit/no_continue.svg#no_continue") format("svg");
@@ -20,7 +19,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 #wrapper_landingpage {
   width: 500px;
   height: 200px;
@@ -29,7 +27,6 @@
   top: 50%;
   right: 50%;
 }
-
 @media screen and (max-width: 481px) {
   #wrapper_landingpage {
     position: relative;
@@ -42,31 +39,26 @@
     overflow: hidden;
   }
 }
-
 @media screen and (max-width: 320px) {
   #wrapper_landingpage {
     width: 290px;
   }
 }
-
 #wrapper_landingpage #gif_choose_score_play {
   position: absolute;
   top: 0;
   z-index: 2;
 }
-
 @media screen and (max-width: 480px) {
   #wrapper_landingpage #gif_choose_score_play {
     width: 380px;
   }
 }
-
 @media screen and (max-width: 320px) {
   #wrapper_landingpage #gif_choose_score_play {
     width: 290px;
   }
 }
-
 #wrapper_landingpage .button_landingpage {
   position: absolute;
   z-index: 3;
@@ -77,7 +69,6 @@
   box-shadow: 0 0 1px 1px black;
 
 }
-
 #wrapper_landingpage #button_play {
   background-color: #da1410;
   top: 145px;
@@ -85,21 +76,18 @@
   border: 1px solid #da1410;
   animation: button_play_moving 1.28s linear infinite;
 }
-
 @media screen and (max-width: 480px) {
   #wrapper_landingpage #button_play {
     top: 111px;
     left: 40px;
   }
 }
-
 @media screen and (max-width: 320px) {
   #wrapper_landingpage #button_play {
     top: 80px;
     left: 30px;
   }
 }
-
 #wrapper_landingpage #button_score {
   background-color: #0085b2;
   top: 150px;
@@ -107,14 +95,12 @@
   border: 1px solid #0085b2;
   animation: button_score_moving 1.28s linear infinite;
 }
-
 @media screen and (max-width: 480px) {
   #wrapper_landingpage #button_score {
     top: 109px;
     left: 300px;
   }
 }
-
 @media screen and (max-width: 320px) {
   #wrapper_landingpage #button_score {
     top: 80px;
@@ -139,7 +125,6 @@
     transform: rotate(20deg) translate(0);
   }
 }
-
 @keyframes button_score_moving {
   0% {
     transform: rotate(-20deg) translate(2.5%, 5%);
@@ -157,9 +142,8 @@
     transform: rotate(-20deg) translate(0);
   }
 }
-
 @font-face {
-  font-family: 'no-continue';
+  font-family: "no-continue";
   src: url("../../Fonts/no-continue/WebKit/no_continue.eot");
   /* IE9 Compat Modes */
   src: url("../../Fonts/no-continue/WebKit/no_continue.eot?#iefix") format("embedded-opentype"), url("../../Fonts/no-continue/WebKit/no_continue.woff2") format("woff2"), url("../../Fonts/no-continue/WebKit/no_continue.woff") format("woff"), url("../../Fonts/no-continue/WebKit/no_continue.ttf") format("truetype"), url("../../Fonts/no-continue/WebKit/no_continue.svg#no_continue") format("svg");
@@ -167,51 +151,42 @@
   font-weight: normal;
   font-style: normal;
 }
-
 table {
   background-color: transparent;
   width: 80%;
   margin: 5vh 0 5vh 0;
 }
-
 table th {
   color: #efefef;
   font-size: 14px;
   font-weight: bold;
   font-size: 16px;
 }
-
 table tr td {
   color: #efefef;
   font-size: 14px;
   font-size: 16px;
 }
-
 table tr .table-rank {
   width: 10%;
   text-align: center;
 }
-
 table tr .table-date {
   width: 25%;
   text-align: center;
 }
-
 table tr .table-time {
   width: 25%;
   text-align: center;
 }
-
 table tr .table-react {
   width: 20%;
   text-align: center;
 }
-
 table tr .table-difficulty {
   width: 20%;
   text-align: center;
 }
-
 table tr .table-header {
   font-size: 17px;
   text-align: center;
@@ -225,7 +200,6 @@ table tr .table-header {
   justify-content: space-evenly;
   align-items: center;
 }
-
 #highscore-btns button {
   background-color: #171717;
   height: 40px;
@@ -242,12 +216,10 @@ table tr .table-header {
   display: flex;
   flex-direction: column;
 }
-
 #contentBox h1 {
   margin: auto;
   color: white;
 }
-
 #contentBox button {
   height: 80px;
   width: 80px;
@@ -257,7 +229,6 @@ table tr .table-header {
   font-size: large;
   cursor: pointer;
 }
-
 #contentBox #levelBtns {
   width: 100%;
   display: flex;
@@ -265,7 +236,6 @@ table tr .table-header {
   justify-content: space-around;
   flex-direction: row;
 }
-
 #contentBox embed {
   align-self: flex-end;
   width: auto;
@@ -279,13 +249,11 @@ table tr .table-header {
   background-color: green;
   margin: 0 0 10px 0;
 }
-
 #score h2 {
   font-size: 1.5em;
   color: greenyellow;
   text-align: center;
 }
-
 #score h1 {
   text-align: center;
 }
@@ -301,11 +269,9 @@ table tr .table-header {
 #play-again {
   text-align: center;
 }
-
 #play-again p {
   font-size: 1.5em;
 }
-
 #play-again button {
   display: flex reverse;
   justify-content: space-around;
@@ -316,7 +282,6 @@ table tr .table-header {
   max-width: 130px;
   min-width: 100px;
 }
-
 #play-again button:hover {
   animation: pulse 0.1s linear;
   background-color: green;
@@ -336,7 +301,6 @@ table tr .table-header {
     box-shadow: 0 0 0 0 rgba(223, 222, 222, 0.7);
   }
 }
-
 #game-page {
   height: 100vh;
   width: 100vw;
@@ -348,7 +312,6 @@ table tr .table-header {
   z-index: 4;
   position: relative;
 }
-
 #game-page img {
   height: 100px;
   width: 100px;
@@ -357,7 +320,6 @@ table tr .table-header {
   position: relative;
   cursor: crosshair;
 }
-
 #game-page button {
   z-index: 5;
   margin-top: 10px;
@@ -382,16 +344,13 @@ video {
   padding: 0;
   box-sizing: border-box;
 }
-
 * p {
   color: white;
   font-size: 14px;
 }
-
 * h1 {
   color: #efefef;
 }
-
 * h2 {
   color: #efefef;
 }
@@ -423,6 +382,9 @@ video {
   align-items: center;
 }
 
+
+/*# sourceMappingURL=style.css.map */
+
 .card {
   display: inline-block;
   position: absolute;
@@ -449,3 +411,4 @@ video {
   cursor: crosshair;
 }
 /*# sourceMappingURL=style.css.map */
+
