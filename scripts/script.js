@@ -132,9 +132,9 @@ function rabbitAppear () {
         clicked = false; 
         var bodyWidth = document.getElementById("main").clientWidth;
         var bodyHeight = document.getElementById("main").clientHeight;
-        var randPosX = Math.floor((Math.random()*bodyWidth));
-        var randPosY = Math.floor((Math.random()*bodyHeight));
-    console.log("bodyHight: " + bodyHeight)
+        var randPosX = (Math.floor(Math.random() * ((bodyWidth-100) - 100 +1)) + 100);
+        var randPosY = (Math.floor(Math.random() * ((bodyHeight-100) - 100 +1)) + 100);
+
     rabbitStructur(randPosX, randPosY);
     rabbitAppearTime[numRabbits] = Date.now();
     rabbitTimer(); 
