@@ -114,7 +114,6 @@ function launchGamePage () {
   <div id="game-page" onclick="misclickPenaltyCounter()">
     <button onclick="clickPlayButton()">PLAY</button>
     <div id="rand_pos" class="rand"></div>
-
   </div>
   `  
   //clearing the html
