@@ -1,79 +1,79 @@
 @import "variables", "fonts";
 
-#wrapper_landingpage{
+#wrapper_landingpage {
   width: 500px;
   height: 200px;
   position: absolute;
   transform: translate(50%, -50%);
-  top: 50%; 
-  right: 50%; 
-  
-  @media screen and (max-width: 481px){
+  top: 50%;
+  right: 50%;
+
+  @media screen and (max-width: 481px) {
     position: relative;
     transform: translate(0);
-    top: 100px; 
+    top: 100px;
     right: 0;
     margin: auto;
     width: 380px;
     height: 200px;
     overflow: hidden;
   }
-  @media screen and (max-width: 320px){
+  @media screen and (max-width: 320px) {
     width: 290px;
   }
-  #gif_choose_score_play{
+  #gif_choose_score_play {
     position: absolute;
     top: 0;
     z-index: 2;
 
-    
-    @media screen and (max-width: 480px){
+    @media screen and (max-width: 480px) {
       width: 380px;
-     }
-    @media screen and (max-width: 320px){
-    width: 290px;
-   }
+    }
+    @media screen and (max-width: 320px) {
+      width: 290px;
+    }
   }
 
-  .button_landingpage{
+  .button_landingpage {
     position: absolute;
     z-index: 3;
     padding: 1px 5px;
     border-radius: 30%;
     color: $white;
     box-shadow: 0 0 1px 1px rgb(0, 0, 0);
-    
   }
-  #button_play{
-   background-color: $red;
-   top: 145px;
-   left: 50px;
-   border: 1px solid $red;
-   animation: button_play_moving 1.28s linear infinite;
+  #button_play {
+    background-color: $red;
+    top: 145px;
+    left: 50px;
+    border: 1px solid $red;
+    cursor: pointer;
+    animation: button_play_moving 1.28s linear infinite;
 
-   @media screen and (max-width: 480px){
-    top: 111px; 
-    left: 40px;
+    @media screen and (max-width: 480px) {
+      top: 111px;
+      left: 40px;
     }
-    @media screen and (max-width: 320px){
-      top: 80px; 
+    @media screen and (max-width: 320px) {
+      top: 80px;
       left: 30px;
-      }
+    }
   }
-  #button_score{
+  #button_score {
     background-color: $blue;
     top: 150px;
-   left: 390px;
-   border: 1px solid $blue;
-   animation: button_score_moving 1.28s linear infinite;
-   @media screen and (max-width: 480px){
-    top: 109px;
-    left: 300px;
+    left: 390px;
+    border: 1px solid $blue;
+    cursor: pointer;
+    animation: button_score_moving 1.28s linear infinite;
+    @media screen and (max-width: 480px) {
+      top: 109px;
+      left: 300px;
     }
-    @media screen and (max-width: 320px){
+    @media screen and (max-width: 320px) {
       top: 80px;
       left: 220px;
-      }
+    }
   }
 }
 
@@ -90,7 +90,7 @@
   75% {
     transform: rotate(20deg) translate(0);
   }
-  100%{
+  100% {
     transform: rotate(20deg) translate(0);
   }
 }
@@ -108,7 +108,7 @@
   75% {
     transform: rotate(-20deg) translate(0);
   }
-  100%{
+  100% {
     transform: rotate(-20deg) translate(0);
   }
 }
