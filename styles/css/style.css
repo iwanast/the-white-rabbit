@@ -74,7 +74,7 @@
   z-index: 3;
   padding: 1px 5px;
   border-radius: 30%;
-  color: #EFEFEF;
+  color: #efefef;
   -webkit-box-shadow: 0 0 1px 1px black;
           box-shadow: 0 0 1px 1px black;
 }
@@ -234,14 +234,14 @@ table {
 }
 
 table th {
-  color: #EFEFEF;
+  color: #efefef;
   font-size: 14px;
   font-weight: bold;
   font-size: 16px;
 }
 
 table tr td {
-  color: #EFEFEF;
+  color: #efefef;
   font-size: 14px;
   font-size: 16px;
 }
@@ -515,11 +515,11 @@ video {
 }
 
 * h1 {
-  color: #EFEFEF;
+  color: #efefef;
 }
 
 * h2 {
-  color: #EFEFEF;
+  color: #efefef;
 }
 
 #box {
@@ -556,5 +556,15 @@ video {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+#logo {
+  position: absolute;
+  z-index: 1;
+  width: 7vw;
+}
+
+#logo:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,6 +1,7 @@
 //Navigation functions
 
 let main = document.getElementById("main");
+let body = document.getElementById("bodyId");
 //Loading the landingpage
 
 document.getElementById("bodyId").onload = function () {
@@ -10,7 +11,8 @@ document.getElementById("bodyId").onload = function () {
 
 function createLandingPage() {
   checkLocalDataExists();
-  main.innerHTML = `  
+  main.innerHTML = ` 
+      <img id= "logo" onclick="createLandingPage()" src="./images/rabbitpic.png" alt="white-rabbit icon">
       <div id="wrapper_landingpage">
         <img id="gif_choose_score_play" src="./images/Start_game.gif" alt="reflection in sunglasses of two hands holding a blue and a red pill ">
 
@@ -61,6 +63,7 @@ function openHighscorePage() {
   }
 
   main.innerHTML = `
+      <img id= "logo" onclick="createLandingPage()" src="./images/rabbitpic.png" alt="white-rabbit icon">
       <div id="box">
       </div>
       <section id="content"> 
@@ -94,6 +97,7 @@ function clearHighscores() {
 
 function difficultyPage() {
   let diffPage = `
+  <img id= "logo" onclick="createLandingPage()" src="./images/rabbitpic.png" alt="white-rabbit icon">
     <section id="content">
       <div id="contentBox">
         <h1> CLICK THE RABBIT AS FAST AS POSSIBLE</h1>
@@ -109,17 +113,17 @@ function difficultyPage() {
   main.innerHTML = diffPage;
 }
 
-function launchGamePage () {
+function launchGamePage() {
   var gamePage = `
   <div id="game-page" onclick="misclickPenaltyCounter()">
     <img src="../images/rabbitpic.png" alt="Rabbit">
     <button onclick="clickPlayButton()">PLAY</button>
   </div>
-  `  
+  `;
   //clearing the html
-main.innerHTML = "";
-//adding the game page html
-main.innerHTML = gamePage;
+  main.innerHTML = "";
+  //adding the game page html
+  main.innerHTML = gamePage;
 }
 
 let reactionArray = [34, 75, 83, 56, 64, 56, 33, 44, 67, 66]; //Temporary placeholder array for testing calculateAverageReaction
@@ -128,6 +132,7 @@ function displaySummary() {
   displayCharacter(finalTime);
   createGameObject(date, finalTime, avReactSpeed, difficulty);
   main.innerHTML = `
+    <img id= "logo" onclick="createLandingPage()" src="./images/rabbitpic.png" alt="white-rabbit icon">
     <div id="box">
     </div>
     <section id="content">

@@ -59,3 +59,13 @@ video {
   justify-content: center;
   align-items: center;
 }
+
+#logo {
+  position: absolute;
+  z-index: 1;
+  width: 7vw;
+}
+
+#logo:hover {
+  cursor: pointer;
+}
