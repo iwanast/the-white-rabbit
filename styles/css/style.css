@@ -84,6 +84,7 @@
   top: 145px;
   left: 50px;
   border: 1px solid #da1410;
+  cursor: pointer;
   -webkit-animation: button_play_moving 1.28s linear infinite;
           animation: button_play_moving 1.28s linear infinite;
 }
@@ -107,6 +108,7 @@
   top: 150px;
   left: 390px;
   border: 1px solid #0085b2;
+  cursor: pointer;
   -webkit-animation: button_score_moving 1.28s linear infinite;
           animation: button_score_moving 1.28s linear infinite;
 }
@@ -321,17 +323,58 @@ table tr .table-header {
 }
 
 #contentBox button {
-  height: 80px;
-  width: 80px;
-  background-color: greenyellow;
-  color: black;
-  border-radius: 30%;
+  height: 90px;
+  width: 90px;
+  background-color: #1d4c19;
+  color: white;
+  border-radius: 50%;
+  border-color: white;
   font-size: large;
   cursor: pointer;
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#contentBox button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  border-radius: 10rem;
+  z-index: -2;
+}
+
+#contentBox button:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #1d4c19;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 10rem;
+  z-index: -1;
+}
+
+#contentBox button:hover {
+  color: #fff;
+}
+
+#contentBox button:hover:before {
+  width: 100%;
 }
 
 #contentBox #levelBtns {
-  width: 100%;
+  width: 65%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -355,7 +398,7 @@ table tr .table-header {
 #score {
   width: 100%;
   border-radius: 60px;
-  background-color: green;
+  background-color: #1d4c19;
   margin: 0 0 10px 0;
 }
 
@@ -409,7 +452,7 @@ table tr .table-header {
 #play-again button:hover {
   -webkit-animation: pulse 0.1s linear;
           animation: pulse 0.1s linear;
-  background-color: green;
+  background-color: #1d4c19;
 }
 
 @-webkit-keyframes pulse {
@@ -590,5 +633,53 @@ video {
 .card:hover #logo {
   display: none;
   cursor: crosshair;
+}
+
+#game-page button {
+  padding: 0.75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#game-page button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: green;
+  border-radius: 10rem;
+  z-index: -2;
+}
+
+#game-page button:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: black;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 10rem;
+  z-index: -1;
+}
+
+#game-page button:hover {
+  color: #fff;
+}
+
+#game-page button:hover:before {
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */

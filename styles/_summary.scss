@@ -1,7 +1,7 @@
 #score {
   width: 100%;
   border-radius: 60px;
-  background-color: green;
+  background-color: $green;
   margin: 0 0 10px 0;
   h2 {
     font-size: 1.5em;
@@ -38,7 +38,7 @@
   }
   button:hover {
     animation: pulse 0.1s linear;
-    background-color: green;
+    background-color: $green;
   }
 }
 
