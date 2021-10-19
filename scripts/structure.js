@@ -1,6 +1,6 @@
 //Navigation functions
 
-let main = document.getElementById("main");
+
 //Loading the landingpage
 
 document.getElementById("bodyId").onload = function () {
@@ -112,7 +112,6 @@ function difficultyPage() {
 function launchGamePage () {
   var gamePage = `
   <div id="game-page" onclick="misclickPenaltyCounter()">
-    <img src="../images/rabbitpic.png" alt="Rabbit">
     <button onclick="clickPlayButton()">PLAY</button>
   </div>
   `  
