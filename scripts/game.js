@@ -148,7 +148,7 @@ function rabbitAppear () {
     //Save the current time into the rabbitAppear array at position matching numRabbits - 1
     //Run a rabbitTimer()
     //Add one to number of numRabbits counter
-}
+
 
 function rabbitStructur(xCoordinates, yCoordinates) {
     main.innerHTML = `<div id="game-page" onclick="misclickPenaltyCounter()">
