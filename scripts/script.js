@@ -57,11 +57,11 @@ function timerFunction() {
     //Depending on how much we want the penaltys to be depending on difficulty?*************************
     finalTime += (rabbitPenalty * 4000); 
     finalTime += (misclickPenalty * 1000);
-    console.log("Show finalTime " + finalTime);
-    console.log("Show mscklickPenalty " + misclickPenalty);
-    console.log("Show rabbitPenalty " + rabbitPenalty);
-    console.log("Show rabbitAppearTime.length " + rabbitAppearTime.length);
-    avReactSpeed = calculateAverageReaction(finalTime, (rabbitAppearTime.length - rabbitPenalty));
+    finalTime = finalTime / 1000;
+    avReactSpeed = (calculateAverageReaction(finalTime, (rabbitAppearTime.length - rabbitPenalty))) / 1000;
+    
+    finalTime = finalTime.toFixed(2);
+    avReactSpeed = avReactSpeed.toFixed(2);
     // clearing the arrays here for next time     
     return finalTime;
     // Will need to save the time when the game is started into a variable
@@ -352,9 +352,9 @@ function displaySummary() {
     <section id="content">
     <div id="score-card">
       <div id="score">
+        <h1>${gifText}</h1>
         <h2>Total Time: ${finalTime}s</h2>
         <h3>Average Reaction Time: ${avReactSpeed}s</h3>
-        <h1>${gifText}</h1>
       </div>
       <div>
         <embed src="${gifLink}"/></div>

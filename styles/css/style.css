@@ -355,7 +355,7 @@ table tr .table-header {
 #score {
   width: 100%;
   border-radius: 60px;
-  background-color: green;
+  background-color: transparent;
   margin: 0 0 10px 0;
 }
 
@@ -373,6 +373,7 @@ table tr .table-header {
 
 #score h1 {
   text-align: center;
+  font-size: 2.5em;
 }
 
 #score-card {
