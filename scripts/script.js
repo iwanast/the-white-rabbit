@@ -51,17 +51,18 @@ function timerFunction() {
     finalTime = 0;
     for(let i = 0; i < rabbitAppearTime.length; i++){
         if(rabbitClickedTimes[i] != null){
-            finalTime += (rabbitClickedTimes[i].getTime() - rabbitAppearTime[i].getTime());
+            finalTime += (rabbitClickedTimes[i] - rabbitAppearTime[i]);
         }
     }
     //Depending on how much we want the penaltys to be depending on difficulty?*************************
     finalTime += (rabbitPenalty * 4000); 
     finalTime += (misclickPenalty * 1000);
-    calculateAverageReaction(finalTime, (rabbitAppearTime.length - rabbitPenalty));
-    // clearing the arrays here for next time 
-    rabbitAppearTime = [];
-    rabbitClickedTimes = [];
-    
+    console.log("Show finalTime " + finalTime);
+    console.log("Show mscklickPenalty " + misclickPenalty);
+    console.log("Show rabbitPenalty " + rabbitPenalty);
+    console.log("Show rabbitAppearTime.length " + rabbitAppearTime.length);
+    avReactSpeed = calculateAverageReaction(finalTime, (rabbitAppearTime.length - rabbitPenalty));
+    // clearing the arrays here for next time     
     return finalTime;
     // Will need to save the time when the game is started into a variable
     //Then save the time when the game ends into a second variable
@@ -135,6 +136,7 @@ function rabbitAppear () {
         var randPosY = Math.floor((Math.random()*bodyHeight));
     console.log("bodyHight: " + bodyHeight)
     rabbitStructur(randPosX, randPosY);
+    rabbitAppearTime[numRabbits] = Date.now();
     rabbitTimer(); 
     numRabbits++;
     // rabbitStructur(xCoordinates, yCoordinates);
