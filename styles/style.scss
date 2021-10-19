@@ -72,12 +72,14 @@ video {
 .card #logo {
   z-index: 1;
   width: 7vw;
+  min-width: 45px;
 }
 
 .card #logo-back {
   display: none;
   z-index: 99;
   width: 7vw;
+  min-width: 45px;
 }
 .card:hover #logo-back {
   display: inline;
