@@ -129,8 +129,8 @@ function rabbitAppear () {
     //Run a rabbitTimer()
     console.log("function rabbit is triggerd");
         clicked = false; 
-        var bodyWidth = document.body.clientWidth;
-        var bodyHeight = document.body.clientHeight;
+        var bodyWidth = document.getElementById("main").clientWidth;
+        var bodyHeight = document.getElementById("main").clientHeight;
         var randPosX = Math.floor((Math.random()*bodyWidth));
         var randPosY = Math.floor((Math.random()*bodyHeight));
     console.log("bodyHight: " + bodyHeight)
