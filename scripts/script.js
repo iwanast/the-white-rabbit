@@ -49,27 +49,27 @@ function misclickPenaltyCounter() {
 // let starttimeGamesession, endtimeGamesession;
 // timerFunction();
 function timerFunction() {
-  finalTime = 0;
-  for (let i = 0; i < rabbitAppearTime.length; i++) {
-    if (rabbitClickedTimes[i] != null) {
-      finalTime +=
-        rabbitClickedTimes[i].getTime() - rabbitAppearTime[i].getTime();
+    finalTime = 0;
+    for(let i = 0; i < rabbitAppearTime.length; i++){
+        if(rabbitClickedTimes[i] != null){
+            finalTime += (rabbitClickedTimes[i] - rabbitAppearTime[i]);
+        }
     }
-  }
-  //Depending on how much we want the penaltys to be depending on difficulty?*************************
-  finalTime += rabbitPenalty * 4000;
-  finalTime += misclickPenalty * 1000;
-  calculateAverageReaction(finalTime, rabbitAppearTime.length - rabbitPenalty);
-  // clearing the arrays here for next time
-  rabbitAppearTime = [];
-  rabbitClickedTimes = [];
-
-  return finalTime;
-  // Will need to save the time when the game is started into a variable
-  //Then save the time when the game ends into a second variable
-  //Then compare the difference between the variables
-  //Then adjust for penalties
-  //Then save the final time into the local storage by a new function (Ben working on)
+    //Depending on how much we want the penaltys to be depending on difficulty?*************************
+    finalTime += (rabbitPenalty * 4000); 
+    finalTime += (misclickPenalty * 1000);
+    finalTime = finalTime / 1000;
+    avReactSpeed = (calculateAverageReaction(finalTime, (rabbitAppearTime.length - rabbitPenalty))) / 1000;
+    
+    finalTime = finalTime.toFixed(2);
+    avReactSpeed = avReactSpeed.toFixed(2);
+    // clearing the arrays here for next time     
+    return finalTime;
+    // Will need to save the time when the game is started into a variable
+    //Then save the time when the game ends into a second variable
+    //Then compare the difference between the variables
+    //Then adjust for penalties
+    //Then save the final time into the local storage by a new function (Ben working on)
 }
 
 function penaltyNumber() {
@@ -104,45 +104,28 @@ function createGameObject(date, time, react, diff) {
     diff: diff,
   };
 
-  scoreArray.push(gameObject); //Insert the new game into the retrieved array of games
+function rabbitAppear () {
+    //Wait a random number of seconds between 2 and 5
+    //Place a clickable image of a white rabbit in a random position on the page
+    //Save the current time into the rabbitAppear array at position matching numRabbits - 1
+    //Run a rabbitTimer()
+    console.log("function rabbit is triggerd");
+        clicked = false; 
+        var bodyWidth = document.getElementById("main").clientWidth;
+        var bodyHeight = document.getElementById("main").clientHeight;
+        var randPosX = (Math.floor(Math.random() * ((bodyWidth-100) - 100 +1)) + 100);
+        var randPosY = (Math.floor(Math.random() * ((bodyHeight-100) - 100 +1)) + 100);
 
-  sortedScoreArray = sortByKey(scoreArray, "time"); //Sort the game array by time property of each game
-
-  localStorage.removeItem("GameArray"); //Clear existing game array
-
-  localStorage.setItem("GameArray", JSON.stringify(sortedScoreArray)); //Insert the updated, sorted game array into local storage
-}
-
-//Sort an array based on a single property
-function sortByKey(array, key) {
-  return array.sort(function (a, b) {
-    let x = a[key];
-    let y = b[key];
-    return x < y ? -1 : x > y ? 1 : 0;
-  });
-}
-
-function rabbitAppear() {
-  //Wait a random number of seconds between 2 and 5
-  //Place a clickable image of a white rabbit in a random position on the page
-  //Save the current time into the rabbitAppear array at position matching numRabbits - 1
-  //Run a rabbitTimer()
-  console.log("function rabbit is triggerd");
-  clicked = false;
-  var bodyWidth = document.getElementById("main").clientWidth;
-  var bodyHeight = document.getElementById("main").clientHeight;
-  var randPosX = Math.floor(Math.random() * bodyWidth);
-  var randPosY = Math.floor(Math.random() * bodyHeight);
-  console.log("bodyHight: " + bodyHeight);
-  rabbitStructur(randPosX, randPosY);
-  rabbitTimer();
-  numRabbits++;
-  // rabbitStructur(xCoordinates, yCoordinates);
-  //Place a clickable image of a white rabbit in a random position on the page
-  //Save the current time into the rabbitAppear array at position matching numRabbits - 1
-  //Run a rabbitTimer()
-  //Add one to number of numRabbits counter
-}
+    rabbitStructur(randPosX, randPosY);
+    rabbitAppearTime[numRabbits] = Date.now();
+    rabbitTimer(); 
+    numRabbits++;
+    // rabbitStructur(xCoordinates, yCoordinates);
+    //Place a clickable image of a white rabbit in a random position on the page
+    //Save the current time into the rabbitAppear array at position matching numRabbits - 1
+    //Run a rabbitTimer()
+    //Add one to number of numRabbits counter
+};
 
 let endTimeAppearanceRabbit = 0;
 
@@ -303,6 +286,8 @@ function clearHighscores() {
 
 function difficultyPage() {
   let diffPage = `
+  <div id="box">
+  </div>
   <div class = "card">
       <img id= "logo" onclick="createLandingPage()" src="./images/rabbitpic.png" alt="white-rabbit icon">
       <img id= "logo-back" onclick="createLandingPage()" src="./images/ce2c8850dec0b2027695c3e56bc25708-removebg-preview (1).png" alt="white-rabbit icon">
@@ -350,8 +335,9 @@ function displaySummary() {
     <section id="content">
     <div id="score-card">
       <div id="score">
-        <h2>TIME: ${finalTime}s</h2>
         <h1>${gifText}</h1>
+        <h2>Total Time: ${finalTime}s</h2>
+        <h3>Average Reaction Time: ${avReactSpeed}s</h3>
       </div>
       <div>
         <embed src="${gifLink}"/></div>

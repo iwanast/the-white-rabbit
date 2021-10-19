@@ -173,6 +173,7 @@
   }
 }
 
+
 @-webkit-keyframes button_score_moving {
   0% {
     -webkit-transform: rotate(-20deg) translate(2.5%, 5%);
@@ -195,6 +196,7 @@
             transform: rotate(-20deg) translate(0);
   }
 }
+
 
 @keyframes button_score_moving {
   0% {
@@ -398,18 +400,28 @@ table tr .table-header {
 #score {
   width: 100%;
   border-radius: 60px;
-  background-color: #1d4c19;
+  background-color: transparent;
   margin: 0 0 10px 0;
 }
 
+
+
+#score h3 {
+  font-size: 1em;
+  color: #efefef;
+  text-align: center;
+}
+
+
 #score h2 {
   font-size: 1.5em;
-  color: greenyellow;
+  color: #efefef;
   text-align: center;
 }
 
 #score h1 {
   text-align: center;
+  font-size: 2.5em;
 }
 
 #score-card {
@@ -533,8 +545,19 @@ table tr .table-header {
 }
 
 body {
-  width: 100%;
-  height: 100%;
+  width: 80vw;
+  height: 80vh;
+  z-index: -2;
+}
+
+body #main {
+  width: 80vw;
+  height: 80vh;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
   z-index: -2;
 }
 
