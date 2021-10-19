@@ -60,12 +60,26 @@ video {
   align-items: center;
 }
 
-#logo {
+.card {
+  display: inline-block;
   position: absolute;
+}
+.card #logo {
   z-index: 1;
   width: 7vw;
 }
 
-#logo:hover {
-  cursor: pointer;
+.card #logo-back {
+  display: none;
+  z-index: 99;
+  width: 7vw;
+}
+.card:hover #logo-back {
+  display: inline;
+  cursor: crosshair;
+}
+
+.card:hover #logo {
+  display: none;
+  cursor: crosshair;
 }
