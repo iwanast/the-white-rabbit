@@ -360,13 +360,6 @@ table tr .table-header {
   z-index: 5;
   margin-top: 10px;
 }
-#game-page .show {
-  display: none;
-}
-
-#game-page button:active {
-  display: none;
-}
 
 body {
   width: 100%;
