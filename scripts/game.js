@@ -10,13 +10,11 @@ function checkLocalDataExists (){
         let gamesArray = [];
     
         localStorage.setItem("GameArray", JSON.stringify(gamesArray));
-        // console.log("local check 1" + localStorage);
-        // console.log("local check 1 length" + localStorage.length);
     }
 }
 
 let rabbitAppearTime = [time1, time2, time3, time4]; //Empty array that we can fill with the times each rabbit appeared
-let rabbitClickedTimes = [ , time3, , ]; //Empty array we can fill with the time each rabbit was clicked
+let rabbitClickedTimes = []; //Empty array we can fill with the time each rabbit was clicked
 let today = new Date();
 let date = today.getDate() + "/" + (today.getMonth()+1) + "/" + today.getFullYear();
 let finalTime = 0;
@@ -102,7 +100,7 @@ function createGameObject(date, time, react, diff) {
 
     sortedScoreArray = sortByKey(scoreArray, 'time'); //Sort the game array by time property of each game
     
-    localStorage.removeItem("GameArray"); //Remove existing game array
+    localStorage.removeItem("GameArray"); //Clear existing game array
 
     localStorage.setItem("GameArray", JSON.stringify(sortedScoreArray)); //Insert the updated, sorted game array into local storage
   } 
@@ -134,11 +132,19 @@ function rabbitTimer () {
 }
 
 function rabbitClicked () {
-    //Make the rabbit disappear
-    //Save the current time into the rabbitClicked array at position matching numRabbits - 1
-    //Add one to number of numRabbits counter
-    //If numRabbits less than 10, run rabbitAppear
-    //If numRabbits is equal to 10, save current time into a variable and run displaySummary();
+    //Make the current rabbit disappear
+    document.getElementById("game-page").innerHTML = "";
+
+    //Insert time rabbit was clicked into the array of click times at position matching current rabbit count
+    rabbitClickedTimes[numRabbits - 1] = Date.now();
+
+    // Add one to rabbit counter
+    numRabbits++;
+
+    //Check if 10 rabbits have appeared. If not, spawn next rabbit. If so, end game and show summary
+    if (numRabbits < 10) {
+        rabbitAppear();
+    } else if (numRabbits = 10) {
+        displaySummary()
+    }
 }
-
-
