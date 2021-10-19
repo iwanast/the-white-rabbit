@@ -64,8 +64,10 @@
   z-index: 3;
   padding: 1px 5px;
   border-radius: 30%;
+
   color: #EFEFEF;
   box-shadow: 0 0 1px 1px black;
+
 }
 #wrapper_landingpage #button_play {
   background-color: #da1410;
@@ -155,13 +157,13 @@ table {
   margin: 5vh 0 5vh 0;
 }
 table th {
-  color: #EFEFEF;
+  color: #efefef;
   font-size: 14px;
   font-weight: bold;
   font-size: 16px;
 }
 table tr td {
-  color: #EFEFEF;
+  color: #efefef;
   font-size: 14px;
   font-size: 16px;
 }
@@ -347,10 +349,10 @@ video {
   font-size: 14px;
 }
 * h1 {
-  color: #EFEFEF;
+  color: #efefef;
 }
 * h2 {
-  color: #EFEFEF;
+  color: #efefef;
 }
 
 #box {
@@ -380,4 +382,33 @@ video {
   align-items: center;
 }
 
+
 /*# sourceMappingURL=style.css.map */
+
+.card {
+  display: inline-block;
+  position: absolute;
+}
+
+.card #logo {
+  z-index: 1;
+  width: 7vw;
+}
+
+.card #logo-back {
+  display: none;
+  z-index: 99;
+  width: 7vw;
+}
+
+.card:hover #logo-back {
+  display: inline;
+  cursor: crosshair;
+}
+
+.card:hover #logo {
+  display: none;
+  cursor: crosshair;
+}
+/*# sourceMappingURL=style.css.map */
+

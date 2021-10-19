@@ -131,16 +131,8 @@ function rabbitAppear () {
         var bodyHeight = document.body.clientHeight;
         var randPosX = Math.floor((Math.random()*bodyWidth));
         var randPosY = Math.floor((Math.random()*bodyHeight));
-        var posLog = document.getElementById('pos_log');
-        var posXY = 'x: ' + randPosX + '<br />' + 'y: ' + randPosY;
-        
-        $('#rand_pos').css('left', randPosX);
-        $('#rand_pos').css('top', randPosY);
-        
-        posLog.innerHTML = posXY
-      };
 
-    rabbitStructur(xCoordinates, yCoordinates);
+    rabbitStructur(randPosX, randPosY);
     rabbitTimer(); 
     numRabbits++;
     // rabbitStructur(xCoordinates, yCoordinates);
@@ -148,17 +140,16 @@ function rabbitAppear () {
     //Save the current time into the rabbitAppear array at position matching numRabbits - 1
     //Run a rabbitTimer()
     //Add one to number of numRabbits counter
+};
 
-
-function rabbitStructur(xCoordinates, yCoordinates) {
+function rabbitStructur(randPosX, randPosY) {
     main.innerHTML = `<div id="game-page" onclick="misclickPenaltyCounter()">
-                        <img onclick="rabbitClicked()" style="left:${xCoordinates}; top:${yCoordinates}" src="../images/rabbitpic.png" alt="Rabbit">
+                        <img onclick="rabbitClicked()" style="left:${randPosX}; top:${randPosY}" src="../images/rabbitpic.png" alt="Rabbit">
                     </div>` 
                     rabbitTimer(); 
   }
 
 let endTimeAppearanceRabbit = 0;
-rabbitTimer()
 
 function rabbitTimer() {
     setTimeout(rabbitTimerThird(), timeAfterDifficulties())
