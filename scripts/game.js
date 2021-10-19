@@ -121,9 +121,24 @@ function createGameObject(date, time, react, diff) {
         });
     }
 
-function rabbitAppear() {
-    clicked = false; 
-
+function rabbitAppear () {
+    //Wait a random number of seconds between 2 and 5
+    //Place a clickable image of a white rabbit in a random position on the page
+    //Save the current time into the rabbitAppear array at position matching numRabbits - 1
+    //Run a rabbitTimer()
+        clicked = false; 
+        var bodyWidth = document.body.clientWidth
+        var bodyHeight = document.body.clientHeight;
+        var randPosX = Math.floor((Math.random()*bodyWidth));
+        var randPosY = Math.floor((Math.random()*bodyHeight));
+        var posLog = document.getElementById('pos_log');
+        var posXY = 'x: ' + randPosX + '<br />' + 'y: ' + randPosY;
+        
+        $('#rand_pos').css('left', randPosX);
+        $('#rand_pos').css('top', randPosY);
+        
+        posLog.innerHTML = posXY
+      };
 
     rabbitStructur(xCoordinates, yCoordinates);
     rabbitTimer(); 
