@@ -3,9 +3,14 @@
   border-radius: 60px;
   background-color: green;
   margin: 0 0 10px 0;
+  h3 {
+    font-size: 1em;
+    color: $white;
+    text-align: center;
+  }
   h2 {
     font-size: 1.5em;
-    color: greenyellow;
+    color: $white;
     text-align: center;
   }
   h1 {

@@ -352,7 +352,8 @@ function displaySummary() {
     <section id="content">
     <div id="score-card">
       <div id="score">
-        <h2>TIME: ${finalTime}s</h2>
+        <h2>Total Time: ${finalTime}s</h2>
+        <h3>Average Reaction Time: ${avReactSpeed}s</h3>
         <h1>${gifText}</h1>
       </div>
       <div>
