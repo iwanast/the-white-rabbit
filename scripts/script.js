@@ -47,7 +47,7 @@ function misclickPenaltyCounter() {
 
 // let starttimeGamesession, endtimeGamesession;
 // timerFunction();
-function timerFunction () {
+function timerFunction() {
     finalTime = 0;
     for(let i = 0; i < rabbitAppearTime.length; i++){
         if(rabbitClickedTimes[i] != null){
@@ -147,7 +147,7 @@ function rabbitAppear () {
 let endTimeAppearanceRabbit = 0;
 
 function rabbitTimer() {
-    setTimeout(rabbitTimerThird(), timeAfterDifficulties())
+    setTimeout(function(){ rabbitTimerThird();}, timeAfterDifficulties()) // timeAfterDifficulties()
 }
 
 
@@ -164,10 +164,12 @@ function timeAfterDifficulties(){
 }
 
 function rabbitTimerThird(){
+  console.log("next after 3sec");
     if(clicked == true && numRabbits < 10){
         setTimeout(function(){rabbitAppear();},Math.floor(Math.random() * (5000 - 2000 +1)) + 2000) // calling the function rabbit appear randomly between and with 2000 until 5000 milliseconds
     } else if(clicked == true && numRabbits == 10){
-        displaySummary()    
+      timerFunction();
+      displaySummary()    
     } else if(numRabbits < 10) {
         main.innerHTML = ""; 
         rabbitPenalty += 1;
@@ -175,7 +177,8 @@ function rabbitTimerThird(){
     } else {
         main.innerHTML = "";
         rabbitPenalty += 1;
-        displaySummary()
+        timerFunction();
+        displaySummary();
     }
 }
 
