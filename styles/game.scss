@@ -15,10 +15,14 @@
     width: 100px;
     z-index: 5;
     background-color: rebeccapurple;
+    display: inline-block; 
     }
   
     button {
       z-index: 5;
       margin-top: 10px;
+    }
+    .show{
+      display: none; 
     }
   }

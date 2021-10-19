@@ -1,3 +1,5 @@
+let main = document.getElementById("main");
+
 //Game functions
 let time1 = new Date(2021, 9, 13, 22, 10, 30, 100);
 let time2 = new Date(2021, 9, 13, 22, 10, 31, 200);
@@ -20,17 +22,22 @@ let date = today.getDate() + "/" + (today.getMonth()+1) + "/" + today.getFullYea
 let finalTime = 0;
 let avReactSpeed = 0;
 let difficulty = "Easy";
+let clicked = false; 
 
 // Sum of not clicked on the rabbit
-let rabbitPenalty = 8;
+let rabbitPenalty = 0;
 // Sum of clicking wrong
 let misclickPenalty = 0;
 //Keep track of number of rabbits
 let numRabbits = 0;
 
-function clickPlayButton () {
+function clickPlayButton() {
     misclickPenalty = 0;
+    numRabbits = 0;
+    rabbitAppearTime = [];
+    rabbitClickedTimes = [];
     rabbitAppear();
+    console.log("rabbit is functioning");
 }
 
 function misclickPenaltyCounter() {
@@ -114,37 +121,70 @@ function createGameObject(date, time, react, diff) {
         });
     }
 
-function rabbitAppear () {
-    //Wait a random number of seconds between 2 and 5
+function rabbitAppear() {
+    clicked = false; 
+
+
+    rabbitStructur(xCoordinates, yCoordinates);
+    rabbitTimer(); 
+    numRabbits++;
+    // rabbitStructur(xCoordinates, yCoordinates);
     //Place a clickable image of a white rabbit in a random position on the page
     //Save the current time into the rabbitAppear array at position matching numRabbits - 1
     //Run a rabbitTimer()
     //Add one to number of numRabbits counter
 }
 
-function rabbitTimer () {
-    //Wait a set amount of time (decided by difficulty variable)
-    //Check if the rabbit is still present on the page (hasn't been clicked)
-    //If the rabbit is still present, make it disappear and add one to rabbitPenalty counter
+function rabbitStructur(xCoordinates, yCoordinates) {
+    main.innerHTML = `<div id="game-page" onclick="misclickPenaltyCounter()">
+                        <img onclick="rabbitClicked()" style="left:${xCoordinates}; top:${yCoordinates}" src="../images/rabbitpic.png" alt="Rabbit">
+                    </div>` 
+                    rabbitTimer(); 
+  }
 
-        //If numRabbits less than 10, run rabbitAppear
-        //If numRabbits is equal to 10, save current time into a variable and run displaySummary();
+let endTimeAppearanceRabbit = 0;
+rabbitTimer()
+
+function rabbitTimer() {
+    setTimeout(rabbitTimerThird(), timeAfterDifficulties())
 }
 
-function rabbitClicked () {
-    //Make the current rabbit disappear
-    document.getElementById("game-page").innerHTML = "";
+
+function timeAfterDifficulties(){
+    if(difficulty == "Easy"){
+        return 3000; 
+    }
+    else if(difficulty == "Medium"){
+        return 2000; 
+    }
+    else{
+        return 1000; 
+    }
+}
+
+function rabbitTimerThird(){
+    if(clicked == true && numRabbits < 10){
+    setTimeout(function(){rabbitAppear();},Math.floor(Math.random() * (5000 - 2000 +1)) + 2000) // calling the function rabbit appear randomly between and with 2000 until 5000 milliseconds
+    } else if(clicked == true && numRabbits == 10){
+        displaySummary()    
+    } else if(numRabbits < 10) {
+        main.innerHTML = ""; 
+        rabbitPenalty += 1;
+        setTimeout(function(){rabbitAppear();},Math.floor(Math.random() * (5000 - 2000 +1)) + 2000) // calling the function rabbit appear randomly between and with 2000 until 5000 milliseconds
+    } else {
+        main.innerHTML = "";
+        rabbitPenalty += 1;
+        displaySummary()
+    }
+}
+
+function rabbitClicked() {
+    clicked = true;
+    main.innerHTML = "";
 
     //Insert time rabbit was clicked into the array of click times at position matching current rabbit count
     rabbitClickedTimes[numRabbits - 1] = Date.now();
 
     // Add one to rabbit counter
     numRabbits++;
-
-    //Check if 10 rabbits have appeared. If not, spawn next rabbit. If so, end game and show summary
-    if (numRabbits < 10) {
-        rabbitAppear();
-    } else if (numRabbits = 10) {
-        displaySummary()
-    }
 }
