@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200;300;400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200;300;400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200;300;400;500;600;700;800&display=swap");
 @font-face {
   font-family: 'no-continue';
-  font-family: "no-continue";
   src: url("../../Fonts/no-continue/WebKit/no_continue.eot");
   /* IE9 Compat Modes */
   src: url("../../Fonts/no-continue/WebKit/no_continue.eot?#iefix") format("embedded-opentype"), url("../../Fonts/no-continue/WebKit/no_continue.woff2") format("woff2"), url("../../Fonts/no-continue/WebKit/no_continue.woff") format("woff"), url("../../Fonts/no-continue/WebKit/no_continue.ttf") format("truetype"), url("../../Fonts/no-continue/WebKit/no_continue.svg#no_continue") format("svg");
@@ -11,6 +13,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'no-continue';
   src: url("../../Fonts/no-continue/WebKit/no_continue.eot");
@@ -300,9 +303,19 @@ table tr .table-header {
   background-color: #171717;
   height: 40px;
   width: 80px;
-  color: white;
+  color: #efefef;
   font-size: 14px;
   border-radius: 10px;
+}
+
+@font-face {
+  font-family: 'no-continue';
+  src: url("../../Fonts/no-continue/WebKit/no_continue.eot");
+  /* IE9 Compat Modes */
+  src: url("../../Fonts/no-continue/WebKit/no_continue.eot?#iefix") format("embedded-opentype"), url("../../Fonts/no-continue/WebKit/no_continue.woff2") format("woff2"), url("../../Fonts/no-continue/WebKit/no_continue.woff") format("woff"), url("../../Fonts/no-continue/WebKit/no_continue.ttf") format("truetype"), url("../../Fonts/no-continue/WebKit/no_continue.svg#no_continue") format("svg");
+  /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal;
 }
 
 #contentBox {
@@ -319,7 +332,7 @@ table tr .table-header {
 
 #contentBox h1 {
   margin: auto;
-  color: white;
+  color: #efefef;
 }
 
 #contentBox h3 {
@@ -333,7 +346,7 @@ table tr .table-header {
   background-color: #1d4c19;
   color: greenyellow;
   border-radius: 50%;
-  border-color: white;
+  border-color: #efefef;
   font-size: large;
   cursor: pointer;
   text-transform: uppercase;
@@ -351,7 +364,7 @@ table tr .table-header {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: black;
+  background-color: #171717;
   border-radius: 10rem;
   z-index: -2;
 }
@@ -398,6 +411,16 @@ table tr .table-header {
   width: auto;
   margin: auto;
   border-radius: 20%;
+}
+
+@font-face {
+  font-family: 'no-continue';
+  src: url("../../Fonts/no-continue/WebKit/no_continue.eot");
+  /* IE9 Compat Modes */
+  src: url("../../Fonts/no-continue/WebKit/no_continue.eot?#iefix") format("embedded-opentype"), url("../../Fonts/no-continue/WebKit/no_continue.woff2") format("woff2"), url("../../Fonts/no-continue/WebKit/no_continue.woff") format("woff"), url("../../Fonts/no-continue/WebKit/no_continue.ttf") format("truetype"), url("../../Fonts/no-continue/WebKit/no_continue.svg#no_continue") format("svg");
+  /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal;
 }
 
 #score {
@@ -509,6 +532,16 @@ table tr .table-header {
   }
 }
 
+@font-face {
+  font-family: 'no-continue';
+  src: url("../../Fonts/no-continue/WebKit/no_continue.eot");
+  /* IE9 Compat Modes */
+  src: url("../../Fonts/no-continue/WebKit/no_continue.eot?#iefix") format("embedded-opentype"), url("../../Fonts/no-continue/WebKit/no_continue.woff2") format("woff2"), url("../../Fonts/no-continue/WebKit/no_continue.woff") format("woff"), url("../../Fonts/no-continue/WebKit/no_continue.ttf") format("truetype"), url("../../Fonts/no-continue/WebKit/no_continue.svg#no_continue") format("svg");
+  /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal;
+}
+
 #game-page {
   height: 100vh;
   width: 100vw;
@@ -544,20 +577,29 @@ table tr .table-header {
   margin-top: 10px;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+* p {
+  color: #efefef;
+  font-size: 14px;
+}
+
+* h1 {
+  color: #efefef;
+}
+
+* h2 {
+  color: #efefef;
+}
+
 body {
   width: 100vw;
   height: 100vh;
-  z-index: -2;
-}
-
-body #main {
-  width: 100vw;
-  height: 100vh;
-}
-
-body {
-  width: 100%;
-  height: 100%;
   z-index: -2;
 }
 
@@ -572,26 +614,6 @@ video {
   right: 0;
   min-width: 100%;
   min-height: 100%;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-* p {
-  color: white;
-  font-size: 14px;
-}
-
-* h1 {
-  color: #efefef;
-}
-
-* h2 {
-  color: #efefef;
 }
 
 #box {
@@ -661,7 +683,7 @@ video {
 #game-page button {
   padding: 0.75rem 1.25rem;
   border-radius: 10rem;
-  color: #fff;
+  color: #efefef;
   text-transform: uppercase;
   font-size: 1rem;
   letter-spacing: 0.15rem;
@@ -691,7 +713,7 @@ video {
   left: 0;
   width: 0%;
   height: 100%;
-  background-color: black;
+  background-color: #171717;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   border-radius: 10rem;
@@ -699,7 +721,7 @@ video {
 }
 
 #game-page button:hover {
-  color: #fff;
+  color: #efefef;
 }
 
 #game-page button:hover:before {
