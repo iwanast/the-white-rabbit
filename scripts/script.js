@@ -83,11 +83,15 @@ function rabbitStatusChecker() {
     calculateFinalTime();
     displaySummary();
   } else if (numRabbits < 10) {
-    main.innerHTML = "";
+    main.innerHTML = `
+    <div id="game-page" onclick="misclickPenaltyCounter()">
+    </div>`;
     missedRabbitPenalty += 1;
     setTimeout(function() {rabbitAppear();}, Math.floor(Math.random() * (5000 - 2000 + 1)) + 2000);
   } else {
-    main.innerHTML = "";
+    main.innerHTML = `
+    <div id="game-page" onclick="misclickPenaltyCounter()">
+    </div>`;
     missedRabbitPenalty += 1;
     calculateFinalTime();
     displaySummary();
@@ -144,7 +148,9 @@ function misclickPenaltyCounter() {
 // Saves one more clicked rabbit and a timestamp and takes the rabbit from the screen when user clicks on the rabbit
 function rabbitClicked() {
   clicked = true;
-  main.innerHTML = "";
+  main.innerHTML = `
+  <div id="game-page" onclick="misclickPenaltyCounter()">
+  </div>`;
   rabbitClickedTimes[numRabbits - 1] = Date.now(); //Insert time rabbit was clicked at position matching current rabbit count
 }
 
