@@ -6,14 +6,14 @@ table {
   margin: 5vh 0 5vh 0;
   th {
     color: $white;
-    font-size: 14px; 
+    font-size: 14px;
     font-weight: bold;
     font-size: 16px;
   }
   tr {
     td {
       color: $white;
-      font-size: 14px; 
+      font-size: 14px;
       font-size: 16px;
     }
     .table-rank {
@@ -44,19 +44,40 @@ table {
 }
 
 #highscore-btns {
-  width: 60%;
-  height: 50px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  width: 60%;
+  height: 50px;
   button {
+    font-size: 14px;
+    border-radius: 20px;
     background-color: $black;
-    height: 40px;
-    width: 80px;
-    color: $white;
-    font-size: 14px; 
-    border-radius: 10px;
+    height: 50px;
+    width: 100px;
+    color: greenyellow;
+    max-width: 130px;
+    min-width: 100px;
+  }
+  button:hover {
+    animation: pulse 0.1s linear;
+    background-color: $green;
+    color: white;
   }
 }
 
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(223, 222, 222, 0.7);
+  }
+  50% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 10px rgba(223, 222, 222, 0.7);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(223, 222, 222, 0.7);
+  }
+}
