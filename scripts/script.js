@@ -1,13 +1,6 @@
-///////////////////// GAME///////////////////////
 let main = document.getElementById("main");
 
-//Declare arrays for inserting high score data
-let gameDates = [];
-let gameTimes = [];
-let gameReacts = [];
-let gameDiffs = [];
-
-//If there is nothing in local storage, create the gamesArray, strignify it, and save it to local
+//If the local storage is empty, create the gamesArray, strignify it, and save it to local
 function checkLocalDataExists() {
   if (localStorage.length == 0) {
     let gamesArray = [];
@@ -16,8 +9,13 @@ function checkLocalDataExists() {
   }
 }
 
-let rabbitAppearTime = []; //Empty array that we can fill with the times each rabbit appeared
-let rabbitClickedTimes = []; //Empty array we can fill with the time each rabbit was clicked
+
+/////////////////////////////////////GAME/////////////////////////////////////
+
+let rabbitAppearTime = []; //Fill with the times each rabbit appeared
+let rabbitClickedTimes = []; //Fill with the time each rabbit was clicked
+
+//Declare game stat variables
 let today = new Date();
 let date =
   today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
@@ -58,13 +56,13 @@ function timerFunction() {
   //Depending on how much we want the penaltys to be depending on difficulty?*************************
   finalTime += rabbitPenalty * 4000;
   finalTime += misclickPenalty * 1000;
-  finalTime = finalTime / 1000;
   avReactSpeed =
     calculateAverageReaction(
       finalTime,
       rabbitAppearTime.length - rabbitPenalty
     ) / 1000;
 
+  finalTime = finalTime / 1000;
   finalTime = finalTime.toFixed(2);
   avReactSpeed = avReactSpeed.toFixed(2);
   // clearing the arrays here for next time
@@ -102,12 +100,26 @@ function createGameObject(date, time, react, diff) {
 
   //Create an object for this game session
   let gameObject = {
-    date: date,
-    time: time,
-    react: react,
-    diff: diff,
-  };
-}
+      date: date,
+      time: time,
+      react: react,
+      diff: diff
+  }
+
+  scoreArray.push(gameObject); //Insert the new game into the retrieved array of games
+  sortedScoreArray = sortByKey(scoreArray, 'time'); //Sort the game array by time property of each game
+  localStorage.removeItem("GameArray"); //Remove existing game array
+  localStorage.setItem("GameArray", JSON.stringify(sortedScoreArray)); //Insert the updated, sorted game array into local storage
+} 
+
+//Sort an array based on a single property
+function sortByKey(array, key) {
+  return array.sort(function(a, b) {
+      let x = a[key]; 
+      let y = b[key];
+      return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+      });
+  }
 
 function rabbitAppear() {
   //Wait a random number of seconds between 2 and 5
@@ -181,9 +193,22 @@ function rabbitClicked() {
   rabbitClickedTimes[numRabbits - 1] = Date.now();
 
   // Add one to rabbit counter
-  numRabbits++;
+  // numRabbits++;
 }
-///////////////////END GAME///////////////////////
+
+function rabbitStructur(randPosX, randPosY) {
+  console.log("function rabbitStructur appears");
+  console.log(randPosX + "  " + randPosY);
+  main.innerHTML = `
+                  <div id="game-page" onclick="misclickPenaltyCounter()">
+                      <img onclick="rabbitClicked()" style="left:${randPosX}px; top:${randPosY}px" src="./images/rabbitpic.png" alt="Rabbit">
+                  </div>`;
+
+  console.log(main.innerHTML);
+}
+
+
+/////////////////////////////////////LANDING PAGE////////////////////////////////////////////
 
 //Loading the landingpage
 
@@ -207,15 +232,28 @@ function createLandingPage() {
     </div>`;
 }
 
+
+//////////////////////////////////High Score Page////////////////////////////////////////
+
+//Declare arrays for inserting high score data
+let gameDates = [];
+let gameTimes = [];
+let gameReacts = [];
+let gameDiffs = [];
+
 function retrieveHighscores() {
-  checkLocalDataExists();
+  checkLocalDataExists ()
   let scoreArray = JSON.parse(localStorage.getItem("GameArray"));
 
-  for (i = 0; i < 10; i++) {
+  for (i = 0; i < 10; i++){
     if (scoreArray[i]) {
       gameDates[i] = scoreArray[i].date;
       gameTimes[i] = scoreArray[i].time + "s";
-      gameReacts[i] = scoreArray[i].react + "ms";
+      if (scoreArray[i].react == Infinity) {
+        gameReacts[i] = "-";
+      } else {
+        gameReacts[i] = scoreArray[i].react + "ms";
+      }
       gameDiffs[i] = scoreArray[i].diff;
     } else {
       gameDates[i] = "-";
@@ -268,17 +306,6 @@ function openHighscorePage() {
       `;
 }
 
-function rabbitStructur(randPosX, randPosY) {
-  console.log("function rabbitStructur appears");
-  console.log(randPosX + "  " + randPosY);
-  main.innerHTML = `
-                  <div id="game-page" onclick="misclickPenaltyCounter()">
-                      <img onclick="rabbitClicked()" style="left:${randPosX}px; top:${randPosY}px" src="./images/rabbitpic.png" alt="Rabbit">
-                  </div>`;
-
-  console.log(main.innerHTML);
-}
-
 function clearHighscores() {
   let prompt = confirm("Are you sure you want to clear your highscores?");
   if (prompt == true) {
@@ -289,6 +316,9 @@ function clearHighscores() {
   }
 }
 
+
+//////////////////////////////////DIFFICULTY PAGE////////////////////////////////////////
+
 function difficultyPage() {
   let diffPage = `
   <div class = "card">
@@ -298,6 +328,7 @@ function difficultyPage() {
     <section id="content">
       <div id="contentBox">
         <h1> CLICK THE RABBIT AS FAST AS POSSIBLE</h1>
+        <h3>Be careful - missing a rabbit or clicking in empty space will both increase your final time!</h3>
         <div id="levelBtns">
           <button type="button" onclick="setDifficulty('Easy');">EASY</button>
           <button type="button" onclick="setDifficulty('Medium');">MEDIUM</button>
@@ -325,9 +356,32 @@ function launchGamePage() {
 
 let reactionArray = [34, 75, 83, 56, 64, 56, 33, 44, 67, 66]; //Temporary placeholder array for testing calculateAverageReaction
 
+
+///////////////////////////////////////////SUMMARY PAGE////////////////////////////////////////////
+
 function displaySummary() {
   displayCharacter(finalTime);
   createGameObject(date, finalTime, avReactSpeed, difficulty);
+  let missedRabbitText = "";
+  let misclickText = "";
+
+  //Format strings based on penalty numbers
+  if (rabbitPenalty == 0) {
+    missedRabbitText = "didn't miss any rabbits and";
+  } else if (rabbitPenalty == 1) {
+    missedRabbitText = "missed " + rabbitPenalty + " rabbit and";
+  } else {
+    missedRabbitText = "missed " + rabbitPenalty + " rabbits and";
+  }
+
+  if (misclickPenalty == 0) {
+    misclickText = "didn't misclick at all!"
+  } else if (misclickPenalty == 1) {
+    misclickText = "misclicked " + misclickPenalty + " time!"
+  } else {
+    misclickText = "misclicked " + misclickPenalty + " times!"
+  }
+
   main.innerHTML = `
   <div class = "card">
       <img id= "logo" onclick="createLandingPage()" src="./images/rabbitpic.png" alt="white-rabbit icon">
@@ -341,6 +395,7 @@ function displaySummary() {
         <h1>${gifText}</h1>
         <h2>Total Time: ${finalTime}s</h2>
         <h3>Average Reaction Time: ${avReactSpeed}s</h3>
+        <h3>You ${missedRabbitText} ${misclickText}</h3>
       </div>
       <div>
         <embed src="${gifLink}"/></div>

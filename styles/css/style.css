@@ -322,6 +322,11 @@ table tr .table-header {
   color: white;
 }
 
+#contentBox h3 {
+  text-align: center;
+  color: #efefef;
+}
+
 #contentBox button {
   height: 90px;
   width: 90px;
