@@ -52,8 +52,8 @@ function rabbitAppear() {
 // Inserts the html with the rabbit at a random place
 function rabbitStructure(randPosX, randPosY) {
   main.innerHTML = `
-                  <div id="game-page" onclick="misclickPenaltyCounter()">
-                      <img onclick="rabbitClicked()" style="left:${randPosX}px; top:${randPosY}px" src="./images/rabbitpic.png" alt="Rabbit">
+                  <div id="game-page" onclick="misclickPenaltyCounter(event)">
+                      <img onclick="rabbitClicked(event)" style="left:${randPosX}px; top:${randPosY}px" src="./images/rabbitpic.png" alt="Rabbit">
                   </div>`;
 }
 
@@ -83,11 +83,15 @@ function rabbitStatusChecker() {
     calculateFinalTime();
     displaySummary();
   } else if (numRabbits < 10) {
-    main.innerHTML = "";
+    main.innerHTML = `
+    <div id="game-page" onclick="misclickPenaltyCounter(event)">
+    </div>`;
     missedRabbitPenalty += 1;
     setTimeout(function() {rabbitAppear();}, Math.floor(Math.random() * (5000 - 2000 + 1)) + 2000);
   } else {
-    main.innerHTML = "";
+    main.innerHTML = `
+    <div id="game-page" onclick="misclickPenaltyCounter(event)">
+    </div>`;
     missedRabbitPenalty += 1;
     calculateFinalTime();
     displaySummary();
@@ -137,15 +141,21 @@ function setDifficulty(diff) {
 }
 
 // Counts 1 up when user miscklicks on the screen
-function misclickPenaltyCounter() {
+function misclickPenaltyCounter(event) {
+  event.stopPropagation();
   misclickPenalty++;
+ console.log("miscklickPenaltyCounter fireing : " + misclickPenalty )
 }
 
 // Saves one more clicked rabbit and a timestamp and takes the rabbit from the screen when user clicks on the rabbit
-function rabbitClicked() {
+function rabbitClicked(event) {
+  event.stopPropagation();
   clicked = true;
-  main.innerHTML = "";
+  main.innerHTML = `
+  <div id="game-page" onclick="misclickPenaltyCounter(event)">
+  </div>`;
   rabbitClickedTimes[numRabbits - 1] = Date.now(); //Insert time rabbit was clicked at position matching current rabbit count
+  console.log("rabbitClicked fireing : " + misclickPenalty )
 }
 
 ///////////////////////////////////////////LOCAL STORAGE////////////////////////////////////////////
