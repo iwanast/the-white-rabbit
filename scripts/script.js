@@ -7,8 +7,7 @@ let main = document.getElementById("main");
 let rabbitAppearTime = []; //Array for the times each rabbit appeared
 let rabbitClickedTimes = []; //Array for the times each rabbit was clicked
 let today = new Date();
-let date =
-  today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear(); // Date of today styled
+let date = today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear(); // Date of today styled
 let finalTime = 0; // highscore final time
 let avReactSpeed = 0; // average reaction time for clicked rabbits
 let difficulty = "Easy"; // difficulty setting
@@ -60,9 +59,7 @@ function rabbitStructur(randPosX, randPosY) {
 
 // Sets a time-out depending on the difficulty level and calls then the rabbitGame
 function rabbitTimer() {
-  setTimeout(function () {
-    rabbitGameChecker();
-  }, timeAfterDifficulties());
+  setTimeout(function() {rabbitGameChecker();}, timeAfterDifficulties());
 }
 
 // Milliseconds depending on difficulty for the rabbit to stay on screen
@@ -81,18 +78,14 @@ function timeAfterDifficulties() {
    sets a randomly time-out for the next rabbit to appear */
 function rabbitGameChecker() {
   if (clicked == true && numRabbits < 10) {
-    setTimeout(function () {
-      rabbitAppear();
-    }, Math.floor(Math.random() * (5000 - 2000 + 1)) + 2000);
+    setTimeout(function() {rabbitAppear();}, Math.floor(Math.random() * (5000 - 2000 + 1)) + 2000);
   } else if (clicked == true && numRabbits == 10) {
     timerFunction();
     displaySummary();
   } else if (numRabbits < 10) {
     main.innerHTML = "";
     rabbitPenalty += 1;
-    setTimeout(function () {
-      rabbitAppear();
-    }, Math.floor(Math.random() * (5000 - 2000 + 1)) + 2000);
+    setTimeout(function() {rabbitAppear();}, Math.floor(Math.random() * (5000 - 2000 + 1)) + 2000);
   } else {
     main.innerHTML = "";
     rabbitPenalty += 1;
@@ -114,11 +107,7 @@ function timerFunction() {
   finalTime += misclickPenalty * 1000; // adds the penalty-time for all the missclicks on screen
 
   // Calls the function to calculate the average reaction time and uppdate the variable with the result
-  avReactSpeed =
-    calculateAverageReaction(
-      finalTime,
-      rabbitAppearTime.length - rabbitPenalty
-    ) / 1000;
+  avReactSpeed = calculateAverageReaction(finalTime, rabbitAppearTime.length - rabbitPenalty) / 1000;
 
   finalTime = finalTime / 1000; // sets final Highscore to seconds
   finalTime = finalTime.toFixed(2); // convertint to string and rounding to 2 decimals
@@ -198,9 +187,7 @@ function sortByKey(array, key) {
 
 ///////////////////////////////////////////LANDING PAGE////////////////////////////////////////////
 
-document.getElementById("bodyId").onload = function () {
-  createLandingPage();
-};
+document.getElementById("bodyId").onload = function() {createLandingPage();};
 
 function createLandingPage() {
   checkLocalDataExists();
