@@ -1,35 +1,20 @@
+// General variable
 let main = document.getElementById("main");
-
-//If the local storage is empty, create the gamesArray, strignify it, and save it to local
-function checkLocalDataExists() {
-  if (localStorage.length == 0) {
-    let gamesArray = [];
-
-    localStorage.setItem("GameArray", JSON.stringify(gamesArray));
-  }
-}
-
 
 /////////////////////////////////////GAME/////////////////////////////////////
 
-let rabbitAppearTime = []; //Fill with the times each rabbit appeared
-let rabbitClickedTimes = []; //Fill with the time each rabbit was clicked
-
-//Declare game stat variables
-let today = new Date();
-let date =
-  today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
-let finalTime = 0;
-let avReactSpeed = 0;
-let difficulty = "Easy";
-let clicked = false;
-
-// Sum of not clicked on the rabbit
-let rabbitPenalty = 0;
-// Sum of clicking wrong
-let misclickPenalty = 0;
-//Keep track of number of rabbits
-let numRabbits = 0;
+//Declare game variables/arrays
+let rabbitAppearTime = [];          //Array for the times each rabbit appeared
+let rabbitClickedTimes = [];        //Array for the times each rabbit was clicked
+let today = new Date(); 
+let date = today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear(); // Date of today styled
+let finalTime = 0;                  // highscore final time
+let avReactSpeed = 0;               // average reaction time for clicked rabbits
+let difficulty = "Easy";            // difficulty setting
+let clicked = false;                // bolean for clicked rabbit true or false
+let rabbitPenalty = 0;              // Sum of not clicked  rabbits
+let misclickPenalty = 0;            // Sum of wrong clicks 
+let numRabbits = 0;                 //Number of already uppeared rabbits
 
 //Reset all the global variables
 function resetVariables() {
@@ -105,34 +90,6 @@ function setDifficulty(diff) {
   difficulty = diff;
   launchGamePage();
 }
-
-function createGameObject(date, time, react, diff) {
-  //Retrieve the GameArray from local storage
-  let scoreArray = JSON.parse(localStorage.getItem("GameArray"));
-
-  //Create an object for this game session
-  let gameObject = {
-      date: date,
-      time: time,
-      react: react,
-      diff: diff
-  }
-
-  scoreArray.push(gameObject); //Insert the new game into the retrieved array of games
-  sortedScoreArray = sortByKey(scoreArray, 'time'); //Sort the game array by time property of each game
-  localStorage.removeItem("GameArray"); //Remove existing game array
-  localStorage.setItem("GameArray", JSON.stringify(sortedScoreArray)); //Insert the updated, sorted game array into local storage
-} 
-
-//Sort an array based on a single property
-function sortByKey(array, key) {
-  return array.sort(function(a, b) {
-      let x = a[key]; 
-      let y = b[key];
-      return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-      });
-  }
-
 function rabbitAppear() {
   //Wait a random number of seconds between 2 and 5
   //Place a clickable image of a white rabbit in a random position on the page
@@ -220,12 +177,49 @@ function rabbitStructur(randPosX, randPosY) {
 }
 
 
-/////////////////////////////////////LANDING PAGE////////////////////////////////////////////
+///////////////////////////////////////////LOCAL STORAGE////////////////////////////////////////////
+
+//If the local storage is empty, create the gamesArray, strignify it, and save it to local
+function checkLocalDataExists() {
+  if (localStorage.length == 0) {
+    let gamesArray = [];
+
+    localStorage.setItem("GameArray", JSON.stringify(gamesArray));
+  }
+}
+
+function createGameObject(date, time, react, diff) {
+  let scoreArray = JSON.parse(localStorage.getItem("GameArray")); //Retrieve the GameArray from local storage
+
+  //Create an object for this game session
+  let gameObject = {
+      date: date,
+      time: time,
+      react: react,
+      diff: diff
+  }
+  scoreArray.push(gameObject); //Insert the new game into the retrieved array of games
+  sortedScoreArray = sortByKey(scoreArray, 'time'); //Sort the game array by time property of each game
+  localStorage.removeItem("GameArray"); //Remove existing game array
+  localStorage.setItem("GameArray", JSON.stringify(sortedScoreArray)); //Insert the updated, sorted game array into local storage
+} 
+
+//Sort an array based on a single property
+function sortByKey(array, key) {
+  return array.sort(function(a, b) {
+      let x = a[key]; 
+      let y = b[key];
+      return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+  });
+}
+
+
+
+///////////////////////////////////////////LANDING PAGE////////////////////////////////////////////
 
 //Loading the landingpage
 
 document.getElementById("bodyId").onload = function () {
-  //   createLandingPage();
   createLandingPage();
 };
 
@@ -242,10 +236,10 @@ function createLandingPage() {
         <button class="button_landingpage" id="button_play" onclick="difficultyPage()">play</button>
         <button class="button_landingpage" id="button_score" onclick="openHighscorePage()">score</button>
     </div>`;
-}
+};
 
 
-//////////////////////////////////High Score Page////////////////////////////////////////
+///////////////////////////////////////////HIGHSCORE PAGE////////////////////////////////////////////
 
 //Declare arrays for inserting high score data
 let gameDates = [];
@@ -329,7 +323,7 @@ function clearHighscores() {
 }
 
 
-//////////////////////////////////DIFFICULTY PAGE////////////////////////////////////////
+///////////////////////////////////////////DIFFICULTY PAGE////////////////////////////////////////////
 
 function difficultyPage() {
   resetVariables();
