@@ -345,7 +345,7 @@ function displaySummary() {
     misclickText = "misclicked " + misclickPenalty + " times!";
   }
 
-  if ((avReactSpeed = Infinity)) {
+  if (avReactSpeed == Infinity) {
     avReactText = "You didn't click any!";
   } else {
     avReactText = avReactSpeed + "s";
