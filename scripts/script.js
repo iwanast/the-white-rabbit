@@ -100,12 +100,26 @@ function createGameObject(date, time, react, diff) {
 
   //Create an object for this game session
   let gameObject = {
-    date: date,
-    time: time,
-    react: react,
-    diff: diff,
-  };
-}
+      date: date,
+      time: time,
+      react: react,
+      diff: diff
+  }
+
+  scoreArray.push(gameObject); //Insert the new game into the retrieved array of games
+  sortedScoreArray = sortByKey(scoreArray, 'time'); //Sort the game array by time property of each game
+  localStorage.removeItem("GameArray"); //Remove existing game array
+  localStorage.setItem("GameArray", JSON.stringify(sortedScoreArray)); //Insert the updated, sorted game array into local storage
+} 
+
+//Sort an array based on a single property
+function sortByKey(array, key) {
+  return array.sort(function(a, b) {
+      let x = a[key]; 
+      let y = b[key];
+      return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+      });
+  }
 
 function rabbitAppear() {
   //Wait a random number of seconds between 2 and 5
@@ -228,10 +242,10 @@ let gameReacts = [];
 let gameDiffs = [];
 
 function retrieveHighscores() {
-  checkLocalDataExists();
+  checkLocalDataExists ()
   let scoreArray = JSON.parse(localStorage.getItem("GameArray"));
 
-  for (i = 0; i < 10; i++) {
+  for (i = 0; i < 10; i++){
     if (scoreArray[i]) {
       gameDates[i] = scoreArray[i].date;
       gameTimes[i] = scoreArray[i].time + "s";
