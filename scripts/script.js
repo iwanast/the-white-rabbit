@@ -33,6 +33,9 @@ let numRabbits = 0;
 
 //Reset all the global variables
 function resetVariables() {
+  finalTime = 0;
+  avReactSpeed = 0;
+  clicked = false;
   rabbitAppearTime = [];
   rabbitClickedTimes = [];
   rabbitPenalty = 0;
