@@ -298,6 +298,7 @@ function difficultyPage() {
     <section id="content">
       <div id="contentBox">
         <h1> CLICK THE RABBIT AS FAST AS POSSIBLE</h1>
+        <h3>Be careful - missing a rabbit or clicking in empty space will both increase your final time!</h3>
         <div id="levelBtns">
           <button type="button" onclick="setDifficulty('Easy');">EASY</button>
           <button type="button" onclick="setDifficulty('Medium');">MEDIUM</button>
