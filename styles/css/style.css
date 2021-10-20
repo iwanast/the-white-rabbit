@@ -331,7 +331,7 @@ table tr .table-header {
 }
 
 #contentBox h1 {
-  margin: auto;
+  text-align: center;
   color: #efefef;
 }
 
