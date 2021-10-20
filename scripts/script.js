@@ -58,13 +58,13 @@ function timerFunction() {
   //Depending on how much we want the penaltys to be depending on difficulty?*************************
   finalTime += rabbitPenalty * 4000;
   finalTime += misclickPenalty * 1000;
-  finalTime = finalTime / 1000;
   avReactSpeed =
     calculateAverageReaction(
       finalTime,
       rabbitAppearTime.length - rabbitPenalty
     ) / 1000;
-
+    
+  finalTime = finalTime / 1000;
   finalTime = finalTime.toFixed(2);
   avReactSpeed = avReactSpeed.toFixed(2);
   // clearing the arrays here for next time
