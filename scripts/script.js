@@ -325,7 +325,7 @@ function difficultyPage() {
 }
 
 function launchGamePage() {
-  var gamePage = `<div id="game-page" onclick="misclickPenaltyCounter()">
+  var gamePage = `<div id="game-page">
                     <button onclick="clickPlayButton()">PLAY</button>
                     <div id="rand_pos" class="rand"></div>
                   </div>`;
