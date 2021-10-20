@@ -47,40 +47,82 @@ function rabbitAppear() {
   numRabbits++;                               // increases the number of rabbits appeared on screen
 }
 
-function misclickPenaltyCounter() {
-  misclickPenalty++;
+// Inserts the html with the rabbit at a random place
+function rabbitStructur(randPosX, randPosY) {
+  main.innerHTML = `
+                  <div id="game-page" onclick="misclickPenaltyCounter()">
+                      <img onclick="rabbitClicked()" style="left:${randPosX}px; top:${randPosY}px" src="./images/rabbitpic.png" alt="Rabbit">
+                  </div>`;
 }
 
-// let starttimeGamesession, endtimeGamesession;
-// timerFunction();
+// Sets a time-out depending on the difficulty level and calls then the rabbitGame
+function rabbitTimer() {
+  setTimeout(function() {
+    rabbitGameChecker();
+  }, timeAfterDifficulties());
+}
+
+// Milliseconds depending on difficulty for the rabbit to stay on screen
+function timeAfterDifficulties() {
+  if (difficulty == "Easy") {
+    return 3000;
+  } else if (difficulty == "Medium") {
+    return 2000;
+  } else {
+    return 1000;
+  }
+}
+
+/* looks if rabbit is clicked/disappeard or should disappear
+   looks if number of rabbits already max (display summary) or not (calling a new rabbit)
+   sets a randomly time-out for the next rabbit to appear */
+function rabbitGameChecker() {
+  if (clicked == true && numRabbits < 10) {
+    setTimeout(function () {
+      rabbitAppear();
+    }, Math.floor(Math.random() * (5000 - 2000 + 1)) + 2000); 
+  } else if (clicked == true && numRabbits == 10) {
+      timerFunction();
+      displaySummary();
+  } else if (numRabbits < 10) {
+      main.innerHTML = "";
+      rabbitPenalty += 1;
+      setTimeout(function () {
+        rabbitAppear();
+      }, Math.floor(Math.random() * (5000 - 2000 + 1)) + 2000);
+  } else {
+      main.innerHTML = "";
+      rabbitPenalty += 1;
+      timerFunction();
+      displaySummary();
+  }
+}
+
+// Calculates the highscore after the end of the game
 function timerFunction() {
-  finalTime = 0;
+  // Calculates the time between clicked rabbits and their appearance and adds it to finalTime
   for (let i = 0; i < rabbitAppearTime.length; i++) {
     if (rabbitClickedTimes[i] != null) {
       finalTime += rabbitClickedTimes[i] - rabbitAppearTime[i];
     }
   }
-  //Depending on how much we want the penaltys to be depending on difficulty?*************************
-  finalTime += rabbitPenalty * 4000;
-  finalTime += misclickPenalty * 1000;
+
+  finalTime += rabbitPenalty * 4000;          // adds the penalty-time for all the missed rabbits
+  finalTime += misclickPenalty * 1000;        // adds the penalty-time for all the missclicks on screen
+  // Calls the function to calculate the average reaction time and uppdate the variable with the result
   avReactSpeed =
     calculateAverageReaction(
       finalTime,
       rabbitAppearTime.length - rabbitPenalty
     ) / 1000;
 
-  finalTime = finalTime / 1000;
-  finalTime = finalTime.toFixed(2);
-  avReactSpeed = avReactSpeed.toFixed(2);
-  // clearing the arrays here for next time
-  return finalTime;
-  // Will need to save the time when the game is started into a variable
-  //Then save the time when the game ends into a second variable
-  //Then compare the difference between the variables
-  //Then adjust for penalties
-  //Then save the final time into the local storage by a new function (Ben working on)
+  finalTime = finalTime / 1000;               // sets final Highscore to seconds
+  finalTime = finalTime.toFixed(2);           // convertint to string and rounding to 2 decimals
+  avReactSpeed = avReactSpeed.toFixed(2);     // convertint to string and rounding to 2 decimals
+  return finalTime;                           // returning finalTime
 }
 
+// 
 function penaltyNumber() {
   if (difficulty == "Easy") {
     return 2000;
@@ -96,96 +138,36 @@ function calculateAverageReaction(sum, divisor) {
   return average;
 }
 
+// Sets the difficulty when the user clicks on the difficulty-button
 function setDifficulty(diff) {
   difficulty = diff;
   launchGamePage();
 }
 
-
-let endTimeAppearanceRabbit = 0;
-
-function rabbitTimer() {
-  setTimeout(function () {
-    rabbitTimerThird();
-  }, timeAfterDifficulties()); // timeAfterDifficulties()
+// Counts 1 up when user miscklicks on the screen 
+function misclickPenaltyCounter() {
+  misclickPenalty++;
 }
 
-function timeAfterDifficulties() {
-  if (difficulty == "Easy") {
-    return 3000;
-  } else if (difficulty == "Medium") {
-    return 2000;
-  } else {
-    return 1000;
-  }
-}
-
-function rabbitTimerThird() {
-  // calling the function rabbitAppear randomly between and with 2000 until 5000 milliseconds
-  if (clicked == true && numRabbits < 10) {
-    setTimeout(function () {
-      rabbitAppear();
-    }, Math.floor(Math.random() * (5000 - 2000 + 1)) + 2000); 
-  // calling the displaySummary page and the function to calculate the results
-  } else if (clicked == true && numRabbits == 10) {
-    timerFunction();
-    displaySummary();
-  /* if the time is out and the user has not clicked on the rabbit yet and game is still on 
-     taking the rabbit from the site, giving rabbitPenalty and 
-     calling the function rabbitAppear randomly between and with 2000 until 5000 milliseconds*/
-  } else if (numRabbits < 10) {
-    main.innerHTML = "";
-    rabbitPenalty += 1;
-    setTimeout(function () {
-      rabbitAppear();
-    }, Math.floor(Math.random() * (5000 - 2000 + 1)) + 2000);
-  /* if the time is out and the user has not clicked on the rabbit yet and game should end 
-     taking the rabbit from the site, giving rabbitPenalty and 
-     calling the function who displays summary page*/
-  } else {
-    main.innerHTML = "";
-    rabbitPenalty += 1;
-    timerFunction();
-    displaySummary();
-  }
-}
-
+// Saves one more clicked rabbit and a timestamp and takes the rabbit from the screen when user clicks on the rabbit 
 function rabbitClicked() {
   clicked = true;
   main.innerHTML = "";
-
-  //Insert time rabbit was clicked into the array of click times at position matching current rabbit count
-  rabbitClickedTimes[numRabbits - 1] = Date.now();
-
-  // Add one to rabbit counter
-  // numRabbits++;
+  rabbitClickedTimes[numRabbits - 1] = Date.now(); //Insert time rabbit was clicked at position matching current rabbit count
 }
-
-function rabbitStructur(randPosX, randPosY) {
-  console.log("function rabbitStructur appears");
-  console.log(randPosX + "  " + randPosY);
-  main.innerHTML = `
-                  <div id="game-page" onclick="misclickPenaltyCounter()">
-                      <img onclick="rabbitClicked()" style="left:${randPosX}px; top:${randPosY}px" src="./images/rabbitpic.png" alt="Rabbit">
-                  </div>`;
-
-  console.log(main.innerHTML);
-}
-
 
 ///////////////////////////////////////////LOCAL STORAGE////////////////////////////////////////////
 
-//If the local storage is empty, create the gamesArray, strignify it, and save it to local
+//If the localstorage is empty, create the gamesArray, strignify it, and save it to local
 function checkLocalDataExists() {
   if (localStorage.length == 0) {
     let gamesArray = [];
-
     localStorage.setItem("GameArray", JSON.stringify(gamesArray));
   }
 }
 
 function createGameObject(date, time, react, diff) {
-  let scoreArray = JSON.parse(localStorage.getItem("GameArray")); //Retrieve the GameArray from local storage
+  let scoreArray = JSON.parse(localStorage.getItem("GameArray"));   //Retrieve the GameArray from local storage
 
   //Create an object for this game session
   let gameObject = {
@@ -194,9 +176,10 @@ function createGameObject(date, time, react, diff) {
       react: react,
       diff: diff
   }
-  scoreArray.push(gameObject); //Insert the new game into the retrieved array of games
-  sortedScoreArray = sortByKey(scoreArray, 'time'); //Sort the game array by time property of each game
-  localStorage.removeItem("GameArray"); //Remove existing game array
+
+  scoreArray.push(gameObject);                                        //Insert the new game into the retrieved array of games
+  sortedScoreArray = sortByKey(scoreArray, 'time');                   //Sort the game array by time property of each game
+  localStorage.removeItem("GameArray");                               //Remove existing game array
   localStorage.setItem("GameArray", JSON.stringify(sortedScoreArray)); //Insert the updated, sorted game array into local storage
 } 
 
@@ -208,8 +191,6 @@ function sortByKey(array, key) {
       return ((x < y) ? -1 : ((x > y) ? 1 : 0));
   });
 }
-
-
 
 ///////////////////////////////////////////LANDING PAGE////////////////////////////////////////////
 
@@ -344,29 +325,22 @@ function difficultyPage() {
 }
 
 function launchGamePage() {
-  var gamePage = `
-  <div id="game-page" onclick="misclickPenaltyCounter()">
-    <button onclick="clickPlayButton()">PLAY</button>
-    <div id="rand_pos" class="rand"></div>
-  </div>
-  `;
-  //clearing the html
+  var gamePage = `<div id="game-page" onclick="misclickPenaltyCounter()">
+                    <button onclick="clickPlayButton()">PLAY</button>
+                    <div id="rand_pos" class="rand"></div>
+                  </div>`;
   main.innerHTML = "";
-  //adding the game page html
   main.innerHTML = gamePage;
 }
-
-let reactionArray = [34, 75, 83, 56, 64, 56, 33, 44, 67, 66]; //Temporary placeholder array for testing calculateAverageReaction
-
 
 ///////////////////////////////////////////SUMMARY PAGE////////////////////////////////////////////
 
 function displaySummary() {
-  displayCharacter(finalTime);
-  createGameObject(date, finalTime, avReactSpeed, difficulty);
-  let missedRabbitText = "";
-  let misclickText = "";
-  let avReactText = "";
+  displayCharacter(finalTime);                                  // Displays the scores with characters
+  createGameObject(date, finalTime, avReactSpeed, difficulty);  // Calling the function for localstorage
+  let missedRabbitText = "";                                    // Set variable to null
+  let misclickText = "";                                        // Set variable to null
+  let avReactText = "";                                         // Set variable to null
 
   //Format strings based on penalty numbers
   if (rabbitPenalty == 0) {
