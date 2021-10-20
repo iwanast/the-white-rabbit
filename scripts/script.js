@@ -1,13 +1,6 @@
-///////////////////// GAME///////////////////////
 let main = document.getElementById("main");
 
-//Declare arrays for inserting high score data
-let gameDates = [];
-let gameTimes = [];
-let gameReacts = [];
-let gameDiffs = [];
-
-//If there is nothing in local storage, create the gamesArray, strignify it, and save it to local
+//If the local storage is empty, create the gamesArray, strignify it, and save it to local
 function checkLocalDataExists() {
   if (localStorage.length == 0) {
     let gamesArray = [];
@@ -16,8 +9,13 @@ function checkLocalDataExists() {
   }
 }
 
-let rabbitAppearTime = []; //Empty array that we can fill with the times each rabbit appeared
-let rabbitClickedTimes = []; //Empty array we can fill with the time each rabbit was clicked
+
+/////////////////////////////////////GAME/////////////////////////////////////
+
+let rabbitAppearTime = []; //Fill with the times each rabbit appeared
+let rabbitClickedTimes = []; //Fill with the time each rabbit was clicked
+
+//Declare game stat variables
 let today = new Date();
 let date =
   today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
@@ -63,7 +61,7 @@ function timerFunction() {
       finalTime,
       rabbitAppearTime.length - rabbitPenalty
     ) / 1000;
-    
+
   finalTime = finalTime / 1000;
   finalTime = finalTime.toFixed(2);
   avReactSpeed = avReactSpeed.toFixed(2);
@@ -183,7 +181,20 @@ function rabbitClicked() {
   // Add one to rabbit counter
   numRabbits++;
 }
-///////////////////END GAME///////////////////////
+
+function rabbitStructur(randPosX, randPosY) {
+  console.log("function rabbitStructur appears");
+  console.log(randPosX + "  " + randPosY);
+  main.innerHTML = `
+                  <div id="game-page" onclick="misclickPenaltyCounter()">
+                      <img onclick="rabbitClicked()" style="left:${randPosX}px; top:${randPosY}px" src="./images/rabbitpic.png" alt="Rabbit">
+                  </div>`;
+
+  console.log(main.innerHTML);
+}
+
+
+/////////////////////////////////////LANDING PAGE////////////////////////////////////////////
 
 //Loading the landingpage
 
@@ -206,6 +217,15 @@ function createLandingPage() {
         <button class="button_landingpage" id="button_score" onclick="openHighscorePage()">score</button>
     </div>`;
 }
+
+
+//////////////////////////////////High Score Page////////////////////////////////////////
+
+//Declare arrays for inserting high score data
+let gameDates = [];
+let gameTimes = [];
+let gameReacts = [];
+let gameDiffs = [];
 
 function retrieveHighscores() {
   checkLocalDataExists();
@@ -268,17 +288,6 @@ function openHighscorePage() {
       `;
 }
 
-function rabbitStructur(randPosX, randPosY) {
-  console.log("function rabbitStructur appears");
-  console.log(randPosX + "  " + randPosY);
-  main.innerHTML = `
-                  <div id="game-page" onclick="misclickPenaltyCounter()">
-                      <img onclick="rabbitClicked()" style="left:${randPosX}px; top:${randPosY}px" src="./images/rabbitpic.png" alt="Rabbit">
-                  </div>`;
-
-  console.log(main.innerHTML);
-}
-
 function clearHighscores() {
   let prompt = confirm("Are you sure you want to clear your highscores?");
   if (prompt == true) {
@@ -288,6 +297,9 @@ function clearHighscores() {
     openHighscorePage();
   }
 }
+
+
+//////////////////////////////////DIFFICULTY PAGE////////////////////////////////////////
 
 function difficultyPage() {
   let diffPage = `
@@ -325,6 +337,9 @@ function launchGamePage() {
 }
 
 let reactionArray = [34, 75, 83, 56, 64, 56, 33, 44, 67, 66]; //Temporary placeholder array for testing calculateAverageReaction
+
+
+///////////////////////////////////////////SUMMARY PAGE////////////////////////////////////////////
 
 function displaySummary() {
   displayCharacter(finalTime);
