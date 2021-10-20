@@ -144,7 +144,6 @@ function setDifficulty(diff) {
 function misclickPenaltyCounter(event) {
   event.stopPropagation();
   misclickPenalty++;
- console.log("miscklickPenaltyCounter fireing : " + misclickPenalty )
 }
 
 // Saves one more clicked rabbit and a timestamp and takes the rabbit from the screen when user clicks on the rabbit
@@ -155,7 +154,6 @@ function rabbitClicked(event) {
   <div id="game-page" onclick="misclickPenaltyCounter(event)">
   </div>`;
   rabbitClickedTimes[numRabbits - 1] = Date.now(); //Insert time rabbit was clicked at position matching current rabbit count
-  console.log("rabbitClicked fireing : " + misclickPenalty )
 }
 
 ///////////////////////////////////////////LOCAL STORAGE////////////////////////////////////////////
@@ -307,8 +305,8 @@ function clearHighscores() {
 
 function openDifficultyPage() {
   source.setAttribute('src', 'videos/gamebackgroundvideo.mp4');
-video.load();
-video.play();
+  video.load();
+  video.play();
 
   let diffPage = `
     <div class="card">
