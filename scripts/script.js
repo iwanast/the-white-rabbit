@@ -263,7 +263,7 @@ function openHighscorePage() {
           <th class="table-rank table-header">Rank</th>
           <th class="table-date table-header">Date</th>
           <th class="table-time table-header">Time</th>
-          <th class="table-react table-header">Average Speed</th>
+          <th class="table-react table-header">Av. Speed</th>
           <th class="table-difficulty table-header">Difficulty</th>
           </tr>
           ${tableData}
@@ -290,12 +290,12 @@ function clearHighscores() {
 
 function openDifficultyPage() {
   let diffPage = `
-    <div class = "card">
-      <img id= "logo" onclick="createLandingPage()" src="./images/rabbitpic.png" alt="white-rabbit icon">
-      <img id= "logo-back" onclick="createLandingPage()" src="./images/ce2c8850dec0b2027695c3e56bc25708-removebg-preview (1).png" alt="white-rabbit icon">
+    <div class="card">
+      <img id="logo" onclick="createLandingPage()" src="./images/rabbitpic.png" alt="white-rabbit icon">
+      <img id="logo-back" onclick="createLandingPage()" src="./images/ce2c8850dec0b2027695c3e56bc25708-removebg-preview (1).png" alt="white-rabbit icon">
     </div>
     <section id="content">
-      <div id="contentBox">
+      <div id="content-box">
         <h1> CLICK THE RABBIT AS FAST AS POSSIBLE</h1>
         <h3>Be careful - missing a rabbit or clicking in empty space will both increase your final time!</h3>
         <div id="levelBtns">
@@ -303,7 +303,7 @@ function openDifficultyPage() {
           <button type="button" onclick="setDifficulty('Medium');">MEDIUM</button>
           <button type="button" onclick="setDifficulty('Hard');">HARD</button>
         </div>
-        <embed src="images/tumblr_myo2hr97No1skltbdo1_500.gif"/>
+        <img src="images/tumblr_myo2hr97No1skltbdo1_500.gif"/>
       </div>
     </section>`;
   main.innerHTML = "";
