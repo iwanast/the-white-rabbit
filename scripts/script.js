@@ -31,6 +31,15 @@ let misclickPenalty = 0;
 //Keep track of number of rabbits
 let numRabbits = 0;
 
+//Reset all the global variables
+function resetVariables() {
+  rabbitAppearTime = [];
+  rabbitClickedTimes = [];
+  rabbitPenalty = 0;
+  misclickPenalty = 0;
+  numRabbits = 0;
+}
+
 function clickPlayButton() {
   misclickPenalty = 0;
   numRabbits = 0;
@@ -320,6 +329,7 @@ function clearHighscores() {
 //////////////////////////////////DIFFICULTY PAGE////////////////////////////////////////
 
 function difficultyPage() {
+  resetVariables();
   let diffPage = `
   <div class = "card">
       <img id= "logo" onclick="createLandingPage()" src="./images/rabbitpic.png" alt="white-rabbit icon">
