@@ -221,21 +221,37 @@ table tr .table-header {
   font-weight: normal;
   font-style: normal;
 }
-#contentBox {
+
+#content-box {
+
   width: 100%;
   height: 100%;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#content-box h1 {
   flex-direction: column;
+  text-align: center;
+  color: #efefef;
+  margin-bottom: 1vh;
 }
-#contentBox h1 {
+#content-box h3 {
   text-align: center;
   color: #efefef;
 }
-#contentBox h3 {
-  text-align: center;
-  color: #efefef;
+#content-box img {
+  width: 60%;
 }
-#contentBox button {
+#content-box button {
   height: 90px;
   width: 90px;
   background-color: #1d4c19;
@@ -250,7 +266,7 @@ table tr .table-header {
   overflow: hidden;
   z-index: 1;
 }
-#contentBox button:after {
+#content-box button:after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -261,7 +277,7 @@ table tr .table-header {
   border-radius: 10rem;
   z-index: -2;
 }
-#contentBox button:before {
+#content-box button:before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -273,21 +289,24 @@ table tr .table-header {
   border-radius: 10rem;
   z-index: -1;
 }
-#contentBox button:hover {
+#content-box button:hover {
   color: #fff;
 }
-#contentBox button:hover:before {
+
+#content-box button:hover:before {
   width: 100%;
 }
-#contentBox #levelBtns {
+
+#content-box #levelBtns {
   width: 65%;
   display: flex;
   margin: auto;
   justify-content: space-around;
   flex-direction: row;
 }
-#contentBox embed {
-  align-self: flex-end;
+#content-box embed {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   width: auto;
   margin: auto;
   border-radius: 20%;
