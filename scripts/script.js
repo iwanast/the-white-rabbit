@@ -197,9 +197,16 @@ function sortArrayByKey(array, key) {
 ///////////////////////////////////////////LANDING PAGE////////////////////////////////////////////
 
 document.getElementById("bodyId").onload = function() {createLandingPage();};
+var video = document.getElementById('video');
+var source = document.getElementById('source');
 
 function createLandingPage() {
   checkLocalStorageDataExists();
+
+  source.setAttribute('src', 'videos/backgroundvideo.mp4');
+  video.load();
+  video.play();
+  
   main.innerHTML = `
   <div class = "card">
     <img id= "logo" onclick="createLandingPage()" src="./images/rabbitpic.png" alt="white-rabbit icon">
@@ -299,6 +306,10 @@ function clearHighscores() {
 ///////////////////////////////////////////DIFFICULTY PAGE////////////////////////////////////////////
 
 function openDifficultyPage() {
+  source.setAttribute('src', 'videos/gamebackgroundvideo.mp4');
+video.load();
+video.play();
+
   let diffPage = `
     <div class="card">
       <img id="logo" onclick="createLandingPage()" src="./images/rabbitpic.png" alt="white-rabbit icon">
