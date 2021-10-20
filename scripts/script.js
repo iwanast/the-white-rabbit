@@ -236,7 +236,7 @@ function retrieveHighscores() {
       if (scoreArray[i].react == Infinity) {
         gameReacts[i] = "-";
       } else {
-        gameReacts[i] = scoreArray[i].react + "ms";
+        gameReacts[i] = scoreArray[i].react + "s";
       }
       gameDiffs[i] = scoreArray[i].diff;
     } else {
