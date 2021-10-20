@@ -362,6 +362,26 @@ let reactionArray = [34, 75, 83, 56, 64, 56, 33, 44, 67, 66]; //Temporary placeh
 function displaySummary() {
   displayCharacter(finalTime);
   createGameObject(date, finalTime, avReactSpeed, difficulty);
+  let missedRabbitText = "";
+  let misclickText = "";
+
+  //Format strings based on penalty numbers
+  if (rabbitPenalty == 0) {
+    missedRabbitText = "didn't miss any rabbits and";
+  } else if (rabbitPenalty == 1) {
+    missedRabbitText = "missed " + rabbitPenalty + " rabbit and";
+  } else {
+    missedRabbitText = "missed " + rabbitPenalty + " rabbits and";
+  }
+
+  if (misclickPenalty == 0) {
+    misclickText = "didn't misclick at all!"
+  } else if (misclickPenalty == 1) {
+    misclickText = "misclicked " + misclickPenalty + " time!"
+  } else {
+    misclickText = "misclicked " + misclickPenalty + " times!"
+  }
+
   main.innerHTML = `
   <div class = "card">
       <img id= "logo" onclick="createLandingPage()" src="./images/rabbitpic.png" alt="white-rabbit icon">
@@ -375,6 +395,7 @@ function displaySummary() {
         <h1>${gifText}</h1>
         <h2>Total Time: ${finalTime}s</h2>
         <h3>Average Reaction Time: ${avReactSpeed}s</h3>
+        <h3>You ${missedRabbitText} ${misclickText}</h3>
       </div>
       <div>
         <embed src="${gifLink}"/></div>
