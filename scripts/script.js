@@ -16,6 +16,7 @@ let rabbitPenalty = 0;              // Sum of not clicked  rabbits
 let misclickPenalty = 0;            // Sum of wrong clicks 
 let numRabbits = 0;                 //Number of already uppeared rabbits
 
+// User starts the game
 function clickPlayButton() {
   resetVariables();
   rabbitAppear();
@@ -34,7 +35,8 @@ function resetVariables() {
 }
 
 function rabbitAppear() {
-  clicked = false;                            // reset the bolean clicked rabbit to false 
+  clicked = false;                            // reset the bolean clicked rabbit to false
+
   // Calculating the position of the rabbit randomly
   var bodyWidth = document.getElementById("main").clientWidth;
   var bodyHeight = document.getElementById("main").clientHeight;
@@ -109,6 +111,7 @@ function timerFunction() {
 
   finalTime += rabbitPenalty * 4000;          // adds the penalty-time for all the missed rabbits
   finalTime += misclickPenalty * 1000;        // adds the penalty-time for all the missclicks on screen
+  
   // Calls the function to calculate the average reaction time and uppdate the variable with the result
   avReactSpeed =
     calculateAverageReaction(
@@ -194,9 +197,7 @@ function sortByKey(array, key) {
 
 ///////////////////////////////////////////LANDING PAGE////////////////////////////////////////////
 
-//Loading the landingpage
-
-document.getElementById("bodyId").onload = function () {
+document.getElementById("bodyId").onload = function() {
   createLandingPage();
 };
 
@@ -204,17 +205,16 @@ function createLandingPage() {
   checkLocalDataExists();
   main.innerHTML = `
   <div class = "card">
-      <img id= "logo" onclick="createLandingPage()" src="./images/rabbitpic.png" alt="white-rabbit icon">
-      <img id= "logo-back" onclick="createLandingPage()" src="./images/ce2c8850dec0b2027695c3e56bc25708-removebg-preview (1).png" alt="white-rabbit icon">
-      </div>  
-      <div id="wrapper_landingpage">
-        <img id="gif_choose_score_play" src="./images/Start_game.gif" alt="reflection in sunglasses of two hands holding a blue and a red pill ">
-
-        <button class="button_landingpage" id="button_play" onclick="difficultyPage()">play</button>
-        <button class="button_landingpage" id="button_score" onclick="openHighscorePage()">score</button>
-    </div>`;
+    <img id= "logo" onclick="createLandingPage()" src="./images/rabbitpic.png" alt="white-rabbit icon">
+    <img id= "logo-back" onclick="createLandingPage()" src="./images/ce2c8850dec0b2027695c3e56bc25708-removebg-preview (1).png" alt="white-rabbit icon">
+  </div>  
+  <div id="wrapper_landingpage">
+    <img id="gif_choose_score_play" src="./images/Start_game.gif" alt="reflection in sunglasses of two hands holding a blue and a red pill ">
+    <button class="button_landingpage" id="button_play" onclick="difficultyPage()">play</button>
+    <button class="button_landingpage" id="button_score" onclick="openHighscorePage()">score</button>
+  </div>
+  `;
 };
-
 
 ///////////////////////////////////////////HIGHSCORE PAGE////////////////////////////////////////////
 
@@ -264,10 +264,10 @@ function openHighscorePage() {
   }
 
   main.innerHTML = `
-  <div class = "card">
-  <img id= "logo" onclick="createLandingPage()" src="./images/rabbitpic.png" alt="white-rabbit icon">
-  <img id= "logo-back" onclick="createLandingPage()" src="./images/ce2c8850dec0b2027695c3e56bc25708-removebg-preview (1).png" alt="white-rabbit icon">
-  </div>
+      <div class = "card">
+        <img id= "logo" onclick="createLandingPage()" src="./images/rabbitpic.png" alt="white-rabbit icon">
+        <img id= "logo-back" onclick="createLandingPage()" src="./images/ce2c8850dec0b2027695c3e56bc25708-removebg-preview (1).png" alt="white-rabbit icon">
+      </div>
       <div id="box">
       </div>
       <section id="content"> 
@@ -304,10 +304,10 @@ function clearHighscores() {
 
 function difficultyPage() {
   let diffPage = `
-  <div class = "card">
+    <div class = "card">
       <img id= "logo" onclick="createLandingPage()" src="./images/rabbitpic.png" alt="white-rabbit icon">
       <img id= "logo-back" onclick="createLandingPage()" src="./images/ce2c8850dec0b2027695c3e56bc25708-removebg-preview (1).png" alt="white-rabbit icon">
-      </div>
+    </div>
     <section id="content">
       <div id="contentBox">
         <h1> CLICK THE RABBIT AS FAST AS POSSIBLE</h1>
@@ -346,23 +346,23 @@ function displaySummary() {
   if (rabbitPenalty == 0) {
     missedRabbitText = "didn't miss any rabbits and";
   } else if (rabbitPenalty == 1) {
-    missedRabbitText = "missed " + rabbitPenalty + " rabbit and";
+      missedRabbitText = "missed " + rabbitPenalty + " rabbit and";
   } else {
-    missedRabbitText = "missed " + rabbitPenalty + " rabbits and";
+      missedRabbitText = "missed " + rabbitPenalty + " rabbits and";
   }
 
   if (misclickPenalty == 0) {
     misclickText = "didn't misclick at all!"
   } else if (misclickPenalty == 1) {
-    misclickText = "misclicked " + misclickPenalty + " time!"
+      misclickText = "misclicked " + misclickPenalty + " time!"
   } else {
-    misclickText = "misclicked " + misclickPenalty + " times!"
+      misclickText = "misclicked " + misclickPenalty + " times!"
   }
 
   if (avReactSpeed = Infinity) {
     avReactText = "You didn't click any!"
   } else {
-    avReactText = avReactSpeed + "s";
+      avReactText = avReactSpeed + "s";
   }
 
   main.innerHTML = `
