@@ -1,3 +1,4 @@
+@import "variables", "fonts";
 
 #game-page {
   height: 100vh;
@@ -20,16 +21,6 @@
   button {
     z-index: 5;
     margin-top: 10px;
-  }
-}
-  
-body {
-  width: 100vw;
-  height: 100vh;
-  z-index: -2;
-  #main {
-    width: 100vw;
-    height: 100vh;
   }
 }
 
