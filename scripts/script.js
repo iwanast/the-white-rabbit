@@ -249,7 +249,11 @@ function retrieveHighscores() {
     if (scoreArray[i]) {
       gameDates[i] = scoreArray[i].date;
       gameTimes[i] = scoreArray[i].time + "s";
-      gameReacts[i] = scoreArray[i].react + "ms";
+      if (scoreArray[i].react == Infinity) {
+        gameReacts[i] = "-";
+      } else {
+        gameReacts[i] = scoreArray[i].react + "ms";
+      }
       gameDiffs[i] = scoreArray[i].diff;
     } else {
       gameDates[i] = "-";
