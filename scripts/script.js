@@ -29,12 +29,31 @@ function resetVariables() {
 }
 
 function clickPlayButton() {
-  misclickPenalty = 0;
-  numRabbits = 0;
-  rabbitAppearTime = [];
-  rabbitClickedTimes = [];
+  resetVariables();
   rabbitAppear();
-  console.log("rabbit is functioning");
+}
+
+function rabbitAppear() {
+  //Wait a random number of seconds between 2 and 5
+  //Place a clickable image of a white rabbit in a random position on the page
+  //Save the current time into the rabbitAppear array at position matching numRabbits - 1
+  //Run a rabbitTimer()
+  console.log("function rabbit is triggerd");
+  clicked = false;
+  var bodyWidth = document.getElementById("main").clientWidth;
+  var bodyHeight = document.getElementById("main").clientHeight;
+  var randPosX = Math.floor(Math.random() * (bodyWidth - 100 - 100 + 1)) + 100;
+  var randPosY = Math.floor(Math.random() * (bodyHeight - 100 - 100 + 1)) + 100;
+
+  rabbitStructur(randPosX, randPosY);
+  rabbitAppearTime[numRabbits] = Date.now();
+  rabbitTimer();
+  numRabbits++;
+  // rabbitStructur(xCoordinates, yCoordinates);
+  //Place a clickable image of a white rabbit in a random position on the page
+  //Save the current time into the rabbitAppear array at position matching numRabbits - 1
+  //Run a rabbitTimer()
+  //Add one to number of numRabbits counter
 }
 
 function misclickPenaltyCounter() {
@@ -90,28 +109,7 @@ function setDifficulty(diff) {
   difficulty = diff;
   launchGamePage();
 }
-function rabbitAppear() {
-  //Wait a random number of seconds between 2 and 5
-  //Place a clickable image of a white rabbit in a random position on the page
-  //Save the current time into the rabbitAppear array at position matching numRabbits - 1
-  //Run a rabbitTimer()
-  console.log("function rabbit is triggerd");
-  clicked = false;
-  var bodyWidth = document.getElementById("main").clientWidth;
-  var bodyHeight = document.getElementById("main").clientHeight;
-  var randPosX = Math.floor(Math.random() * (bodyWidth - 100 - 100 + 1)) + 100;
-  var randPosY = Math.floor(Math.random() * (bodyHeight - 100 - 100 + 1)) + 100;
 
-  rabbitStructur(randPosX, randPosY);
-  rabbitAppearTime[numRabbits] = Date.now();
-  rabbitTimer();
-  numRabbits++;
-  // rabbitStructur(xCoordinates, yCoordinates);
-  //Place a clickable image of a white rabbit in a random position on the page
-  //Save the current time into the rabbitAppear array at position matching numRabbits - 1
-  //Run a rabbitTimer()
-  //Add one to number of numRabbits counter
-}
 
 let endTimeAppearanceRabbit = 0;
 
@@ -326,7 +324,6 @@ function clearHighscores() {
 ///////////////////////////////////////////DIFFICULTY PAGE////////////////////////////////////////////
 
 function difficultyPage() {
-  resetVariables();
   let diffPage = `
   <div class = "card">
       <img id= "logo" onclick="createLandingPage()" src="./images/rabbitpic.png" alt="white-rabbit icon">
