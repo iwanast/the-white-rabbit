@@ -193,7 +193,7 @@ function rabbitClicked() {
   rabbitClickedTimes[numRabbits - 1] = Date.now();
 
   // Add one to rabbit counter
-  numRabbits++;
+  // numRabbits++;
 }
 
 function rabbitStructur(randPosX, randPosY) {
