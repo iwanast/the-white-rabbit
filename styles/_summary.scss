@@ -1,3 +1,5 @@
+@import "variables", "fonts";
+
 #score {
   width: 100%;
   border-radius: 60px;
@@ -18,7 +20,6 @@
     font-size: 2.5em;
   }
 }
-
 #score-card {
   display: flex;
   flex-direction: column;
@@ -26,7 +27,6 @@
   justify-content: center;
   margin: 0 0 10px 0;
 }
-
 #play-again {
   text-align: center;
   p {
@@ -53,12 +53,10 @@
     transform: scale(1);
     box-shadow: 0 0 0 0 rgba(223, 222, 222, 0.7);
   }
-
   50% {
     transform: scale(0.9);
     box-shadow: 0 0 0 10px rgba(223, 222, 222, 0.7);
   }
-
   100% {
     transform: scale(1);
     box-shadow: 0 0 0 0 rgba(223, 222, 222, 0.7);

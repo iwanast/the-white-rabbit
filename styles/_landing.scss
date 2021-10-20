@@ -7,7 +7,6 @@
   transform: translate(50%, -50%);
   top: 50%;
   right: 50%;
-
   @media screen and (max-width: 481px) {
     position: relative;
     transform: translate(0);
@@ -25,7 +24,6 @@
     position: absolute;
     top: 0;
     z-index: 2;
-
     @media screen and (max-width: 480px) {
       width: 380px;
     }
@@ -33,7 +31,6 @@
       width: 290px;
     }
   }
-
   .button_landingpage {
     position: absolute;
     z-index: 3;
@@ -49,7 +46,6 @@
     border: 1px solid $red;
     cursor: pointer;
     animation: button_play_moving 1.28s linear infinite;
-
     @media screen and (max-width: 480px) {
       top: 111px;
       left: 40px;
@@ -112,4 +108,3 @@
     transform: rotate(-20deg) translate(0);
   }
 }
-/////////////////FINISH LANDINGPAGE///////////////////////////////////
