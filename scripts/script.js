@@ -16,6 +16,11 @@ let rabbitPenalty = 0;              // Sum of not clicked  rabbits
 let misclickPenalty = 0;            // Sum of wrong clicks 
 let numRabbits = 0;                 //Number of already uppeared rabbits
 
+function clickPlayButton() {
+  resetVariables();
+  rabbitAppear();
+}
+
 //Reset all the global variables
 function resetVariables() {
   finalTime = 0;
@@ -28,32 +33,18 @@ function resetVariables() {
   numRabbits = 0;
 }
 
-function clickPlayButton() {
-  resetVariables();
-  rabbitAppear();
-}
-
 function rabbitAppear() {
-  //Wait a random number of seconds between 2 and 5
-  //Place a clickable image of a white rabbit in a random position on the page
-  //Save the current time into the rabbitAppear array at position matching numRabbits - 1
-  //Run a rabbitTimer()
-  console.log("function rabbit is triggerd");
-  clicked = false;
+  clicked = false;                            // reset the bolean clicked rabbit to false 
+  // Calculating the position of the rabbit randomly
   var bodyWidth = document.getElementById("main").clientWidth;
   var bodyHeight = document.getElementById("main").clientHeight;
   var randPosX = Math.floor(Math.random() * (bodyWidth - 100 - 100 + 1)) + 100;
   var randPosY = Math.floor(Math.random() * (bodyHeight - 100 - 100 + 1)) + 100;
 
-  rabbitStructur(randPosX, randPosY);
-  rabbitAppearTime[numRabbits] = Date.now();
-  rabbitTimer();
-  numRabbits++;
-  // rabbitStructur(xCoordinates, yCoordinates);
-  //Place a clickable image of a white rabbit in a random position on the page
-  //Save the current time into the rabbitAppear array at position matching numRabbits - 1
-  //Run a rabbitTimer()
-  //Add one to number of numRabbits counter
+  rabbitStructur(randPosX, randPosY);         // calling the function to insert the html for the rabbit 
+  rabbitAppearTime[numRabbits] = Date.now();  // saves the current time into the rabbitAppear array at position matching numRabbits
+  rabbitTimer();                              // Calls the rabbit timer 
+  numRabbits++;                               // increases the number of rabbits appeared on screen
 }
 
 function misclickPenaltyCounter() {
@@ -130,20 +121,27 @@ function timeAfterDifficulties() {
 }
 
 function rabbitTimerThird() {
-  console.log("next after 3sec");
+  // calling the function rabbitAppear randomly between and with 2000 until 5000 milliseconds
   if (clicked == true && numRabbits < 10) {
     setTimeout(function () {
       rabbitAppear();
-    }, Math.floor(Math.random() * (5000 - 2000 + 1)) + 2000); // calling the function rabbit appear randomly between and with 2000 until 5000 milliseconds
+    }, Math.floor(Math.random() * (5000 - 2000 + 1)) + 2000); 
+  // calling the displaySummary page and the function to calculate the results
   } else if (clicked == true && numRabbits == 10) {
     timerFunction();
     displaySummary();
+  /* if the time is out and the user has not clicked on the rabbit yet and game is still on 
+     taking the rabbit from the site, giving rabbitPenalty and 
+     calling the function rabbitAppear randomly between and with 2000 until 5000 milliseconds*/
   } else if (numRabbits < 10) {
     main.innerHTML = "";
     rabbitPenalty += 1;
     setTimeout(function () {
       rabbitAppear();
-    }, Math.floor(Math.random() * (5000 - 2000 + 1)) + 2000); // calling the function rabbit appear randomly between and with 2000 until 5000 milliseconds
+    }, Math.floor(Math.random() * (5000 - 2000 + 1)) + 2000);
+  /* if the time is out and the user has not clicked on the rabbit yet and game should end 
+     taking the rabbit from the site, giving rabbitPenalty and 
+     calling the function who displays summary page*/
   } else {
     main.innerHTML = "";
     rabbitPenalty += 1;
