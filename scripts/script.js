@@ -374,6 +374,7 @@ function displaySummary() {
   createGameObject(date, finalTime, avReactSpeed, difficulty);
   let missedRabbitText = "";
   let misclickText = "";
+  let avReactText = "";
 
   //Format strings based on penalty numbers
   if (rabbitPenalty == 0) {
@@ -392,6 +393,12 @@ function displaySummary() {
     misclickText = "misclicked " + misclickPenalty + " times!"
   }
 
+  if (avReactSpeed = Infinity) {
+    avReactText = "You didn't click any!"
+  } else {
+    avReactText = avReactSpeed;
+  }
+
   main.innerHTML = `
   <div class = "card">
       <img id= "logo" onclick="createLandingPage()" src="./images/rabbitpic.png" alt="white-rabbit icon">
@@ -404,7 +411,7 @@ function displaySummary() {
       <div id="score">
         <h1>${gifText}</h1>
         <h2>Total Time: ${finalTime}s</h2>
-        <h3>Average Reaction Time: ${avReactSpeed}s</h3>
+        <h3>Average Reaction Time: ${avReactText}s</h3>
         <h3>You ${missedRabbitText} ${misclickText}</h3>
       </div>
       <div>
