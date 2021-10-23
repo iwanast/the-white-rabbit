@@ -107,11 +107,11 @@ function calculateFinalTime() {
     }
   }
 
-  finalTime += missedRabbitPenalty * 4000; // adds the penalty-time for all the missed rabbits
-  finalTime += misclickPenalty * 1000; // adds the penalty-time for all the missclicks on screen
-
   // Calls the function to calculate the average reaction time and uppdate the variable with the result
   avReactSpeed = calculateAverageReaction(finalTime, rabbitAppearTimes.length - missedRabbitPenalty) / 1000;
+
+  finalTime += missedRabbitPenalty * 4000; // adds the penalty-time for all the missed rabbits
+  finalTime += misclickPenalty * 1000; // adds the penalty-time for all the missclicks on screen
 
   finalTime = finalTime / 1000; // sets final Highscore to seconds
   finalTime = finalTime.toFixed(2); // convertint to string and rounding to 2 decimals
