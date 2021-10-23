@@ -1,10 +1,35 @@
-# the-white-rabbit
-Hyper Island Project 2
-We are planning on creating a game with an clickable rabbit. 
-The game's main focus is to click the rabbit asap and every time the player clicks the rabbit, the rabbit will "run" away. 
+<h1>#the-white-rabbit</h1>
+<h3>The White Rabbit: A Matrix themed reaction speed game - Hyper Island Project 2</h2>
 
-A timer will be used to track each time the rabbit is clicked. A small sound will be produced each time it's clicked (possibly a Matrix themed sound) to make the player frustrated. 
+Brief: Group project to incorporate the project management tools we've been learning (github, agile, kanban/scrum) to create a web project that incorporates the javascriot date function as well as local or session storage.
 
-An idea is every ...sec the rabbit will be clickable for a sec and a stressful sound will be produced. If the plyaer fails to press the rabbit, the rabbit keeps on moving and appear somwhere else. 
+Timeframe: two weeks.
 
-A design idea is to to have the Matrix code rain in the background and to have the rabbit as a gif, and the gif will start on every click and will "run" away to a new randomized position. 
+Description: The White Rabbit is an interactive reaction speed game, themed around The Matrix, similar in style to other simple games that are often created for use as marketing materials as part of a larger advertising campaign. The game prompts the user to click on a series of small rabbit images that appear in random positions on the creen as fast as they can. At the end of the game, the user will receive a final time (factoring in penalties for misclicking or missing rabbits), as well as an average reaction time along with other statistics from the game. A gif of a Matrix character will also be displayed, depending on the user's final time. Stats are then saved into the local stroage for use in the highscore page, which displays the user's ten best times.
+
+Key Learnings:
+
+                Functions:
+                  Use of the JS Date function to create a function that tracked both the appearance and clicked on time of each rabbit to give an accurate reaction speed.
+                  Use of the JS Date function to calculate a total time for each game session, factoring in time penalties.
+                  Use of local storage to save the user's time after each session. Useful stats, were then sorted, retrieved and displayed on the highscore page.
+                  A function that generated random coordinates to display each rabbit, as well as a secondary function to randomise the time between appearances.
+                  Functions to track misclicks and missed rabbits which are factored into the final time as penalties.
+                  A variable difficulty system that decreased the time the rabbit was on screen as the difficulty rose.
+
+                Responsiveness:
+                  Media query on the landing page to allow for functionality at any ratio.
+                  Decent responsiveness across other pages to allow for full function down to around tablet screen size.
+                  Variable coordinates in the game function to allow for full function at any screen ratio.
+                
+                Style/Animation:
+                  Inclusion of a fullscreen background video.
+                  Simple styling animations on buttons and logos.
+                  A function that displays various text and character gifs based on user's final time.
+                  
+                Workflow:
+                  Project hosted on GitHub with all team members working in a new branch for each major feature and making frequent commits and merges.
+                  Planning the project in a Kanban style Trello board.
+                  All styling done in SCSS.
+                  
+                  
