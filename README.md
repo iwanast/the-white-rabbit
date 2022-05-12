@@ -1,9 +1,9 @@
 <h1>#the-white-rabbit</h1>
 <h3>The White Rabbit: A Matrix themed reaction speed game - Hyper Island Project 2</h2>
 
-Brief: Group project to incorporate the project management tools we've been learning (github, agile, kanban/scrum) to create a web project that incorporates the javascriot date function as well as local or session storage.
+Brief: Group project to incorporate the project management tools we've been learning (github, agile, kanban/scrum) to create a web project that incorporates the javascript date function as well as local or session storage.
 
-Timeframe: two weeks.
+Timeframe: Two weeks.
 
 Description: The White Rabbit is an interactive reaction speed game, themed around The Matrix, similar in style to other simple games that are often created for use as marketing materials as part of a larger advertising campaign. The game prompts the user to click on a series of small rabbit images that appear in random positions on the creen as fast as they can. At the end of the game, the user will receive a final time (factoring in penalties for misclicking or missing rabbits), as well as an average reaction time along with other statistics from the game. A gif of a Matrix character will also be displayed, depending on the user's final time. Stats are then saved into the local stroage for use in the highscore page, which displays the user's ten best times.
 
@@ -34,5 +34,3 @@ Key Learnings:
       Used GitHub with all team members working in a new branch for each major feature and making frequent commits and merges.
       Planning the project in a Kanban style Trello board.
       All styling done in SCSS.
-                  
-                  
